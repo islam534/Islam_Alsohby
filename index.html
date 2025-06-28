@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Islam Alsohby's portfolio showcasing expertise in AI, STEM, psychology, creativity, and leadership with interactive content and projects.">
+  <meta name="author" content="Islam Alsohby">
+  <meta name="keywords" content="AI, STEM, psychology, leadership, creativity, portfolio, projects">
+  <meta property="og:title" content="Islam Alsohby – AI, STEM, and Creative Leadership">
+  <meta property="og:description" content="Explore my journey through innovation, science, and leadership with a creative twist.">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Islam+Alsohby+Portfolio">
+  <meta property="og:url" content="https://islam534.github.io/Islam_Alsohby/">
+  <title>Islam Alsohby – AI, STEM, and Creative Leadership</title>
+  <link rel="icon" href="https://via.placeholder.com/32" type="image/png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', 'Poppins', 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #d1e0f5 100%);
+      color: #1a202c;
+      line-height: 1.7;
+      overflow-x: hidden;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+    body.dark-mode {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    h1, h2, h3 { font-weight: 700; }
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+    a:hover { color: #3b82f6; }
+
+    /* Navigation */
+    nav {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    nav h1 { font-size: 1.8rem; color: #ffffff; }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .nav-links a { color: #ffffff; }
+    .nav-links a:hover { color: #a3bffa; }
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .dark-mode-toggle {
+      padding: 0.5rem 1rem;
+      background: #60a5fa;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.4s ease, transform 0.3s ease;
+    }
+    .dark-mode .dark-mode-toggle { background: #1e40af; }
+    .dark-mode-toggle:hover { transform: scale(1.1); }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 0;
+      background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.2) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+    @keyframes rotate { 100% { transform: rotate(1turn); } }
+    .hero h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      position: relative;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 0.5s;
+    }
+    .hero h2 .highlight {
+      background: linear-gradient(90deg, #f59e0b, #facc15);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero p { font-size: clamp(1rem, 2vw, 1.3rem); max-width: 700px; margin: 0 auto 1.5rem; }
+    .hero .quote {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #d1fae5;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 1s;
+    }
+
+    /* Section Divider */
+    .divider {
+      height: 20px;
+      background: linear-gradient(45deg, transparent 33%, #10b981 33%, #10b981 66%, transparent 66%);
+      background-size: 30px 20px;
+      margin: 2rem 0;
+    }
+
+    /* Card Template */
+    .card {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+    }
+    .dark-mode .card { background: #1e293b; }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card h3 { font-size: 1.6rem; margin-bottom: 0.8rem; color: #3b82f6; }
+    .dark-mode .card h3 { color: #60a5fa; }
+    .card p { font-size: 1.1rem; color: #64748b; }
+    .dark-mode .card p { color: #94a3b8; }
+    .card .tags { margin-top: 0.5rem; font-size: 0.9rem; color: #9ca3af; }
+    .card .tags span { background: #e0e7ff; padding: 0.2rem 0.5rem; border-radius: 10px; margin-right: 0.5rem; }
+    .dark-mode .card .tags span { background: #334155; }
+    .card a { color: #10b981; text-decoration: underline; }
+    .dark-mode .card a { color: #34d399; }
+    .card a:hover { color: #059669; }
+
+    /* Article Showcase */
+    .articles {
+      padding: 2rem 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 1.5s;
+    }
+    .articles .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+    /* Image Showcase */
+    .image-showcase {
+      padding: 2rem 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 2s;
+    }
+    .image-showcase .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .gallery-item {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-item .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+      padding: 0.5rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .caption { opacity: 1; }
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox img { max-width: 90%; max-height: 90%; }
+    .lightbox.active { display: flex; }
+
+    /* Projects Section */
+    .projects {
+      padding: 2rem 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 2.5s;
+    }
+    .projects .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .project-card .tech-icons::before {
+      content: '💻';
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    /* Reading List */
+    .reading-list {
+      padding: 2rem 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 3s;
+    }
+    .reading-list .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+
+    /* Useful Resources */
+    .resources {
+      padding: 2rem 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 3.5s;
+    }
+    .resources .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .resource-card { text-align: center; }
+    .resource-card a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #3b82f6;
+      color: #ffffff;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+    .dark-mode .resource-card a { background: #60a5fa; }
+    .resource-card a:hover { background: #2563eb; }
+
+    /* About Me */
+    .about-me {
+      padding: 2rem 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 4s;
+    }
+    .about-me .container { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+    .about-me img { width: 100%; border-radius: 15px; }
+    .timeline-item { margin-bottom: 1.5rem; }
+    .timeline-item h3 { color: #10b981; }
+
+    /* Contact Section */
+    .contact {
+      padding: 2rem 0;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 4.5s;
+    }
+    .contact form {
+      max-width: 550px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .contact label {
+      position: absolute;
+      left: 1rem;
+      top: 0.5rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      transition: transform 0.3s ease, font-size 0.3s ease;
+    }
+    .contact input, .contact textarea {
+      padding: 1rem;
+      border: 2px solid #e0e7ff;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      background: transparent;
+    }
+    .dark-mode .contact input, .dark-mode .contact textarea {
+      border-color: #4b5563;
+      color: #e2e8f0;
+    }
+    .contact input:focus + label,
+    .contact textarea:focus + label,
+    .contact input:valid + label,
+    .contact textarea:valid + label {
+      transform: translateY(-1.5rem);
+      font-size: 0.75rem;
+    }
+    .contact button {
+      padding: 1rem;
+      background: #10b981;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.4s ease, box-shadow 0.3s ease;
+    }
+    .dark-mode .contact button { background: #34d399; }
+    .contact button:hover {
+      background: #059669;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+    }
+    .success-message { color: #10b981; font-size: 1.2rem; margin-top: 1rem; display: none; }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      padding: 2rem 0;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 5s;
+    }
+    footer p { font-size: 1rem; color: #ffffff; }
+    footer a { color: #a3bffa; }
+    footer a:hover { color: #bfdbfe; }
+
+    /* Scroll-to-Top Button */
+    #scrollTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #3b82f6;
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #scrollTop.visible { opacity: 1; transform: translateY(0); }
+    .dark-mode #scrollTop { background: #60a5fa; }
+    #scrollTop:hover { background: #2563eb; }
+
+    /* Tooltips */
+    [data-tooltip] {
+      position: relative;
+      cursor: pointer;
+    }
+    [data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a202c;
+      color: #ffffff;
+      padding: 0.3rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      z-index: 10;
+    }
+    .dark-mode [data-tooltip]:hover::after { background: #e2e8f0; color: #1a202c; }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .articles .container,
+      .image-showcase .container,
+      .projects .container,
+      .reading-list .container,
+      .resources .container,
+      .about-me .container { grid-template-columns: 1fr; }
+      nav .container { flex-direction: column; gap: 1rem; }
+      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; }
+      .nav-links.active { display: flex; }
+      .hamburger { display: block; }
+      .contact form { padding: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <h1>Islam Alsohby</h1>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#hero">Home</a>
+        <a href="#articles">Articles</a>
+        <a href="#image-showcase">Gallery</a>
+        <a href="#projects">Projects</a>
+        <a href="#reading-list">Reading</a>
+        <a href="#resources">Resources</a>
+        <a href="#about-me">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
+  </nav>
+
+  <section id="hero" class="hero">
+    <div class="container">
+      <h2>Welcome to My <span class="typed-text" id="typed"></span></h2>
+      <p>A journey of curiosity, where AI, STEM, and leadership collide with creativity.</p>
+      <p class="quote" id="quote"></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="articles" class="articles">
+    <div class="container">
+      <h2>Featured Articles</h2>
+      <div class="card">
+        <h3>The Psychology of Problem Solving in AI</h3>
+        <p>Exploring how human cognition inspires smarter algorithms.</p>
+        <div class="tags"><span>#AI</span><span>#Psychology</span></div>
+        <a href="#" data-tooltip="Read More">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Quantum Computing: The Next STEM Revolution</h3>
+        <p>A dive into the future of computational power.</p>
+        <div class="tags"><span>#STEM</span><span>#Quantum</span></div>
+        <a href="#" data-tooltip="Read More">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Leadership in the Age of AI</h3>
+        <p>Guiding teams through technological transformation.</p>
+        <div class="tags"><span>#Leadership</span><span>#AI</span></div>
+        <a href="#" data-tooltip="Read More">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Creative Coding: Art Meets Technology</h3>
+        <p>Blending aesthetics with functional programming.</p>
+        <div class="tags"><span>#Creativity</span><span>#Coding</span></div>
+        <a href="#" data-tooltip="Read More">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Ethical AI Frameworks</h3>
+        <p>Designing responsible intelligence for humanity.</p>
+        <div class="tags"><span>#AI</span><span>#Ethics</span></div>
+        <a href="#" data-tooltip="Read More">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="image-showcase" class="image-showcase">
+    <div class="container">
+      <h2>Visual Journey</h2>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200?text=AI+Experiment" alt="AI Experiment Visualization" onclick="openLightbox(this)">
+        <div class="caption">AI Neural Network Visualization</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200?text=STEM+Lab" alt="STEM Lab Equipment" onclick="openLightbox(this)">
+        <div class="caption">STEM Research Lab</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200?text=Creative+Art" alt="Creative Coding Art" onclick="openLightbox(this)">
+        <div class="caption">Creative Coding Masterpiece</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200?text=Leadership+Event" alt="Leadership Workshop" onclick="openLightbox(this)">
+        <div class="caption">Leadership Team Building</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200?text=Psychology+Study" alt="Psychology Study" onclick="openLightbox(this)">
+        <div class="caption">Mind Mapping Study</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200?text=AI+Innovation" alt="AI Innovation" onclick="openLightbox(this)">
+        <div class="caption">AI Innovation Prototype</div>
+      </div>
+    </div>
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="Lightbox Image">
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>My Projects</h2>
+      <div class="card project-card">
+        <h3>AI Chatbot Framework</h3>
+        <p>A conversational AI built with Python and TensorFlow.</p>
+        <div class="tags"><span>#AI</span><span>#ML</span></div>
+        <a href="https://github.com/islam534/ai-chatbot" target="_blank" rel="noopener">GitHub</a>
+        <div class="tech-icons" data-tooltip="Tech Stack: Python, TensorFlow">💻</div>
+      </div>
+      <div class="card project-card">
+        <h3>STEM Learning App</h3>
+        <p>An interactive app for STEM education.</p>
+        <div class="tags"><span>#STEM</span><span>#Web</span></div>
+        <a href="https://github.com/islam534/stem-app" target="_blank" rel="noopener">GitHub</a>
+        <div class="tech-icons" data-tooltip="Tech Stack: JavaScript, HTML">💻</div>
+      </div>
+      <div class="card project-card">
+        <h3>Leadership Dashboard</h3>
+        <p>A tool to track team performance metrics.</p>
+        <div class="tags"><span>#Leadership</span><span>#Data</span></div>
+        <a href="https://github.com/islam534/leadership-dash" target="_blank" rel="noopener">GitHub</a>
+        <div class="tech-icons" data-tooltip="Tech Stack: React, Chart.js">💻</div>
+      </div>
+      <div class="card project-card">
+        <h3>Creative Canvas Tool</h3>
+        <p>A digital art platform with AI enhancements.</p>
+        <div class="tags"><span>#Creativity</span><span>#AI</span></div>
+        <a href="https://github.com/islam534/creative-canvas" target="_blank" rel="noopener">GitHub</a>
+        <div class="tech-icons" data-tooltip="Tech Stack: Canvas, Python">💻</div>
+      </div>
+      <div class="card project-card">
+        <h3>Psychology Data Analyzer</h3>
+        <p>Analyzes behavioral data with machine learning.</p>
+        <div class="tags"><span>#Psychology</span><span>#ML</span></div>
+        <a href="https://github.com/islam534/psych-analyzer" target="_blank" rel="noopener">GitHub</a>
+        <div class="tech-icons" data-tooltip="Tech Stack: Python, Pandas">💻</div>
+      </div>
+      <div class="card project-card">
+        <h3>AI Ethics Simulator</h3>
+        <p>Simulates ethical dilemmas in AI deployment.</p>
+        <div class="tags"><span>#AI</span><span>#Ethics</span></div>
+        <a href="https://github.com/islam534/ai-ethics-sim" target="_blank" rel="noopener">GitHub</a>
+        <div class="tech-icons" data-tooltip="Tech Stack: JavaScript, Node.js">💻</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="reading-list" class="reading-list">
+    <div class="container">
+      <h2>Reading List</h2>
+      <div class="card">
+        <h3>"Thinking, Fast and Slow"</h3>
+        <p>Author: Daniel Kahneman</p>
+        <p>Takeaway: Understanding cognitive biases shapes better decisions.</p>
+        <a href="https://example.com/summary1" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"Deep Learning"</h3>
+        <p>Author: Ian Goodfellow</p>
+        <p>Takeaway: The foundation of modern AI techniques.</p>
+        <a href="https://example.com/summary2" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"Leaders Eat Last"</h3>
+        <p>Author: Simon Sinek</p>
+        <p>Takeaway: Leadership thrives on trust and empathy.</p>
+        <a href="https://example.com/summary3" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"The Creative Brain"</h3>
+        <p>Author: Nancy C. Andreasen</p>
+        <p>Takeaway: Creativity is a science worth exploring.</p>
+        <a href="https://example.com/summary4" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"Introduction to Quantum Mechanics"</h3>
+        <p>Author: David J. Griffiths</p>
+        <p>Takeaway: Quantum principles unlock new possibilities.</p>
+        <a href="https://example.com/summary5" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"The Innovator's Dilemma"</h3>
+        <p>Author: Clayton M. Christensen</p>
+        <p>Takeaway: Disruptive innovation drives progress.</p>
+        <a href="https://example.com/summary6" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"Emotional Intelligence"</h3>
+        <p>Author: Daniel Goleman</p>
+        <p>Takeaway: Emotions are key to effective leadership.</p>
+        <a href="https://example.com/summary7" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"Clean Code"</h3>
+        <p>Author: Robert C. Martin</p>
+        <p>Takeaway: Writing elegant code is an art form.</p>
+        <a href="https://example.com/summary8" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"The Art of Possibility"</h3>
+        <p>Author: Rosamund Stone Zander</p>
+        <p>Takeaway: Creativity opens new paths to success.</p>
+        <a href="https://example.com/summary9" target="_blank" rel="noopener">Summary</a>
+      </div>
+      <div class="card">
+        <h3>"AI Superpowers"</h3>
+        <p>Author: Kai-Fu Lee</p>
+        <p>Takeaway: AI’s global impact requires thoughtful leadership.</p>
+        <a href="https://example.com/summary10" target="_blank" rel="noopener">Summary</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="resources" class="resources">
+    <div class="container">
+      <h2>Useful Resources</h2>
+      <div class="card resource-card">
+        <p>AI Tool: TensorFlow Hub</p>
+        <a href="https://www.tensorflow.org/hub" target="_blank" rel="noopener">Visit</a>
+      </div>
+      <div class="card resource-card">
+        <p>STEM Blog: MIT Technology Review</p>
+        <a href="https://www.technologyreview.com" target="_blank" rel="noopener">Visit</a>
+      </div>
+      <div class="card resource-card">
+        <p>Psychology Paper: APA Journal</p>
+        <a href="https://www.apa.org/pubs/journals" target="_blank" rel="noopener">Visit</a>
+      </div>
+      <div class="card resource-card">
+        <p>Leadership Course: Coursera</p>
+        <a href="https://www.coursera.org/learn/leadership" target="_blank" rel="noopener">Visit</a>
+      </div>
+      <div class="card resource-card">
+        <p>Creative Resource: Dribbble</p>
+        <a href="https://dribbble.com" target="_blank" rel="noopener">Visit</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="about-me" class="about-me">
+    <div class="container">
+      <img src="https://via.placeholder.com/200x200?text=Islam+Alsohby" alt="Islam Alsohby Portrait">
+      <div>
+        <h2>About Me</h2>
+        <div class="timeline-item">
+          <h3>2018</h3>
+          <p>Began exploring AI and machine learning with a passion for problem-solving.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2020</h3>
+          <p>Led a STEM project team, fostering innovation and collaboration.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2023</h3>
+          <p>Delved into psychology to enhance human-centered AI design.</p>
+        </div>
+        <h3>Current Goals</h3>
+        <p>To build ethical AI systems that empower creativity and leadership worldwide.</p>
+        <h3>Values & Passions</h3>
+        <p>Curiosity drives me. I thrive on blending science with art, leading with empathy, and inspiring others.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <form id="contact-form">
+        <input type="text" id="name" required>
+        <label for="name">Your Name</label>
+        <input type="email" id="email" required>
+        <label for="email">Your Email</label>
+        <textarea id="message" required></textarea>
+        <label for="message">Your Message</label>
+        <button type="submit">Send Message</button>
+      </form>
+      <p class="success-message" id="success-message">Message sent successfully!</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Islam Alsohby. <a href="#hero">Back to Top</a></p>
+    </div>
+  </footer>
+
+  <button id="scrollTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    // Typewriter and Quote Rotation
+    const typed = document.getElementById('typed');
+    const quote = document.getElementById('quote');
+    let index = 0;
+    const quotes = ['World of Ideas', 'Journey'];
+    const quoteMessages = [
+      'Curiosity fuels progress',
+      'Code with compassion',
+      'Lead with vision',
+      'Innovate with heart'
+    ];
+    function type() {
+      if (index < quotes.length) {
+        let i = 0;
+        const word = quotes[index];
+        typed.textContent = '';
+        const interval = setInterval(() => {
+          if (i < word.length) {
+            typed.textContent += word[i];
+            i++;
+          } else {
+            clearInterval(interval);
+            setTimeout(() => {
+              let j = word.length;
+              const deleteInterval = setInterval(() => {
+                if (j > 0) {
+                  typed.textContent = word.substring(0, j - 1);
+                  j--;
+                } else {
+                  clearInterval(deleteInterval);
+                  index = (index + 1) % quotes.length;
+                  rotateQuote();
+                  setTimeout(type, 2000);
+                }
+              }, 100);
+            }, 2000);
+          }
+        }, 150);
+      }
+    }
+    function rotateQuote() {
+      let quoteIndex = 0;
+      const quoteInterval = setInterval(() => {
+        if (quoteIndex < quoteMessages.length) {
+          quote.textContent = quoteMessages[quoteIndex];
+          quoteIndex++;
+        } else {
+          clearInterval(quoteInterval);
+          quoteIndex = 0;
+          setTimeout(() => rotateQuote(), 3000);
+        }
+      }, 3000);
+    }
+    type();
+    rotateQuote();
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const toggleButton = document.querySelector('.dark-mode-toggle');
+      toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+    }
+    if (localStorage.getItem('darkMode') === 'enabled') toggleDarkMode();
+
+    // Contact Form Handling
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const successMessage = document.getElementById('success-message');
+      successMessage.style.display = 'block';
+      setTimeout(() => { successMessage.style.display = 'none'; this.reset(); }, 3000);
+    });
+
+    // Hamburger Menu
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Scroll-to-Top Button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) scrollTopBtn.classList.add('visible');
+      else scrollTopBtn.classList.remove('visible');
+    });
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Intersection Observer for Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.style.animationPlayState = 'running';
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.articles, .image-showcase, .projects, .reading-list, .resources, .about-me, .contact, footer').forEach(section => observer.observe(section));
+
+    // Lightbox Functionality
+    const lightbox = document.getElementById('lightbox');
+    function openLightbox(img) {
+      lightbox.querySelector('img').src = img.src;
+      lightbox.classList.add('active');
+    }
+    lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+  </script>
+</body>
+</html>
