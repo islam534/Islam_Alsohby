@@ -1,95 +1,127 @@
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Noto Sans Arabic', 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #FFF8E1;
-  color: #3C2F2F;
+  background-color: #F5F5F5;
+  color: #212121;
+  scroll-behavior: smooth;
 }
 
-header {
-  background-color: #F5A623;
+.navbar {
+  background-color: #1E88E5;
   padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
-}
-
-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-nav .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FFF;
 }
 
-nav ul {
+.nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
-nav ul li a {
-  color: #3C2F2F;
+.nav-links li a {
+  color: #FFF;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
-.hero {
-  text-align: center;
+.nav-links li a:hover {
+  color: #E91E63;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.parallax {
+  position: relative;
+  overflow: hidden;
   padding: 4rem 2rem;
-  background: linear-gradient(to bottom, #F5A623, #FFF8E1);
+  text-align: center;
 }
 
-.hero img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transform: translateY(0);
+  transition: transform 0.5s;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1, .about h1, .research h1, .blog h1, .guides h1, .reflections h1, .projects h1, .contact h1 {
+  font-size: 2.8rem;
   margin: 1rem 0;
+  color: #212121;
 }
 
-.hero p {
+.hero p, .about p, .research p, .blog p, .guides p, .reflections p, .projects p, .contact p {
   font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto 2rem;
 }
 
 .cta {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background-color: #2E7D32;
+  padding: 0.8rem 2rem;
+  background-color: #FF6F00;
   color: #FFF;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
 
-.intro {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
+.cta:hover {
+  background-color: #E91E63;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .card {
   background: #FFF;
   padding: 1.5rem;
   border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card img {
@@ -98,18 +130,104 @@ nav ul li a {
   border-radius: 5px;
 }
 
+.card-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #1E88E5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card-cta:hover {
+  color: #E91E63;
+}
+
+.profile-img {
+  max-width: 200px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  display: block;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.skill {
+  background: #4CAF50;
+  color: #FFF;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill img {
+  max-width: 24px;
+}
+
+#contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#contact-form input, #contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #212121;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
 footer {
-  background-color: #3C2F2F;
+  background-color: #212121;
   color: #FFF;
   text-align: center;
   padding: 1rem;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
-  nav ul {
+  .nav-links {
+    display: none;
     flex-direction: column;
-    gap: 1rem;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #1E88E5;
+    padding: 1rem;
   }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
   .hero h1 {
     font-size: 2rem;
   }
