@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector(this.getAttribute('href')).scrollIntoView({
         behavior: 'smooth'
       });
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
     });
   });
 
@@ -39,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('message').value;
 
       if (name && email && message) {
-        alert('Message sent successfully! I’ll get back to you soon.');
+        alert('Thank you! Your message has been sent. I’ll reply soon.');
         form.reset();
       } else {
         alert('Please fill in all fields.');
@@ -50,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Parallax effect
   window.addEventListener('scroll', () => {
     document.querySelectorAll('.parallax-bg').forEach(img => {
-      const speed = 0.5;
+      const speed = 0.3;
       const yPos = -(window.pageYOffset * speed);
       img.style.transform = `translateY(${yPos}px)`;
     });
@@ -59,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scroll to top button
   const scrollTopBtn = document.querySelector('.scroll-top');
   window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
+    if (window.pageYOffset > 400) {
       scrollTopBtn.classList.add('show');
     } else {
       scrollTopBtn.classList.remove('show');
