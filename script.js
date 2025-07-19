@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('message').value;
 
       if (name && email && message) {
-        alert('Form submitted successfully!');
+        alert('Message sent successfully! I’ll get back to you soon.');
         form.reset();
       } else {
         alert('Please fill in all fields.');
@@ -54,5 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const yPos = -(window.pageYOffset * speed);
       img.style.transform = `translateY(${yPos}px)`;
     });
+  });
+
+  // Scroll to top button
+  const scrollTopBtn = document.querySelector('.scroll-top');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
