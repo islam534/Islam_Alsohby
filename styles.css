@@ -28,6 +28,18 @@ body {
   font-weight: 700;
   color: #FFF;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo i {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .nav-links {
@@ -105,6 +117,7 @@ body {
   z-index: -1;
   transform: translateZ(0);
   transition: transform 0.5s ease-out;
+  filter: brightness(0.8);
 }
 
 .hero-content h1, .projects h1, .blog h1 {
@@ -126,6 +139,13 @@ p {
   max-width: 900px;
   margin: 0 auto 2rem;
   line-height: 1.8;
+}
+
+.flag-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin: 0 2px;
 }
 
 .cta {
@@ -227,6 +247,17 @@ p {
   transform: scale(1.1);
 }
 
+.card i {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: #76FF03;
+  transition: transform 0.3s;
+}
+
+.card:hover i {
+  transform: rotate(15deg);
+}
+
 .card-cta {
   display: inline-block;
   margin-top: 1.5rem;
@@ -281,6 +312,11 @@ footer {
   padding: 2rem;
   position: relative;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer i {
+  color: #FF7043;
+  margin-left: 0.5rem;
 }
 
 .scroll-top {
