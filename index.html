@@ -6,6 +6,7 @@
   <meta name="description" content="Personal website of Islam Alsohby, a multilingual scholar, leader, and thinker.">
   <title>Islam Alsohby</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+Arabic&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
@@ -13,7 +14,7 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">Islam Alsohby</div>
+      <div class="logo">Islam Alsohby <i class="fas fa-globe"></i></div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
@@ -26,7 +27,7 @@
   <main>
     <section class="hero parallax">
       <div id="particles-js"></div>
-      <img src="hero-image.jpg" alt="Islam Alsohby in a dynamic setting" class="parallax-bg">
+      <img src="https://images.unsplash.com/photo-1506784897864-3bb9373a7e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Islam Alsohby leading a team" class="parallax-bg">
       <div class="hero-content">
         <h1>Welcome to My Universe</h1>
         <p>A journey of a multilingual scholar, leader, entrepreneur, and athlete. <span id="date-time"></span></p>
@@ -35,7 +36,7 @@
     </section>
     <section id="about" class="about">
       <h2>About Me</h2>
-      <p>I'm Islam Alsohby, fluent in English, German, Spanish, and French, with a passion for philosophy, critical thinking, and social impact. As a leader, entrepreneur, social activist, and football player, I share my insights through research, blogs, and projects.</p>
+      <p>I'm Islam Alsohby, fluent in <img src="https://img.icons8.com/color/48/000000/germany.png" alt="German" class="flag-icon"> German, <img src="https://img.icons8.com/color/48/000000/spain.png" alt="Spanish" class="flag-icon"> Spanish, <img src="https://img.icons8.com/color/48/000000/france.png" alt="French" class="flag-icon"> French, and English, with a passion for philosophy, critical thinking, and social impact. As a <i class="fas fa-users-cog"></i> leader, <i class="fas fa-lightbulb"></i> entrepreneur, <i class="fas fa-hands-helping"></i> social activist, and <i class="fas fa-football-ball"></i> football player, I share my insights through research, blogs, and projects.</p>
     </section>
     <section class="preview">
       <h2>Explore My Journey</h2>
@@ -43,8 +44,8 @@
         <div class="card fade-in" onclick="openModal('projects')">
           <div class="card-inner">
             <div class="card-front">
-              <img src="projects-thumb.jpg" alt="Projects">
-              <h3>Projects</h3>
+              <img src="https://images.unsplash.com/photo-1581094794329-805e8e6d8b7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Projects Thumbnail">
+              <h3>Projects <i class="fas fa-briefcase"></i></h3>
               <p>Research, experiences, and innovations.</p>
             </div>
             <div class="card-back">
@@ -56,8 +57,8 @@
         <div class="card fade-in" onclick="openModal('blog')">
           <div class="card-inner">
             <div class="card-front">
-              <img src="blog-thumb.jpg" alt="Blog">
-              <h3>Blog</h3>
+              <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Blog Thumbnail">
+              <h3>Blog <i class="fas fa-pen"></i></h3>
               <p>Articles, reflections, and guides.</p>
             </div>
             <div class="card-back">
@@ -69,7 +70,7 @@
       </div>
     </section>
     <section id="contact" class="contact">
-      <h2>Contact Me</h2>
+      <h2>Contact Me <i class="fas fa-envelope"></i></h2>
       <p>Let’s connect for collaborations or inquiries.</p>
       <form id="contact-form">
         <input type="text" id="name" placeholder="Name" required>
@@ -80,12 +81,12 @@
     </section>
   </main>
   <footer>
-    <p>© 2025 Islam Alsohby. All rights reserved.</p>
+    <p>© 2025 Islam Alsohby. All rights reserved. <i class="fas fa-heart"></i></p>
     <button class="scroll-top">↑</button>
   </footer>
   <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <span class="close">×</span>
       <p id="modal-text"></p>
     </div>
   </div>
