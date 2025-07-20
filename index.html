@@ -7,6 +7,8 @@
   <title>Islam Alsohby</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+Arabic&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
   <header>
@@ -23,11 +25,12 @@
   </header>
   <main>
     <section class="hero parallax">
+      <div id="particles-js"></div>
       <img src="hero-image.jpg" alt="Islam Alsohby in a dynamic setting" class="parallax-bg">
       <div class="hero-content">
-        <h1>Welcome to My World</h1>
-        <p>A journey of a multilingual scholar, leader, entrepreneur, and athlete.</p>
-        <a href="#about" class="cta">Discover Me</a>
+        <h1>Welcome to My Universe</h1>
+        <p>A journey of a multilingual scholar, leader, entrepreneur, and athlete. <span id="date-time"></span></p>
+        <a href="#about" class="cta">Discover My Story</a>
       </div>
     </section>
     <section id="about" class="about">
@@ -35,25 +38,39 @@
       <p>I'm Islam Alsohby, fluent in English, German, Spanish, and French, with a passion for philosophy, critical thinking, and social impact. As a leader, entrepreneur, social activist, and football player, I share my insights through research, blogs, and projects.</p>
     </section>
     <section class="preview">
-      <h2>Explore My Work</h2>
+      <h2>Explore My Journey</h2>
       <div class="grid">
-        <div class="card fade-in">
-          <img src="projects-thumb.jpg" alt="Projects">
-          <h3>Projects</h3>
-          <p>Research, experiences, and innovations from ELP, BIAB, and more.</p>
-          <a href="projects.html" class="card-cta">View Projects</a>
+        <div class="card fade-in" onclick="openModal('projects')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="projects-thumb.jpg" alt="Projects">
+              <h3>Projects</h3>
+              <p>Research, experiences, and innovations.</p>
+            </div>
+            <div class="card-back">
+              <p>Discover my work in ELP, BIAB, and research papers.</p>
+              <a href="projects.html" class="card-cta">View All</a>
+            </div>
+          </div>
         </div>
-        <div class="card fade-in">
-          <img src="blog-thumb.jpg" alt="Blog">
-          <h3>Blog</h3>
-          <p>Articles, reflections, guides, and resources on diverse topics.</p>
-          <a href="blog.html" class="card-cta">Read Blog</a>
+        <div class="card fade-in" onclick="openModal('blog')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="blog-thumb.jpg" alt="Blog">
+              <h3>Blog</h3>
+              <p>Articles, reflections, and guides.</p>
+            </div>
+            <div class="card-back">
+              <p>Explore my thoughts on culture and STEM resources.</p>
+              <a href="blog.html" class="card-cta">Read More</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
     <section id="contact" class="contact">
       <h2>Contact Me</h2>
-      <p>Reach out for collaborations or inquiries.</p>
+      <p>Let’s connect for collaborations or inquiries.</p>
       <form id="contact-form">
         <input type="text" id="name" placeholder="Name" required>
         <input type="email" id="email" placeholder="Email" required>
@@ -66,6 +83,12 @@
     <p>© 2025 Islam Alsohby. All rights reserved.</p>
     <button class="scroll-top">↑</button>
   </footer>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
