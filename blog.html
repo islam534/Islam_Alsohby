@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog - Islam Alsohby</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+Arabic&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
   <header>
@@ -22,32 +24,62 @@
   <main>
     <section class="blog parallax">
       <img src="blog-header.jpg" alt="Blog Writing" class="parallax-bg">
-      <h1>My Blog, Reflections, Guides & Resources</h1>
-      <p>Insights, personal stories, and practical tools.</p>
+      <div class="hero-content">
+        <h1>My Blog, Reflections, Guides & Resources</h1>
+        <p>Insights, stories, and tools for growth.</p>
+      </div>
       <div class="grid">
-        <div class="card fade-in">
-          <img src="dormmate-thumb.jpg" alt="Dormmate Article">
-          <h3>Dealing with a Difficult Dormmate</h3>
-          <p>Strategies for challenging living situations.</p>
-          <a href="dormmate.html" class="card-cta">Read More</a>
+        <div class="card fade-in" onclick="openModal('dormmate')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="dormmate-thumb.jpg" alt="Dormmate Article">
+              <h3>Dealing with a Difficult Dormmate</h3>
+              <p>Strategies for tough living situations.</p>
+            </div>
+            <div class="card-back">
+              <p>Detailed tips and personal reflections.</p>
+              <a href="dormmate.html" class="card-cta">Read More</a>
+            </div>
+          </div>
         </div>
-        <div class="card fade-in">
-          <img src="napoleon-thumb.jpg" alt="Napoleon Complex">
-          <h3>The Napoleon Complex</h3>
-          <p>Exploring power dynamics in life.</p>
-          <a href="napoleon.html" class="card-cta">Read More</a>
+        <div class="card fade-in" onclick="openModal('napoleon')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="napoleon-thumb.jpg" alt="Napoleon Complex">
+              <h3>The Napoleon Complex</h3>
+              <p>Exploring power dynamics.</p>
+            </div>
+            <div class="card-back">
+              <p>In-depth analysis of personal interactions.</p>
+              <a href="napoleon.html" class="card-cta">Read More</a>
+            </div>
+          </div>
         </div>
-        <div class="card fade-in">
-          <img src="book-review-thumb.jpg" alt="Book Review">
-          <h3>Book Review: [Book Title]</h3>
-          <p>Key takeaways from my reading.</p>
-          <a href="book-review.html" class="card-cta">Read Review</a>
+        <div class="card fade-in" onclick="openModal('book')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="book-review-thumb.jpg" alt="Book Review">
+              <h3>Book Review: [Book Title]</h3>
+              <p>Key takeaways from my reading.</p>
+            </div>
+            <div class="card-back">
+              <p>Summary and personal insights.</p>
+              <a href="book-review.html" class="card-cta">Read Review</a>
+            </div>
+          </div>
         </div>
-        <div class="card fade-in">
-          <img src="stem-guide-thumb.jpg" alt="STEM Guide">
-          <h3>STEM High School Guide</h3>
-          <p>A guide to excelling in STEM education.</p>
-          <a href="stem-guide.html" class="card-cta">Read Guide</a>
+        <div class="card fade-in" onclick="openModal('stem')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="stem-guide-thumb.jpg" alt="STEM Guide">
+              <h3>STEM High School Guide</h3>
+              <p>A guide to excelling in STEM.</p>
+            </div>
+            <div class="card-back">
+              <p>Step-by-step advice for students.</p>
+              <a href="stem-guide.html" class="card-cta">Read Guide</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -56,6 +88,12 @@
     <p>© 2025 Islam Alsohby. All rights reserved.</p>
     <button class="scroll-top">↑</button>
   </footer>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
