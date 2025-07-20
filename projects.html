@@ -5,116 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore Islam Alsohby's projects, research, and experiences.">
   <title>Projects - Islam Alsohby</title>
+  <link rel="stylesheet" href="styles.css">
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style id="custom-styles">
-    body { @apply bg-light-green-50 text-dark-green-900 font-inter antialiased; line-height: 1.6; overflow-x: hidden; }
-    .parallax { @apply relative overflow-hidden text-center; padding: clamp(4rem, 8vw, 8rem) 2rem; background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); }
-    .parallax-bg { @apply absolute top-0 left-0 w-full h-full object-cover z-[-1]; transform: translateZ(0); transition: transform 0.5s ease-out; filter: brightness(0.8); }
-    .card-inner { @apply relative transition-transform duration-700; transform-style: preserve-3d; }
-    .card-front, .card-back { @apply absolute w-full h-full backface-hidden; }
-    .card-back { @apply flex flex-col justify-center items-center bg-white/10 p-6; transform: rotateY(180deg); }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
-  </style>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="text/babel">
-    const { useState, useEffect } = React;
-
-    const Navbar = () => {
-      const [isOpen, setIsOpen] = useState(false);
-      return (
-        <nav className="sticky top-0 z-50 bg-gradient-to-r from-deep-blue-900 to-deep-blue-800 p-6 flex justify-between items-center max-w-6xl mx-auto shadow-md">
-          <div className="text-2xl font-bold text-white flex items-center gap-2">Islam Alsohby <i className="fas fa-globe animate-spin-slow"></i></div>
-          <ul className={`flex gap-6 ${isOpen ? 'flex-col absolute top-20 left-0 w-full bg-deep-blue-800 p-4 shadow-lg' : 'hidden md:flex'}`}>
-            <li><a href="index.html#home" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Home</a></li>
-            <li><a href="projects.html" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Projects</a></li>
-            <li><a href="blog.html" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Blog</a></li>
-            <li><a href="index.html#contact" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Contact</a></li>
-          </ul>
-          <div className="md:hidden text-2xl text-white cursor-pointer" onClick={() => setIsOpen(!isOpen)}>☰</div>
-        </nav>
-      );
-    };
-
-    const Hero = ({ bgImage, title, subheading }) => (
-      <section className="parallax">
-        <img src={bgImage} alt="Research Lab" className="parallax-bg" />
-        <div className="hero-content relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-          <p className="text-lg md:text-xl text-white mb-6">{subheading}</p>
+  <div id="root">
+    <header>
+      <nav class="navbar">
+        <div class="logo">Islam Alsohby</div>
+        <ul class="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>My Projects, Research & Experiences</h1>
+          <p>A showcase of my academic and practical journey.</p>
         </div>
       </section>
-    );
-
-    const Card = ({ frontImage, title, description, backContent, link }) => {
-      const [isFlipped, setIsFlipped] = useState(false);
-      return (
-        <div className="card fade-in" onClick={() => setIsFlipped(!isFlipped)} onMouseEnter={() => setIsFlipped(true)} onMouseLeave={() => setIsFlipped(false)}>
-          <div className="card-inner" style={{ transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
-            <div className="card-front">
-              <img src={frontImage} alt={title} className="w-full h-48 object-cover rounded-lg" />
-              <h3 className="text-xl font-semibold mt-4">{title} <i className="fas fa-flask text-vibrant-green-500"></i></h3>
-              <p className="text-gray-600 mt-2">{description}</p>
-            </div>
-            <div className="card-back">
-              <p className="text-gray-800 mb-4">{backContent}</p>
-              <a href={link} className="text-vibrant-green-500 hover:text-warm-orange-500 underline">{link.includes('.pdf') ? 'Download PDF' : 'Learn More'}</a>
-            </div>
-          </div>
+      <section class="projects">
+        <div class="grid">
+          <div class="card" data-type="elp"></div>
+          <div class="card" data-type="biab"></div>
+          <div class="card" data-type="paper1"></div>
+          <div class="card" data-type="paper2"></div>
         </div>
-      );
-    };
-
-    const Footer = () => (
-      <footer className="bg-jet-black-900 text-white p-6 text-center relative">
-        <p>© 2025 Islam Alsohby. All rights reserved. <i className="fas fa-heart text-warm-orange-500"></i></p>
-        <button className="scroll-top absolute bottom-6 right-6 p-4 bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white rounded-full hover:scale-110 transition-transform shadow-lg" onClick={() => gsap.to(window, { duration: 1, scrollTo: 0, ease: 'power2.inOut' })}>↑</button>
-      </footer>
-    );
-
-    const App = () => {
-      useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.parallax-bg').forEach(img => {
-          gsap.to(img, { y: '-20%', ease: 'none', scrollTrigger: { trigger: img.parentElement, scrub: true } });
-        });
-        const cards = document.querySelectorAll('.fade-in');
-        cards.forEach(card => {
-          gsap.from(card, { scrollTrigger: card, opacity: 0, y: 40, scale: 0.95, duration: 1, ease: 'power2.out' });
-        });
-        window.addEventListener('scroll', () => {
-          const scrollTopBtn = document.querySelector('.scroll-top');
-          if (window.pageYOffset > 500) gsap.to(scrollTopBtn, { opacity: 1, duration: 0.3, display: 'block' });
-          else gsap.to(scrollTopBtn, { opacity: 0, duration: 0.3, onComplete: () => scrollTopBtn.style.display = 'none' });
-        });
-      }, []);
-
-      return (
-        <div>
-          <Navbar />
-          <main>
-            <Hero bgImage="https://images.unsplash.com/photo-1591123120675-6f7f1a858f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" title="My Projects, Research & Experiences" subheading="A showcase of my academic and practical journey" />
-            <section className="py-12 px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-                <Card frontImage="https://images.unsplash.com/photo-1560439513-662c5e0e7c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" title="ELP Experience" description="Mentorship and leadership lessons." backContent="Detailed insights from my ELP journey, focusing on leadership development." link="elp.html" />
-                <Card frontImage="https://images.unsplash.com/photo-1581092118020-1a40c4e4b8e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" title="BIAB Program" description="My BIAB initiative experience." backContent="Explore my contributions to the BIAB program and its community impact." link="biab.html" />
-                <Card frontImage="https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" title="Research Paper 1" description="A study on [topic]." backContent="Download my first research paper exploring [topic]." link="paper1.pdf" />
-                <Card frontImage="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" title="Research Paper 2" description="A study on [topic]." backContent="Access my second research paper on [topic]." link="paper2.pdf" />
-              </div>
-            </section>
-          </main>
-          <Footer />
-        </div>
-      );
-    };
-
-    ReactDOM.render(<App />, document.getElementById('root'));
-  </script>
+      </section>
+    </main>
+    <footer>
+      <p>© 2025 Islam Alsohby. All rights reserved.</p>
+      <button class="scroll-top">↑</button>
+    </footer>
+  </div>
 </body>
 </html>
