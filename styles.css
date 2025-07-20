@@ -20,21 +20,124 @@
 }
 
 @layer components {
-  .card { @apply bg-white/20 backdrop-blur-md p-6 rounded-2xl shadow-lg cursor-pointer transition-transform duration-500 hover:-translate-y-6 hover:rotate-x-5; }
-  .scroll-top { @apply hidden absolute bottom-6 right-6 p-4 bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white rounded-full hover:scale-110 transition-transform shadow-lg; }
-  .prose { @apply text-lg leading-7 text-dark-green-900; }
-  .prose h2 { @apply text-2xl font-bold mt-8 mb-4 text-deep-blue-900; }
-  .prose h3 { @apply text-xl font-semibold mt-6 mb-2 text-deep-blue-800; }
+  .navbar {
+    @apply fixed top-0 z-50 bg-gradient-to-r from-deep-blue-900 to-deep-blue-800 p-6 flex justify-between items-center w-full shadow-md;
+  }
+  .logo {
+    @apply text-2xl font-bold text-white flex items-center gap-2;
+  }
+  .nav-links {
+    @apply flex gap-6;
+  }
+  .nav-links li a {
+    @apply text-white hover:text-vibrant-green-500 hover:underline transition-colors;
+  }
+  .menu-toggle {
+    @apply md:hidden text-2xl text-white cursor-pointer;
+  }
+  .hero {
+    @apply relative overflow-hidden text-center min-h-[60vh] bg-light-green-50;
+  }
+  .hero-content {
+    @apply relative z-10 py-12 px-4 max-w-4xl mx-auto;
+  }
+  .hero h1 {
+    @apply text-4xl md:text-5xl font-bold text-white mb-4;
+  }
+  .hero p {
+    @apply text-lg md:text-xl text-white mb-6;
+  }
+  .cta {
+    @apply inline-block px-6 py-3 bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white rounded-full hover:scale-105 transition-transform shadow-lg;
+  }
+  .about, .projects, .blog-posts, .contact {
+    @apply py-12 px-4 max-w-4xl mx-auto;
+  }
+  .about h2, .projects h2, .blog-posts h2, .contact h2 {
+    @apply text-3xl md:text-4xl font-bold text-deep-blue-900 mb-6 text-center;
+  }
+  .about p {
+    @apply text-lg text-dark-green-900;
+  }
+  .grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto;
+  }
+  .card {
+    @apply bg-white/20 backdrop-blur-md p-6 rounded-2xl shadow-lg cursor-pointer transition-transform duration-500 hover:-translate-y-6 hover:rotate-x-5 relative;
+  }
+  .card-inner {
+    @apply relative transition-transform duration-700;
+    transform-style: preserve-3d;
+  }
+  .card-front, .card-back {
+    @apply absolute w-full h-full backface-hidden;
+  }
+  .card-back {
+    @apply flex flex-col justify-center items-center bg-white/10 p-6;
+    transform: rotateY(180deg);
+  }
+  .contact form {
+    @apply max-w-xl mx-auto p-6 bg-white/15 rounded-2xl backdrop-blur-md flex flex-col gap-4;
+  }
+  .contact input, .contact textarea {
+    @apply p-3 rounded-lg border border-deep-blue-900 focus:border-vibrant-green-500 focus:outline-none;
+  }
+  .contact textarea {
+    @apply min-h-32;
+  }
+  .modal {
+    @apply fixed top-0 left-0 w-full h-full bg-black/70 flex justify-center items-center z-50 hidden;
+  }
+  .modal-content {
+    @apply bg-white/90 backdrop-blur-md p-6 rounded-2xl max-w-md text-center relative text-dark-green-900;
+  }
+  .close {
+    @apply absolute top-4 right-4 text-2xl text-warm-orange-500 cursor-pointer;
+  }
+  .footer {
+    @apply bg-jet-black-900 text-white p-6 text-center relative;
+  }
+  .scroll-top {
+    @apply hidden absolute bottom-6 right-6 p-4 bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white rounded-full hover:scale-110 transition-transform shadow-lg;
+  }
+  .article {
+    @apply py-12 px-4 max-w-4xl mx-auto;
+  }
+  .article h2 {
+    @apply text-3xl md:text-4xl font-bold text-deep-blue-900 mb-6;
+  }
+  .article img {
+    @apply w-full h-64 object-cover rounded-lg mb-6;
+  }
+  .article-content {
+    @apply text-lg leading-7 text-dark-green-900;
+  }
+  .article-content h3 {
+    @apply text-xl font-semibold mt-6 mb-2 text-deep-blue-800;
+  }
+  .back-to-top {
+    @apply mt-6 px-4 py-2 bg-vibrant-green-500 text-white rounded-full hover:bg-warm-orange-500 transition-colors;
+  }
 }
 
 @layer utilities {
   @media (max-width: 767px) {
-    .md\\:grid-cols-2 { grid-template-columns: 1fr; }
-    .text-4xl { font-size: 2rem; }
-    .text-3xl { font-size: 1.5rem; }
-    .p-6 { padding: 1rem; }
+    .nav-links {
+      @apply hidden;
+    }
+    .nav-links.active {
+      @apply flex flex-col absolute top-20 left-0 w-full bg-deep-blue-800 p-4 shadow-lg;
+    }
+    .hero h1 {
+      @apply text-3xl;
+    }
+    .grid {
+      @apply grid-cols-1;
+    }
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    .grid-cols-1 { grid-template-columns: repeat(2, 1fr); }
+    .grid {
+      @apply grid-cols-2;
+    }
   }
 }
