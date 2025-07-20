@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects - Islam Alsohby</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+Arabic&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
   <header>
@@ -22,32 +24,62 @@
   <main>
     <section class="projects parallax">
       <img src="projects-header.jpg" alt="Project Setting" class="parallax-bg">
-      <h1>My Projects, Research & Experiences</h1>
-      <p>A showcase of my academic and practical contributions.</p>
+      <div class="hero-content">
+        <h1>My Projects, Research & Experiences</h1>
+        <p>A showcase of my academic and practical journey.</p>
+      </div>
       <div class="grid">
-        <div class="card fade-in">
-          <img src="elp-thumb.jpg" alt="ELP Project">
-          <h3>ELP Experience</h3>
-          <p>Lessons from mentorship and leadership.</p>
-          <a href="elp.html" class="card-cta">Learn More</a>
+        <div class="card fade-in" onclick="openModal('elp')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="elp-thumb.jpg" alt="ELP Project">
+              <h3>ELP Experience</h3>
+              <p>Mentorship and leadership lessons.</p>
+            </div>
+            <div class="card-back">
+              <p>Detailed insights from my ELP journey.</p>
+              <a href="elp.html" class="card-cta">Learn More</a>
+            </div>
+          </div>
         </div>
-        <div class="card fade-in">
-          <img src="biab-thumb.jpg" alt="BIAB Project">
-          <h3>BIAB Program</h3>
-          <p>My journey in the BIAB initiative.</p>
-          <a href="biab.html" class="card-cta">Learn More</a>
+        <div class="card fade-in" onclick="openModal('biab')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="biab-thumb.jpg" alt="BIAB Project">
+              <h3>BIAB Program</h3>
+              <p>My BIAB initiative experience.</p>
+            </div>
+            <div class="card-back">
+              <p>Explore my contributions to BIAB.</p>
+              <a href="biab.html" class="card-cta">Learn More</a>
+            </div>
+          </div>
         </div>
-        <div class="card fade-in">
-          <img src="paper1-thumb.jpg" alt="Paper 1">
-          <h3>Research Paper 1</h3>
-          <p>A study on [topic].</p>
-          <a href="paper1.pdf" class="card-cta" download>Download PDF</a>
+        <div class="card fade-in" onclick="openModal('paper1')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="paper1-thumb.jpg" alt="Paper 1">
+              <h3>Research Paper 1</h3>
+              <p>A study on [topic].</p>
+            </div>
+            <div class="card-back">
+              <p>Download and read my research.</p>
+              <a href="paper1.pdf" class="card-cta" download>Download PDF</a>
+            </div>
+          </div>
         </div>
-        <div class="card fade-in">
-          <img src="paper2-thumb.jpg" alt="Paper 2">
-          <h3>Research Paper 2</h3>
-          <p>A study on [topic].</p>
-          <a href="paper2.pdf" class="card-cta" download>Download PDF</a>
+        <div class="card fade-in" onclick="openModal('paper2')">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="paper2-thumb.jpg" alt="Paper 2">
+              <h3>Research Paper 2</h3>
+              <p>A study on [topic].</p>
+            </div>
+            <div class="card-back">
+              <p>Access my second research paper.</p>
+              <a href="paper2.pdf" class="card-cta" download>Download PDF</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -56,6 +88,12 @@
     <p>© 2025 Islam Alsohby. All rights reserved.</p>
     <button class="scroll-top">↑</button>
   </footer>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
