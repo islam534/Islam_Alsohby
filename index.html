@@ -6,228 +6,61 @@
   <meta name="description" content="Personal website of Islam Alsohby, a multilingual scholar, leader, and thinker.">
   <meta name="keywords" content="Islam Alsohby, scholar, leader, entrepreneur, athlete, multilingual, philosophy">
   <title>Islam Alsohby</title>
+  <link rel="stylesheet" href="styles.css">
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style id="custom-styles">
-    body {
-      @apply bg-light-green-50 text-dark-green-900 font-inter antialiased;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    .parallax {
-      @apply relative overflow-hidden text-center;
-      padding: clamp(4rem, 8vw, 8rem) 2rem;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    }
-    .parallax-bg {
-      @apply absolute top-0 left-0 w-full h-full object-cover z-[-1];
-      transform: translateZ(0);
-      transition: transform 0.5s ease-out;
-      filter: brightness(0.8);
-    }
-    .card-inner {
-      @apply relative transition-transform duration-700;
-      transform-style: preserve-3d;
-    }
-    .card-front, .card-back {
-      @apply absolute w-full h-full backface-hidden;
-    }
-    .card-back {
-      @apply flex flex-col justify-center items-center bg-white/10 p-6;
-      transform: rotateY(180deg);
-    }
-    .modal {
-      @apply fixed top-0 left-0 w-full h-full bg-black/70 flex justify-center items-center z-50;
-      display: none;
-    }
-    .modal-content {
-      @apply bg-white/90 backdrop-blur-md p-6 rounded-2xl max-w-md text-center relative text-dark-green-900;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-  </style>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="text/babel">
-    const { useState, useEffect } = React;
-
-    const Navbar = () => {
-      const [isOpen, setIsOpen] = useState(false);
-      return (
-        <nav className="sticky top-0 z-50 bg-gradient-to-r from-deep-blue-900 to-deep-blue-800 p-6 flex justify-between items-center max-w-6xl mx-auto shadow-md">
-          <div className="text-2xl font-bold text-white flex items-center gap-2">
-            Islam Alsohby <i className="fas fa-globe animate-spin-slow"></i>
-          </div>
-          <ul className={`flex gap-6 ${isOpen ? 'flex-col absolute top-20 left-0 w-full bg-deep-blue-800 p-4 shadow-lg' : 'hidden md:flex'}`}>
-            <li><a href="#home" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Home</a></li>
-            <li><a href="#projects" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Projects</a></li>
-            <li><a href="#blog" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Blog</a></li>
-            <li><a href="#contact" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Contact</a></li>
-          </ul>
-          <div className="md:hidden text-2xl text-white cursor-pointer" onClick={() => setIsOpen(!isOpen)}>☰</div>
-        </nav>
-      );
-    };
-
-    const Hero = ({ bgImage, title, subheading, children }) => (
-      <section className="parallax" style={{ backgroundImage: `url(${bgImage})` }}>
+  <div id="root">
+    <header>
+      <nav class="navbar">
+        <div class="logo">Islam Alsohby</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="hero">
         <div id="particles-js"></div>
-        <div className="hero-content relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-          <p className="text-lg md:text-xl text-white mb-6">{subheading} <span id="date-time"></span></p>
-          {children}
+        <div class="hero-content">
+          <h1>Welcome to My Universe</h1>
+          <p>A journey of a multilingual scholar, leader, entrepreneur, and athlete. <span id="date-time"></span></p>
+          <a href="#about" class="cta">Discover My Story</a>
         </div>
       </section>
-    );
-
-    const Card = ({ frontImage, title, description, backContent, onClick }) => {
-      const [isFlipped, setIsFlipped] = useState(false);
-      return (
-        <div className="card fade-in" onClick={() => { setIsFlipped(!isFlipped); onClick(); }} onMouseEnter={() => setIsFlipped(true)} onMouseLeave={() => setIsFlipped(false)}>
-          <div className="card-inner" style={{ transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
-            <div className="card-front">
-              <img src={frontImage} alt={title} className="w-full h-48 object-cover rounded-lg" />
-              <h3 className="text-xl font-semibold mt-4">{title}</h3>
-              <p className="text-gray-600 mt-2">{description}</p>
-            </div>
-            <div className="card-back">
-              <p className="text-gray-800 mb-4">{backContent}</p>
-              <a href={title === 'Projects' ? '#projects' : '#blog'} className="text-vibrant-green-500 hover:text-warm-orange-500 underline">View All</a>
-            </div>
-          </div>
+      <section id="about" class="about">
+        <h2>About Me</h2>
+        <p></p>
+      </section>
+      <section id="preview" class="preview">
+        <h2>Explore My Journey</h2>
+        <div class="grid">
+          <div class="card" data-type="projects"></div>
+          <div class="card" data-type="blog"></div>
         </div>
-      );
-    };
-
-    const ContactForm = () => {
-      const [isModalOpen, setIsModalOpen] = useState(false);
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const message = e.target.message.value;
-        if (name && email && message) {
-          gsap.fromTo('#contact-form', { scale: 1, opacity: 1 }, {
-            scale: 1.1, opacity: 0.7, duration: 0.3, onComplete: () => {
-              setIsModalOpen(true);
-              e.target.reset();
-              gsap.to('#contact-form', { scale: 1, opacity: 1, duration: 0.3 });
-            }
-          });
-        } else {
-          alert('Please fill in all fields.');
-        }
-      };
-      return (
-        <div>
-          <form id="contact-form" onSubmit={handleSubmit} className="max-w-xl mx-auto p-6 bg-white/15 rounded-2xl backdrop-blur-md flex flex-col gap-4">
-            <input type="text" name="name" placeholder="Name" className="p-3 rounded-lg border border-deep-blue-900 focus:border-vibrant-green-500 focus:outline-none" required />
-            <input type="email" name="email" placeholder="Email" className="p-3 rounded-lg border border-deep-blue-900 focus:border-vibrant-green-500 focus:outline-none" required />
-            <textarea name="message" placeholder="Your Message" className="p-3 rounded-lg border border-deep-blue-900 focus:border-vibrant-green-500 focus:outline-none min-h-32" required></textarea>
-            <button type="submit" className="bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white p-3 rounded-full hover:scale-105 transition-transform shadow-lg">Send Message</button>
-          </form>
-          {isModalOpen && (
-            <div className="modal" onClick={() => setIsModalOpen(false)}>
-              <div className="modal-content" onClick={e => e.stopPropagation()}>
-                <span className="close text-2xl text-warm-orange-500 cursor-pointer" onClick={() => setIsModalOpen(false)}>×</span>
-                <p>Thank you! Your message has been sent. I’ll reply soon.</p>
-              </div>
-            </div>
-          )}
-        </div>
-      );
-    };
-
-    const Footer = () => (
-      <footer className="bg-jet-black-900 text-white p-6 text-center relative">
-        <p>© 2025 Islam Alsohby. All rights reserved. <i className="fas fa-heart text-warm-orange-500"></i></p>
-        <button className="scroll-top absolute bottom-6 right-6 p-4 bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white rounded-full hover:scale-110 transition-transform shadow-lg" onClick={() => gsap.to(window, { duration: 1, scrollTo: 0, ease: 'power2.inOut' })}>↑</button>
-      </footer>
-    );
-
-    const App = () => {
-      useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.parallax-bg').forEach(img => {
-          gsap.to(img, { y: '-20%', ease: 'none', scrollTrigger: { trigger: img.parentElement, scrub: true } });
-        });
-        const cards = document.querySelectorAll('.fade-in');
-        cards.forEach(card => {
-          gsap.from(card, { scrollTrigger: card, opacity: 0, y: 40, scale: 0.95, duration: 1, ease: 'power2.out' });
-        });
-        particlesJS('particles-js', {
-          particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: '#76FF03' }, shape: { type: 'circle' }, opacity: { value: 0.5, random: true }, size: { value: 3, random: true }, line_linked: { enable: false }, move: { enable: true, speed: 2, direction: 'none', random: true } },
-          interactivity: { detectsOn: 'canvas', modes: { repulse: { distance: 150 } } },
-          retina_detect: true
-        });
-        window.addEventListener('scroll', () => {
-          const scrollTopBtn = document.querySelector('.scroll-top');
-          if (window.pageYOffset > 500) gsap.to(scrollTopBtn, { opacity: 1, duration: 0.3, display: 'block' });
-          else gsap.to(scrollTopBtn, { opacity: 0, duration: 0.3, onComplete: () => scrollTopBtn.style.display = 'none' });
-        });
-        function updateDateTime() {
-          const now = new Date();
-          const options = { timeZone: 'Europe/Bucharest', hour12: false, hour: '2-digit', minute: '2-digit' };
-          document.getElementById('date-time').textContent = `Last updated: ${now.toLocaleDateString()} ${now.toLocaleTimeString('en-GB', options)} EEST`;
-        }
-        updateDateTime();
-        setInterval(updateDateTime, 60000);
-      }, []);
-
-      const openModal = (type) => {
-        let content = '';
-        switch (type) { case 'projects': content = 'Dive into my innovative projects and research papers.'; break; case 'blog': content = 'Explore my thoughts, reflections, and educational guides.'; break; }
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.innerHTML = `<div class="modal-content" onClick={e => e.stopPropagation()}><span class="close text-2xl text-warm-orange-500 cursor-pointer" onClick={() => document.body.removeChild(modal)}>×</span><p>${content}</p></div>`;
-        document.body.appendChild(modal);
-        gsap.from(modal, { scale: 0, opacity: 0, duration: 0.5 });
-        modal.addEventListener('click', () => gsap.to(modal, { scale: 0, opacity: 0, duration: 0.5, onComplete: () => document.body.removeChild(modal) }));
-      };
-
-      return (
-        <div>
-          <Navbar />
-          <main>
-            <section id="home" className="parallax">
-              <img src="https://images.unsplash.com/photo-1506784897864-3bb9373a7e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Leadership Team" className="parallax-bg" />
-              <Hero bgImage="" title="Welcome to My Universe" subheading="A journey of a multilingual scholar, leader, entrepreneur, and athlete.">
-                <button className="bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white p-4 rounded-full hover:scale-105 transition-transform shadow-lg" onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>Discover My Story</button>
-              </Hero>
-            </section>
-            <section id="about" className="py-12 px-4 max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-blue-900 mb-6">About Me</h2>
-              <p className="text-lg">I'm Islam Alsohby, fluent in <img src="https://img.icons8.com/color/24/000000/germany.png" alt="German Flag" className="inline" /> German, <img src="https://img.icons8.com/color/24/000000/spain.png" alt="Spanish Flag" className="inline" /> Spanish, <img src="https://img.icons8.com/color/24/000000/france.png" alt="French Flag" className="inline" /> French, and English. With a passion for philosophy, critical thinking, and social impact, I thrive as a <i className="fas fa-users-cog text-vibrant-green-500"></i> leader, <i className="fas fa-lightbulb text-vibrant-green-500"></i> entrepreneur, <i className="fas fa-hands-helping text-vibrant-green-500"></i> social activist, and <i className="fas fa-football-ball text-vibrant-green-500"></i> football player. I share my insights through research, blogs, and projects.</p>
-            </section>
-            <section id="preview" className="py-12 px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-blue-900 mb-6 text-center">Explore My Journey</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-                <Card frontImage="https://images.unsplash.com/photo-1581094794329-805e8e6d8b7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" title="Projects" description="Research, experiences, and innovations." backContent="Discover my work in ELP, BIAB, and research papers." onClick={() => openModal('projects')} />
-                <Card frontImage="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" title="Blog" description="Articles, reflections, and guides." backContent="Explore my thoughts on culture and STEM resources." onClick={() => openModal('blog')} />
-              </div>
-            </section>
-            <section id="contact" className="py-12 px-4 bg-light-green-100">
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-blue-900 mb-6 text-center">Contact Me <i className="fas fa-envelope text-vibrant-green-500"></i></h2>
-              <p className="text-lg text-center mb-6">Let’s connect for collaborations or inquiries.</p>
-              <ContactForm />
-            </section>
-          </main>
-          <Footer />
-        </div>
-      );
-    };
-
-    ReactDOM.render(<App />, document.getElementById('root'));
-  </script>
+      </section>
+      <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Let’s connect for collaborations or inquiries.</p>
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="cta">Send Message</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>© 2025 Islam Alsohby. All rights reserved.</p>
+      <button class="scroll-top">↑</button>
+    </footer>
+  </div>
 </body>
 </html>
