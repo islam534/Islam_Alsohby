@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read Islam Alsohby's detailed blog articles.">
+  <title>Articles - Islam Alsohby</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style id="custom-styles">
+    body { @apply bg-light-green-50 text-dark-green-900 font-inter antialiased; line-height: 1.6; overflow-x: hidden; }
+    .article-section { @apply py-12 px-4 max-w-4xl mx-auto; }
+    .article-img { @apply w-full h-64 object-cover rounded-lg mb-6; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const Navbar = () => {
+      const [isOpen, setIsOpen] = useState(false);
+      return (
+        <nav className="sticky top-0 z-50 bg-gradient-to-r from-deep-blue-900 to-deep-blue-800 p-6 flex justify-between items-center max-w-6xl mx-auto shadow-md">
+          <div className="text-2xl font-bold text-white flex items-center gap-2">Islam Alsohby <i className="fas fa-globe animate-spin-slow"></i></div>
+          <ul className={`flex gap-6 ${isOpen ? 'flex-col absolute top-20 left-0 w-full bg-deep-blue-800 p-4 shadow-lg' : 'hidden md:flex'}`}>
+            <li><a href="index.html#home" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Home</a></li>
+            <li><a href="projects.html" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Projects</a></li>
+            <li><a href="blog.html" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Blog</a></li>
+            <li><a href="index.html#contact" className="text-white hover:text-vibrant-green-500 hover:underline transition-colors">Contact</a></li>
+          </ul>
+          <div className="md:hidden text-2xl text-white cursor-pointer" onClick={() => setIsOpen(!isOpen)}>☰</div>
+        </nav>
+      );
+    };
+
+    const Footer = () => (
+      <footer className="bg-jet-black-900 text-white p-6 text-center relative">
+        <p>© 2025 Islam Alsohby. All rights reserved. <i className="fas fa-heart text-warm-orange-500"></i></p>
+        <button className="scroll-top absolute bottom-6 right-6 p-4 bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white rounded-full hover:scale-110 transition-transform shadow-lg" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>↑</button>
+      </footer>
+    );
+
+    const Article = ({ id, title, image, content }) => (
+      <section id={id} className="article-section">
+        <h1 className="text-3xl md:text-4xl font-bold text-deep-blue-900 mb-6">{title}</h1>
+        <img src={image} alt={title} className="article-img" />
+        <div className="prose lg:prose-lg">{content}</div>
+        <a href="blog.html" className="mt-6 inline-block text-vibrant-green-500 hover:text-warm-orange-500 underline">Back to Blog</a>
+      </section>
+    );
+
+    const App = () => {
+      const articles = [
+        {
+          id: 'dormmate',
+          title: 'Dealing with a Difficult Dormmate',
+          image: 'https://images.unsplash.com/photo-1600585154526-990d8f4ad0db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+          content: (
+            <>
+              <h2>Introduction</h2>
+              <p>Living with a difficult dormmate can be a challenging experience, especially in a shared space where communication and boundaries are key. This article explores strategies to navigate such situations effectively, drawing from personal experiences and practical advice.</p>
+              <h2>Main Points</h2>
+              <h3>Communication</h3>
+              <p>Effective communication is the first step. Approach your dormmate calmly, using "I" statements like "I feel uncomfortable when..." to avoid blame. Regular check-ins can prevent escalation.</p>
+              <h3>Setting Boundaries</h3>
+              <p>Establish clear boundaries, such as quiet hours or shared space rules. Use a written agreement if needed to ensure mutual respect and reduce conflict.</p>
+              <h3>Conflict Resolution</h3>
+              <p>If issues persist, mediate with a resident advisor or counselor. Focus on compromise and seek solutions that benefit both parties, like alternating study times.</p>
+              <h2>Conclusion</h2>
+              <p>Dealing with a difficult dormmate requires patience, communication, and boundary-setting. By applying these strategies, you can transform a challenging situation into a learning opportunity for personal growth.</p>
+            </>
+          )
+        },
+        {
+          id: 'napoleon',
+          title: 'The Napoleon Complex',
+          image: 'https://images.unsplash.com/photo-1506784897864-3bb9373a7e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+          content: (
+            <>
+              <h2>Introduction</h2>
+              <p>The Napoleon Complex, often linked to short stature and overcompensation, is a fascinating study of power dynamics. This article delves into its psychological roots and real-world implications.</p>
+              <h2>Main Points</h2>
+              <h3>Historical Context</h3>
+              <p>Napoleon Bonaparte’s leadership style is often cited as an example, where his height (around 5’2”) fueled his ambition to prove dominance on the battlefield.</p>
+              <h3>Psychological Traits</h3>
+              <p>Studies suggest individuals with this complex may exhibit aggression or assertiveness to offset perceived inferiority, a behavior observable in workplaces or social settings.</p>
+              <h3>Daily Life Examples</h3>
+              <p>From competitive coworkers to assertive peers, this complex manifests in subtle ways, influencing group dynamics and personal interactions.</p>
+              <h2>Conclusion</h2>
+              <p>Understanding the Napoleon Complex sheds light on human behavior, offering insights into how power and perception shape our lives.</p>
+            </>
+          )
+        },
+        {
+          id: 'book-review',
+          title: 'Book Review: The Power of Habit',
+          image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+          content: (
+            <>
+              <h2>Introduction</h2>
+              <p>"The Power of Habit" by Charles Duhigg is a transformative exploration of how habits shape our lives. This review summarizes its key lessons and my personal reflections.</p>
+              <h2>Main Points</h2>
+              <h3>Habit Loop</h3>
+              <p>Duhigg introduces the habit loop—cue, routine, reward—as the foundation of behavior change, supported by scientific research and real-life examples.</p>
+              <h3>Practical Applications</h3>
+              <p>The book offers strategies to build good habits (e.g., exercise) and break bad ones (e.g., procrastination), applicable to personal and professional growth.</p>
+              <h3>Personal Reflection</h3>
+              <p>I found the keystone habit concept inspiring, prompting me to establish a morning routine that boosts productivity and well-being.</p>
+              <h2>Conclusion</h2>
+              <p>"The Power of Habit" is a must-read for anyone seeking to understand and reshape their behaviors through actionable insights.</p>
+            </>
+          )
+        },
+        {
+          id: 'stem-guide',
+          title: 'STEM High School Guide',
+          image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+          content: (
+            <>
+              <h2>Introduction</h2>
+              <p>Pursuing STEM in high school can set the stage for a successful career. This guide provides practical advice for students navigating this challenging yet rewarding path.</p>
+              <h2>Main Points</h2>
+              <h3>Study Habits</h3>
+              <p>Develop consistent study routines, focusing on mathematics and coding. Use tools like Khan Academy and practice problem-solving daily.</p>
+              <h3>Resources</h3>
+              <p>Leverage online courses (e.g., Coursera), school labs, and mentors to deepen your understanding and gain hands-on experience.</p>
+              <h3>Career Paths</h3>
+              <p>Explore fields like engineering, data science, or medicine. Attend career fairs and network with professionals to build connections.</p>
+              <h2>Conclusion</h2>
+              <p>With dedication and the right resources, a STEM education in high school can open doors to exciting opportunities in the future.</p>
+            </>
+          )
+        }
+      ];
+
+      return (
+        <div>
+          <Navbar />
+          <main>
+            {articles.map(article => <Article key={article.id} {...article} />)}
+          </main>
+          <Footer />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
