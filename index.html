@@ -3,63 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal website of Islam Alsohby, a multilingual scholar, leader, and thinker.">
-  <meta name="keywords" content="Islam Alsohby, scholar, leader, entrepreneur, athlete, multilingual, philosophy">
-  <title>Islam Alsohby</title>
+  <meta name="description" content="Explore the universe of Islam Alsohby, a multilingual scholar, leader, entrepreneur, and athlete.">
+  <meta name="keywords" content="Islam Alsohby, scholar, leader, entrepreneur, athlete, multilingual, innovation">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506784897864-3bb9373a7e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+  <meta name="robots" content="index, follow">
+  <title>Islam Alsohby - Cosmic Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .navbar { position: fixed; top: 0; z-index: 100; background: linear-gradient(90deg, #0A1D37, #0A0A1A); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; width: 100%; box-shadow: 0 2px 15px rgba(0,0,0,0.3); }
+    .hero { position: relative; min-height: 100vh; background: url('https://images.unsplash.com/photo-1506784897864-3bb9373a7e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(10,29,55,0.3) 0%, rgba(10,10,26,0.8) 70%); z-index: 1; }
+  </style>
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div id="root">
-    <header>
-      <nav class="navbar">
+  <div id="root" role="main">
+    <header role="banner">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="logo">Islam Alsohby</div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="menu-toggle">☰</div>
+        <div class="menu-toggle" aria-label="Toggle menu">☰</div>
       </nav>
     </header>
     <main>
       <section id="home" class="hero">
         <div id="particles-js"></div>
-        <div class="hero-content">
-          <h1>Welcome to My Universe</h1>
-          <p>A journey of a multilingual scholar, leader, entrepreneur, and athlete. <span id="date-time"></span></p>
-          <a href="#about" class="cta">Discover My Story</a>
+        <div class="hero-content" role="region" aria-label="Hero section">
+          <h1>Explore My Universe</h1>
+          <p>A journey through scholarship, leadership, entrepreneurship, and athletics. <span id="date-time"></span></p>
+          <a href="#about" class="cta" aria-label="Start journey">Start Journey</a>
         </div>
       </section>
-      <section id="about" class="about">
+      <section id="about" class="section" role="region" aria-label="About section">
         <h2>About Me</h2>
-        <p></p>
+        <div class="content"></div>
       </section>
-      <section id="preview" class="preview">
-        <h2>Explore My Journey</h2>
-        <div class="grid">
-          <div class="card" data-type="projects"></div>
-          <div class="card" data-type="blog"></div>
-        </div>
+      <section id="projects" class="section" role="region" aria-label="Projects section">
+        <h2>My Projects</h2>
+        <div class="grid"></div>
       </section>
-      <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>Let’s connect for collaborations or inquiries.</p>
-        <form id="contact-form">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <textarea name="message" placeholder="Your Message" required></textarea>
-          <button type="submit" class="cta">Send Message</button>
-        </form>
+      <section id="blog" class="section" role="region" aria-label="Blog section">
+        <h2>My Reflections</h2>
+        <div class="grid"></div>
+      </section>
+      <section id="contact" class="section" role="region" aria-label="Contact section">
+        <h2>Connect With Me</h2>
+        <div class="content"></div>
       </section>
     </main>
-    <footer>
-      <p>© 2025 Islam Alsohby. All rights reserved.</p>
-      <button class="scroll-top">↑</button>
+    <footer role="contentinfo" class="footer">
+      <p>© 2025 Islam Alsohby. All rights reserved. <i className="fas fa-star text-solar-orange-500"></i></p>
+      <button class="scroll-top" aria-label="Scroll to top">↑</button>
     </footer>
   </div>
 </body>
