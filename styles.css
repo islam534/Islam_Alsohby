@@ -4,41 +4,47 @@
 
 @layer base {
   :root {
-    --deep-space-blue: #0A1D37;
-    --neon-green-500: #00FF99;
-    --solar-orange-500: #FF6F00;
-    --starlight-white: #F5F5F5;
-    --midnight-black: #0A0A1A;
+    --aurora-blue: #1E3A8A;
+    --luminous-emerald-500: #10B981;
+    --radiant-amber-500: #F59E0B;
+    --pearl-glow: #F5F5F5;
+    --void-black: #0F172A;
   }
   @keyframes orbit {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg) translateX(180px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(180px) rotate(-360deg); }
   }
   @keyframes pulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.15); }
+  }
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px #10B981; }
+    50% { box-shadow: 0 0 15px #10B981, 0 0 20px #F59E0B; }
+    100% { box-shadow: 0 0 5px #10B981; }
   }
   .animate-orbit { animation: orbit 20s linear infinite; }
-  .animate-pulse { animation: pulse 2s infinite; }
+  .animate-pulse { animation: pulse 2.5s infinite ease-in-out; }
+  .animate-glow { animation: glow 3s infinite; }
   .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-  .focus-ring { outline: 2px solid var(--neon-green-500); outline-offset: 2px; }
+  .focus-ring { outline: 2px solid var(--luminous-emerald-500); outline-offset: 2px; }
 }
 
 @layer components {
   .navbar {
-    @apply fixed top-0 z-50 bg-gradient-to-r from-deep-space-blue to-midnight-black p-4 md:p-6 flex justify-between items-center w-full shadow-lg;
+    @apply fixed top-0 z-100 bg-gradient-to-r from-aurora-blue to-void-black p-4 md:p-6 flex justify-between items-center w-full shadow-lg;
   }
   .logo {
-    @apply text-2xl md:text-3xl font-bold text-starlight-white flex items-center gap-2;
+    @apply text-2xl md:text-3xl font-bold text-pearl-glow flex items-center gap-2;
   }
   .nav-links {
     @apply flex gap-6;
   }
   .nav-links li a {
-    @apply text-starlight-white text-lg md:text-xl hover:text-neon-green-500 hover:underline transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-neon-green-500 rounded;
+    @apply text-pearl-glow text-lg md:text-xl hover:text-luminous-emerald-500 hover:underline transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-luminous-emerald-500 rounded;
   }
   .menu-toggle {
-    @apply md:hidden text-2xl md:text-3xl text-starlight-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-neon-green-500 rounded;
+    @apply md:hidden text-2xl md:text-3xl text-pearl-glow cursor-pointer focus:outline-none focus:ring-2 focus:ring-luminous-emerald-500 rounded;
   }
   .hero {
     @apply relative min-h-screen bg-cover bg-center text-center overflow-hidden;
@@ -47,66 +53,81 @@
     @apply relative z-20 py-16 px-4 md:px-8 max-w-5xl mx-auto text-center;
   }
   .hero h1 {
-    @apply text-4xl md:text-6xl font-bold text-starlight-white mb-4 animate-pulse;
+    @apply text-5xl md:text-7xl font-bold text-pearl-glow mb-6 animate-pulse;
   }
   .hero p {
-    @apply text-xl md:text-2xl text-starlight-white/80 mb-6;
+    @apply text-2xl md:text-3xl text-pearl-glow/80 mb-8;
   }
   .cta {
-    @apply inline-block px-6 py-3 bg-gradient-to-r from-solar-orange-500 to-[color:hsl(24, 100%, 40%)] text-starlight-white rounded-lg shadow-md hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-solar-orange-500 relative overflow-hidden;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-radiant-amber-500 to-[color:hsl(36, 100%, 50%)] text-pearl-glow rounded-lg shadow-md hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-radiant-amber-500 relative overflow-hidden animate-glow;
   }
   .cta::after {
-    @apply content-[''] absolute w-0 h-0 bg-starlight-white/20 rounded-full transition-all duration-300 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply content-[''] absolute w-0 h-0 bg-pearl-glow/20 rounded-full transition-all duration-300 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
   .cta:hover::after {
-    @apply w-[200%] h-[200%] opacity-50;
+    @apply w-[250%] h-[250%] opacity-60;
   }
   .section {
-    @apply py-16 px-4 md:px-8 max-w-6xl mx-auto;
+    @apply py-20 px-4 md:px-12 max-w-6xl mx-auto relative;
   }
   .section h2 {
-    @apply text-3xl md:text-4xl font-bold text-deep-space-blue mb-8 text-center;
+    @apply text-4xl md:text-5xl font-bold text-aurora-blue mb-10 text-center;
   }
   .grid {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
   }
+  .carousel-container {
+    @apply relative w-full max-w-6xl mx-auto overflow-hidden;
+  }
+  .carousel {
+    @apply flex transition-transform duration-500 ease-in-out;
+  }
   .card {
-    @apply bg-midnight-black/80 backdrop-blur-md p-6 rounded-xl shadow-xl cursor-pointer overflow-hidden relative transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl border border-neon-green-500/20;
+    @apply bg-void-black/70 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-xl cursor-pointer overflow-hidden relative transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl border border-luminous-emerald-500/20 w-80 h-96 mx-4 animate-glow;
   }
   .card-inner {
-    @apply relative transition-transform duration-700;
+    @apply relative h-full transition-transform duration-700;
     transform-style: preserve-3d;
   }
   .card-front, .card-back {
     @apply absolute w-full h-full backface-hidden flex flex-col justify-center items-center;
   }
   .card-back {
-    @apply bg-midnight-black/50 p-6;
+    @apply bg-void-black/50 p-6;
     transform: rotateY(180deg);
   }
   .contact form {
-    @apply max-w-xl mx-auto p-6 bg-midnight-black/50 rounded-xl backdrop-blur-md flex flex-col gap-4 border border-neon-green-500/20;
+    @apply max-w-xl mx-auto p-6 bg-void-black/50 rounded-xl backdrop-blur-md flex flex-col gap-4 border border-luminous-emerald-500/20;
   }
   .contact input, .contact textarea {
-    @apply p-3 rounded-lg border border-deep-space-blue/30 focus:border-neon-green-500 focus:outline-none bg-starlight-white/10 text-starlight-white placeholder-starlight-white/50;
+    @apply p-3 rounded-lg border border-aurora-blue/30 focus:border-luminous-emerald-500 focus:outline-none bg-pearl-glow/10 text-pearl-glow placeholder-pearl-glow/50;
   }
   .contact textarea {
     @apply min-h-32;
   }
   .modal {
-    @apply fixed top-0 left-0 w-full h-full bg-midnight-black/80 flex justify-center items-center z-50 hidden;
+    @apply fixed top-0 left-0 w-full h-full bg-void-black/80 flex justify-center items-center z-50 hidden;
   }
   .modal-content {
-    @apply bg-midnight-black/90 backdrop-blur-md p-6 rounded-xl max-w-md text-center relative text-starlight-white border border-neon-green-500/20;
+    @apply bg-void-black/90 backdrop-blur-md p-6 md:p-8 rounded-xl max-w-md text-center relative text-pearl-glow border border-luminous-emerald-500/20;
   }
   .close {
-    @apply absolute top-4 right-4 text-xl text-solar-orange-500 cursor-pointer hover:text-solar-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-solar-orange-500 rounded;
+    @apply absolute top-4 right-4 text-xl text-radiant-amber-500 cursor-pointer hover:text-radiant-amber-700 transition-colors focus:outline-none focus:ring-2 focus:ring-radiant-amber-500 rounded;
   }
   .footer {
-    @apply bg-midnight-black text-starlight-white p-6 text-center relative;
+    @apply bg-void-black text-pearl-glow p-6 text-center relative;
   }
   .scroll-top {
-    @apply hidden absolute bottom-6 right-6 p-3 bg-gradient-to-r from-solar-orange-500 to-[color:hsl(24, 100%, 40%)] text-starlight-white rounded-full hover:scale-110 transition-transform shadow-md focus:outline-none focus:ring-2 focus:ring-solar-orange-500;
+    @apply hidden absolute bottom-6 right-6 p-3 bg-gradient-to-r from-radiant-amber-500 to-[color:hsl(36, 100%, 50%)] text-pearl-glow rounded-full hover:scale-110 transition-transform shadow-md focus:outline-none focus:ring-2 focus:ring-radiant-amber-500;
+  }
+  .tabs {
+    @apply flex justify-center gap-4 mb-10;
+  }
+  .tab {
+    @apply px-4 py-2 text-pearl-glow text-lg font-semibold rounded-lg hover:bg-luminous-emerald-500/20 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-luminous-emerald-500;
+  }
+  .tab.active {
+    @apply bg-luminous-emerald-500 text-pearl-glow;
   }
 }
 
@@ -116,18 +137,24 @@
       @apply hidden;
     }
     .nav-links.active {
-      @apply flex flex-col absolute top-16 left-0 w-full bg-deep-space-blue p-4 shadow-lg;
+      @apply flex flex-col absolute top-16 left-0 w-full bg-aurora-blue p-4 shadow-lg;
     }
     .hero h1 {
-      @apply text-3xl;
+      @apply text-4xl;
     }
     .grid {
       @apply grid-cols-1;
+    }
+    .carousel-container .card {
+      @apply w-64 h-80;
     }
   }
   @media (min-width: 768px) and (max-width: 1024px) {
     .grid {
       @apply grid-cols-2;
+    }
+    .carousel-container .card {
+      @apply w-72 h-88;
     }
   }
   @media (prefers-reduced-motion: reduce) {
