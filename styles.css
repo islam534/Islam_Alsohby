@@ -4,119 +4,109 @@
 
 @layer base {
   :root {
-    --deep-blue-900: #0D47A1;
-    --vibrant-green-500: #76FF03;
-    --warm-orange-500: #FF7043;
-    --light-green-50: #F1F8E9;
-    --dark-green-900: #1B5E20;
-    --jet-black-900: #212121;
+    --deep-space-blue: #0A1D37;
+    --neon-green-500: #00FF99;
+    --solar-orange-500: #FF6F00;
+    --starlight-white: #F5F5F5;
+    --midnight-black: #0A0A1A;
   }
-  @keyframes spin-slow {
+  @keyframes orbit {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  .animate-spin-slow { animation: spin-slow 4s linear infinite; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  .animate-orbit { animation: orbit 20s linear infinite; }
+  .animate-pulse { animation: pulse 2s infinite; }
   .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .focus-ring { outline: 2px solid var(--neon-green-500); outline-offset: 2px; }
 }
 
 @layer components {
   .navbar {
-    @apply fixed top-0 z-50 bg-gradient-to-r from-deep-blue-900 to-deep-blue-800 p-6 flex justify-between items-center w-full shadow-md;
+    @apply fixed top-0 z-50 bg-gradient-to-r from-deep-space-blue to-midnight-black p-4 md:p-6 flex justify-between items-center w-full shadow-lg;
   }
   .logo {
-    @apply text-2xl font-bold text-white flex items-center gap-2;
+    @apply text-2xl md:text-3xl font-bold text-starlight-white flex items-center gap-2;
   }
   .nav-links {
     @apply flex gap-6;
   }
   .nav-links li a {
-    @apply text-white hover:text-vibrant-green-500 hover:underline transition-colors;
+    @apply text-starlight-white text-lg md:text-xl hover:text-neon-green-500 hover:underline transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-neon-green-500 rounded;
   }
   .menu-toggle {
-    @apply md:hidden text-2xl text-white cursor-pointer;
+    @apply md:hidden text-2xl md:text-3xl text-starlight-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-neon-green-500 rounded;
   }
   .hero {
-    @apply relative overflow-hidden text-center min-h-[60vh] bg-light-green-50;
+    @apply relative min-h-screen bg-cover bg-center text-center overflow-hidden;
   }
   .hero-content {
-    @apply relative z-10 py-12 px-4 max-w-4xl mx-auto;
+    @apply relative z-20 py-16 px-4 md:px-8 max-w-5xl mx-auto text-center;
   }
   .hero h1 {
-    @apply text-4xl md:text-5xl font-bold text-white mb-4;
+    @apply text-4xl md:text-6xl font-bold text-starlight-white mb-4 animate-pulse;
   }
   .hero p {
-    @apply text-lg md:text-xl text-white mb-6;
+    @apply text-xl md:text-2xl text-starlight-white/80 mb-6;
   }
   .cta {
-    @apply inline-block px-6 py-3 bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white rounded-full hover:scale-105 transition-transform shadow-lg;
+    @apply inline-block px-6 py-3 bg-gradient-to-r from-solar-orange-500 to-[color:hsl(24, 100%, 40%)] text-starlight-white rounded-lg shadow-md hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-solar-orange-500 relative overflow-hidden;
   }
-  .about, .projects, .blog-posts, .contact {
-    @apply py-12 px-4 max-w-4xl mx-auto;
+  .cta::after {
+    @apply content-[''] absolute w-0 h-0 bg-starlight-white/20 rounded-full transition-all duration-300 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
-  .about h2, .projects h2, .blog-posts h2, .contact h2 {
-    @apply text-3xl md:text-4xl font-bold text-deep-blue-900 mb-6 text-center;
+  .cta:hover::after {
+    @apply w-[200%] h-[200%] opacity-50;
   }
-  .about p {
-    @apply text-lg text-dark-green-900;
+  .section {
+    @apply py-16 px-4 md:px-8 max-w-6xl mx-auto;
+  }
+  .section h2 {
+    @apply text-3xl md:text-4xl font-bold text-deep-space-blue mb-8 text-center;
   }
   .grid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
   }
   .card {
-    @apply bg-white/20 backdrop-blur-md p-6 rounded-2xl shadow-lg cursor-pointer transition-transform duration-500 hover:-translate-y-6 hover:rotate-x-5 relative;
+    @apply bg-midnight-black/80 backdrop-blur-md p-6 rounded-xl shadow-xl cursor-pointer overflow-hidden relative transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl border border-neon-green-500/20;
   }
   .card-inner {
     @apply relative transition-transform duration-700;
     transform-style: preserve-3d;
   }
   .card-front, .card-back {
-    @apply absolute w-full h-full backface-hidden;
+    @apply absolute w-full h-full backface-hidden flex flex-col justify-center items-center;
   }
   .card-back {
-    @apply flex flex-col justify-center items-center bg-white/10 p-6;
+    @apply bg-midnight-black/50 p-6;
     transform: rotateY(180deg);
   }
   .contact form {
-    @apply max-w-xl mx-auto p-6 bg-white/15 rounded-2xl backdrop-blur-md flex flex-col gap-4;
+    @apply max-w-xl mx-auto p-6 bg-midnight-black/50 rounded-xl backdrop-blur-md flex flex-col gap-4 border border-neon-green-500/20;
   }
   .contact input, .contact textarea {
-    @apply p-3 rounded-lg border border-deep-blue-900 focus:border-vibrant-green-500 focus:outline-none;
+    @apply p-3 rounded-lg border border-deep-space-blue/30 focus:border-neon-green-500 focus:outline-none bg-starlight-white/10 text-starlight-white placeholder-starlight-white/50;
   }
   .contact textarea {
     @apply min-h-32;
   }
   .modal {
-    @apply fixed top-0 left-0 w-full h-full bg-black/70 flex justify-center items-center z-50 hidden;
+    @apply fixed top-0 left-0 w-full h-full bg-midnight-black/80 flex justify-center items-center z-50 hidden;
   }
   .modal-content {
-    @apply bg-white/90 backdrop-blur-md p-6 rounded-2xl max-w-md text-center relative text-dark-green-900;
+    @apply bg-midnight-black/90 backdrop-blur-md p-6 rounded-xl max-w-md text-center relative text-starlight-white border border-neon-green-500/20;
   }
   .close {
-    @apply absolute top-4 right-4 text-2xl text-warm-orange-500 cursor-pointer;
+    @apply absolute top-4 right-4 text-xl text-solar-orange-500 cursor-pointer hover:text-solar-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-solar-orange-500 rounded;
   }
   .footer {
-    @apply bg-jet-black-900 text-white p-6 text-center relative;
+    @apply bg-midnight-black text-starlight-white p-6 text-center relative;
   }
   .scroll-top {
-    @apply hidden absolute bottom-6 right-6 p-4 bg-gradient-to-r from-warm-orange-500 to-warm-orange-600 text-white rounded-full hover:scale-110 transition-transform shadow-lg;
-  }
-  .article {
-    @apply py-12 px-4 max-w-4xl mx-auto;
-  }
-  .article h2 {
-    @apply text-3xl md:text-4xl font-bold text-deep-blue-900 mb-6;
-  }
-  .article img {
-    @apply w-full h-64 object-cover rounded-lg mb-6;
-  }
-  .article-content {
-    @apply text-lg leading-7 text-dark-green-900;
-  }
-  .article-content h3 {
-    @apply text-xl font-semibold mt-6 mb-2 text-deep-blue-800;
-  }
-  .back-to-top {
-    @apply mt-6 px-4 py-2 bg-vibrant-green-500 text-white rounded-full hover:bg-warm-orange-500 transition-colors;
+    @apply hidden absolute bottom-6 right-6 p-3 bg-gradient-to-r from-solar-orange-500 to-[color:hsl(24, 100%, 40%)] text-starlight-white rounded-full hover:scale-110 transition-transform shadow-md focus:outline-none focus:ring-2 focus:ring-solar-orange-500;
   }
 }
 
@@ -126,7 +116,7 @@
       @apply hidden;
     }
     .nav-links.active {
-      @apply flex flex-col absolute top-20 left-0 w-full bg-deep-blue-800 p-4 shadow-lg;
+      @apply flex flex-col absolute top-16 left-0 w-full bg-deep-space-blue p-4 shadow-lg;
     }
     .hero h1 {
       @apply text-3xl;
@@ -138,6 +128,12 @@
   @media (min-width: 768px) and (max-width: 1024px) {
     .grid {
       @apply grid-cols-2;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
     }
   }
 }
