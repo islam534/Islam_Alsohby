@@ -39,12 +39,12 @@ body.dark-mode {
     color: white;
     position: sticky;
     top: 0;
-    z-index: 1001; /* Increased z-index */
+    z-index: 2000; /* Significantly higher z-index */
     box-shadow: var(--shadow);
 }
 
-.navbar * {
-    z-index: 1001; /* Ensure all children inherit high z-index */
+.navbar > * {
+    z-index: 2000; /* Ensure all children are above other content */
 }
 
 .logo a {
@@ -57,7 +57,7 @@ body.dark-mode {
 .nav-links {
     display: flex;
     gap: 1.2rem;
-    z-index: 1001;
+    z-index: 2000;
 }
 
 .nav-links a {
@@ -75,12 +75,18 @@ body.dark-mode {
     background: none;
     border: none;
     color: white;
-    font-size: 1.8rem; /* Larger icon */
+    font-size: 2rem; /* Even larger icon */
     cursor: pointer;
-    padding: 1rem; /* Larger touch target */
-    display: block !important; /* Force display with high specificity */
+    padding: 1.2rem; /* Larger touch target */
+    display: block !important; /* Force display */
     position: relative;
-    z-index: 1002; /* Higher than navbar */
+    z-index: 2001; /* Higher than navbar */
+    line-height: 1; /* Align icon properly */
+}
+
+.theme-toggle i, .menu-toggle i {
+    display: inline-block; /* Ensure icon is visible */
+    vertical-align: middle;
 }
 
 .theme-toggle:hover, .menu-toggle:hover {
@@ -96,14 +102,14 @@ body.dark-mode {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px; /* Increased to avoid overlap */
+        top: 80px; /* Increased for better spacing */
         left: 0;
         width: 100%;
         background: var(--deep-brown);
-        padding: 1rem;
+        padding: 1.5rem;
         box-shadow: var(--shadow);
         text-align: center;
-        z-index: 1000;
+        z-index: 2000;
     }
 
     .nav-links.active {
@@ -115,12 +121,12 @@ body.dark-mode {
     }
 
     .navbar {
-        flex-wrap: nowrap; /* Prevent wrapping */
+        flex-wrap: nowrap;
         padding: 0.8rem 1rem;
     }
 
     .navbar > *:not(:last-child) {
-        margin-right: 1.5rem; /* More spacing */
+        margin-right: 1.5rem;
     }
 
     .theme-toggle {
@@ -141,7 +147,7 @@ body.dark-mode {
     color: white;
     position: relative;
     overflow: hidden;
-    z-index: 1; /* Lower than navbar */
+    z-index: 100; /* Lower than navbar */
 }
 
 .hero-content {
@@ -227,7 +233,7 @@ body.dark-mode {
     opacity: 0;
     transform: translateY(20px);
     transition: var(--transition);
-    z-index: 1;
+    z-index: 100;
 }
 
 .section.visible {
