@@ -5,13 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
     if (!themeToggle || !themeIcon) {
-        console.error('Theme toggle or icon missing. Creating fallback.');
+        console.warn('Theme toggle or icon not found. Creating fallback.');
         const navbar = document.querySelector('.navbar');
         if (navbar) {
             themeToggle = document.createElement('button');
             themeToggle.className = 'theme-toggle';
             themeToggle.setAttribute('aria-label', 'Toggle dark mode');
-            themeToggle.style.display = 'block'; // Inline style as fallback
+            themeToggle.style.display = 'block';
+            themeToggle.style.position = 'relative';
             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
             navbar.appendChild(themeToggle);
             themeIcon = themeToggle.querySelector('i');
@@ -23,14 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
             themeIcon.classList.toggle('fa-moon');
             themeIcon.classList.toggle('fa-sun');
             localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-            console.log('Theme toggled to:', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            console.log('Theme switched to:', body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
         if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
             themeIcon.classList.replace('fa-moon', 'fa-sun');
         }
     } else {
-        console.error('Failed to initialize theme toggle after fallback.');
+        console.error('Theme toggle initialization failed.');
     }
 
     // Mobile Menu Toggle
@@ -38,14 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
 
     if (!menuToggle || !navLinks) {
-        console.error('Menu toggle or nav-links missing. Creating fallback.');
+        console.warn('Menu toggle or nav-links not found. Creating fallback.');
         const navbar = document.querySelector('.navbar');
         if (navbar) {
             menuToggle = document.createElement('button');
             menuToggle.className = 'menu-toggle';
             menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
             menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.style.display = 'block'; // Inline style as fallback
+            menuToggle.style.display = 'block';
+            menuToggle.style.position = 'relative';
             menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             navbar.insertBefore(menuToggle, navbar.children[1]);
             const navLinksFallback = document.createElement('nav');
@@ -81,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     } else {
-        console.error('Failed to initialize menu toggle after fallback.');
+        console.error('Menu toggle initialization failed.');
     }
 
     // Smooth Scroll
