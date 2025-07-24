@@ -70,10 +70,10 @@ body.dark-mode {
     background: none;
     border: none;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: var(--transition);
-    padding: 0.5rem;
+    padding: 0.6rem;
+    display: block; /* Ensure buttons are visible by default */
 }
 
 .theme-toggle:hover, .menu-toggle:hover {
@@ -107,18 +107,17 @@ body.dark-mode {
     }
 
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         padding: 0.8rem 1rem;
     }
 
-    .navbar > * {
-        margin: 0.5rem 0;
+    .navbar > *:not(:last-child) {
+        margin-right: 1rem; /* Space between logo, menu-toggle, and theme-toggle */
     }
 
     .theme-toggle {
-        order: 1; /* Move theme toggle to the top on mobile */
-        margin-left: auto; /* Push to the right */
+        margin-left: auto; /* Push theme toggle to the right */
     }
 }
 
