@@ -8,216 +8,223 @@
     <meta name="author" content="Islam Alsohby">
     <title>Islam Alsohby 🌍💡</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-romZkPQkL+6r+3g6hY2/2r0/6mX8+6h4s9g3xE6rQ4R+0y4A8t6wXqH2G4J3oL+9W5n2yW4o+6r4A9x8lZ7z0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#B22222">
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Islam Alsohby">
+    <meta property="og:description" content="Explore the journey of Islam Alsohby, a multilingual thinker, philosopher, entrepreneur, and STEM enthusiast.">
+    <meta property="og:image" content="media/WhatsApp Image 2025-07-24 at 09.00.46_2e5d5056.jpg">
+    <meta property="og:url" content="https://islam_alsohby.com">
 </head>
 <body>
-    <nav class="navbar">
+    <header class="navbar">
         <div class="logo">
-            <a href="#home"><i class="fas fa-star"></i> Islam Alsohby ✨</a>
+            <a href="#home" aria-label="Home"><i class="fas fa-star"></i> Islam Alsohby ✨</a>
         </div>
-        <div class="nav-links">
-            <a href="#home"><i class="fas fa-home"></i> Home</a>
-            <a href="#about"><i class="fas fa-user"></i> About</a>
-            <a href="#research"><i class="fas fa-flask"></i> Research</a>
-            <a href="#blog"><i class="fas fa-pen"></i> Blog</a>
-            <a href="#languages"><i class="fas fa-globe"></i> Languages</a>
-            <a href="#media"><i class="fas fa-camera"></i> Media</a>
-            <a href="#recommendations"><i class="fas fa-lightbulb"></i> Recommendations</a>
-            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-        </div>
-        <button class="theme-toggle" aria-label="Toggle theme">
-            <i class="fas fa-moon"></i>
-        </button>
-        <button class="menu-toggle" aria-label="Toggle menu">
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </button>
-    </nav>
+        <nav class="nav-links" role="navigation">
+            <a href="#home" aria-label="Go to Home"><i class="fas fa-home"></i> Home</a>
+            <a href="#about" aria-label="Go to About"><i class="fas fa-user"></i> About</a>
+            <a href="#research" aria-label="Go to Research"><i class="fas fa-flask"></i> Research</a>
+            <a href="#blog" aria-label="Go to Blog"><i class="fas fa-pen"></i> Blog</a>
+            <a href="#languages" aria-label="Go to Languages"><i class="fas fa-globe"></i> Languages</a>
+            <a href="#media" aria-label="Go to Media"><i class="fas fa-camera"></i> Media</a>
+            <a href="#recommendations" aria-label="Go to Recommendations"><i class="fas fa-lightbulb"></i> Recommendations</a>
+            <a href="#contact" aria-label="Go to Contact"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="media/WhatsApp Image 2025-07-24 at 09.00.46_2e5d5056.jpg" alt="Islam Alsohby" class="hero-image">
-            <h1>Islam Alsohby 🌟</h1>
-            <p class="tagline">Multilingual Thinker | Philosopher | Entrepreneur | STEM Enthusiast 💭🚀</p>
-            <p class="multilingual">"تعلم، فكر، أثر" | "Lerne, denke, beeinflusse" | "Apprends, pense, influence" | "Aprende, piensa, impacta" 🌐</p>
-            <div class="hero-ctas">
-                <a href="#blog" class="cta">Explore Blog 📝</a>
-                <a href="#research" class="cta secondary">View Research 🔬</a>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <img src="media/WhatsApp Image 2025-07-24 at 09.00.46_2e5d5056.jpg" alt="Islam Alsohby" class="hero-image" loading="lazy" decoding="async" width="150" height="150">
+                <h1>Islam Alsohby 🌟</h1>
+                <p class="tagline">Multilingual Thinker | Philosopher | Entrepreneur | STEM Enthusiast 💭🚀</p>
+                <p class="multilingual">"تعلم، فكر، أثر" | "Lerne, denke, beeinflusse" | "Apprends, pense, influence" | "Aprende, piensa, impacta" 🌐</p>
+                <div class="hero-ctas">
+                    <a href="#blog" class="cta" aria-label="Explore Blog">Explore Blog 📝</a>
+                    <a href="#research" class="cta secondary" aria-label="View Research">View Research 🔬</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="section about">
-        <h2>About Me 🌱</h2>
-        <div class="about-content">
-            <img src="https://via.placeholder.com/400x400?text=Friendly+Close-up" alt="Islam Alsohby" class="about-image" loading="lazy">
-            <div class="about-text">
-                <p>I’m Islam Alsohby, a multilingual learner fluent in Arabic, German, French, and Spanish. My passion lies at the intersection of critical thinking, philosophy, and entrepreneurship. As a STEM student, I’m driven to create innovative solutions that make a difference. 💡</p>
-                <p>My journey includes deep dives into existentialism, leadership through programs like ELP and BIAB, and a commitment to social awareness. Whether I’m on the football field ⚽, in the gym 💪, or mentoring others 👥, I strive to push boundaries and inspire change.</p>
-                <p>Education: STEM-focused degree with coursework in AI, data science, and engineering. 🎓</p>
-                <p>Values: Clarity, curiosity, and cultural connection. 🌍</p>
-                <p>Inspirations: Viktor Frankl’s search for meaning, the vibrancy of global cultures, and the pursuit of excellence. 🌟</p>
+        <section id="about" class="section about">
+            <h2>About Me 🌱</h2>
+            <div class="about-content">
+                <img src="https://via.placeholder.com/400x400?text=Friendly+Close-up" alt="Islam Alsohby" class="about-image" loading="lazy" decoding="async" width="400" height="400">
+                <div class="about-text">
+                    <p>I’m Islam Alsohby, a multilingual learner fluent in Arabic, German, French, and Spanish. My passion lies at the intersection of critical thinking, philosophy, and entrepreneurship. As a STEM student, I’m driven to create innovative solutions that make a difference. 💡</p>
+                    <p>My journey includes deep dives into existentialism, leadership through programs like ELP and BIAB, and a commitment to social awareness. Whether I’m on the football field ⚽, in the gym 💪, or mentoring others 👥, I strive to push boundaries and inspire change.</p>
+                    <p>Education: STEM-focused degree with coursework in AI, data science, and engineering. 🎓</p>
+                    <p>Values: Clarity, curiosity, and cultural connection. 🌍</p>
+                    <p>Inspirations: Viktor Frankl’s search for meaning, the vibrancy of global cultures, and the pursuit of excellence. 🌟</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="research" class="section">
-        <h2>Research & Projects 🔍</h2>
-        <div class="filter-buttons">
-            <button data-filter="all" class="active"><i class="fas fa-list"></i> All</button>
-            <button data-filter="stem"><i class="fas fa-laptop-code"></i> STEM</button>
-            <button data-filter="research"><i class="fas fa-book"></i> Research</button>
-        </div>
-        <div class="gallery">
-            <div class="gallery-item" data-category="stem">
-                <img src="https://via.placeholder.com/400x250?text=Code+Screenshot" alt="AI Chatbot" loading="lazy">
-                <h3>AI-Powered Chatbot 🤖</h3>
-                <p>A Python-based chatbot for educational platforms, leveraging NLP.</p>
-                <a href="https://via.placeholder.com/400x250?text=PDF" target="_blank" class="gallery-cta">Download PDF 📥</a>
+        <section id="research" class="section">
+            <h2>Research & Projects 🔍</h2>
+            <div class="filter-buttons" role="tablist">
+                <button data-filter="all" class="active" role="tab" aria-selected="true"><i class="fas fa-list"></i> All</button>
+                <button data-filter="stem" role="tab" aria-selected="false"><i class="fas fa-laptop-code"></i> STEM</button>
+                <button data-filter="research" role="tab" aria-selected="false"><i class="fas fa-book"></i> Research</button>
             </div>
-            <div class="gallery-item" data-category="research">
-                <img src="https://via.placeholder.com/400x250?text=Diagram" alt="Existentialism" loading="lazy">
-                <h3>Existentialism in Modern Tech 💭</h3>
-                <p>Exploring meaning in AI-driven societies through a philosophical lens.</p>
-                <a href="https://via.placeholder.com/400x250?text=PDF" target="_blank" class="gallery-cta">Download PDF 📥</a>
+            <div class="gallery" role="region" aria-live="polite">
+                <div class="gallery-item" data-category="stem">
+                    <img src="https://via.placeholder.com/400x250?text=Code+Screenshot" alt="AI Chatbot" loading="lazy" decoding="async" width="400" height="250">
+                    <h3>AI-Powered Chatbot 🤖</h3>
+                    <p>A Python-based chatbot for educational platforms, leveraging NLP.</p>
+                    <a href="https://via.placeholder.com/400x250?text=PDF" target="_blank" class="gallery-cta" aria-label="Download AI Chatbot PDF">Download PDF 📥</a>
+                </div>
+                <div class="gallery-item" data-category="research">
+                    <img src="https://via.placeholder.com/400x250?text=Diagram" alt="Existentialism" loading="lazy" decoding="async" width="400" height="250">
+                    <h3>Existentialism in Modern Tech 💭</h3>
+                    <p>Exploring meaning in AI-driven societies through a philosophical lens.</p>
+                    <a href="https://via.placeholder.com/400x250?text=PDF" target="_blank" class="gallery-cta" aria-label="Download Existentialism PDF">Download PDF 📥</a>
+                </div>
+                <div class="gallery-item" data-category="stem">
+                    <img src="https://via.placeholder.com/400x250?text=Mockup" alt="IoT Project" loading="lazy" decoding="async" width="400" height="250">
+                    <h3>IoT Smart Home System 🏠</h3>
+                    <p>A scalable IoT solution for home automation.</p>
+                    <a href="https://via.placeholder.com/400x250?text=PDF" target="_blank" class="gallery-cta" aria-label="Download IoT PDF">Download PDF 📥</a>
+                </div>
             </div>
-            <div class="gallery-item" data-category="stem">
-                <img src="https://via.placeholder.com/400x250?text=Mockup" alt="IoT Project" loading="lazy">
-                <h3>IoT Smart Home System 🏠</h3>
-                <p>A scalable IoT solution for home automation.</p>
-                <a href="https://via.placeholder.com/400x250?text=PDF" target="_blank" class="gallery-cta">Download PDF 📥</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="blog" class="section">
-        <h2>Blog ✍️</h2>
-        <div class="filter-buttons">
-            <button data-filter="all" class="active"><i class="fas fa-list"></i> All</button>
-            <button data-filter="philosophy"><i class="fas fa-brain"></i> Philosophy</button>
-            <button data-filter="social"><i class="fas fa-users"></i> Social</button>
-            <button data-filter="guides"><i class="fas fa-graduation-cap"></i> Guides</button>
-        </div>
-        <div class="gallery">
-            <div class="gallery-item" data-category="philosophy">
-                <img src="https://via.placeholder.com/400x250?text=Abstract+Philosophy" alt="Fallacies" loading="lazy">
-                <h3>Fallacies in Egyptian Discourse 🗣️</h3>
-                <p>Analyzing logical fallacies in public debates and media.</p>
-                <a href="#blog-post" class="gallery-cta">Read More 📖</a>
+        <section id="blog" class="section">
+            <h2>Blog ✍️</h2>
+            <div class="filter-buttons" role="tablist">
+                <button data-filter="all" class="active" role="tab" aria-selected="true"><i class="fas fa-list"></i> All</button>
+                <button data-filter="philosophy" role="tab" aria-selected="false"><i class="fas fa-brain"></i> Philosophy</button>
+                <button data-filter="social" role="tab" aria-selected="false"><i class="fas fa-users"></i> Social</button>
+                <button data-filter="guides" role="tab" aria-selected="false"><i class="fas fa-graduation-cap"></i> Guides</button>
             </div>
-            <div class="gallery-item" data-category="social">
-                <img src="https://via.placeholder.com/400x250?text=Social+Experience" alt="Cultural Dynamics" loading="lazy">
-                <h3>Navigating Arab-Egyptian Dynamics 🌐</h3>
-                <p>Reflections on cultural identity and social experiences.</p>
-                <a href="#blog-post" class="gallery-cta">Read More 📖</a>
+            <div class="gallery" role="region" aria-live="polite">
+                <div class="gallery-item" data-category="philosophy">
+                    <img src="https://via.placeholder.com/400x250?text=Abstract+Philosophy" alt="Fallacies" loading="lazy" decoding="async" width="400" height="250">
+                    <h3>Fallacies in Egyptian Discourse 🗣️</h3>
+                    <p>Analyzing logical fallacies in public debates and media.</p>
+                    <a href="#blog-post" class="gallery-cta" aria-label="Read Fallacies in Egyptian Discourse">Read More 📖</a>
+                </div>
+                <div class="gallery-item" data-category="social">
+                    <img src="https://via.placeholder.com/400x250?text=Social+Experience" alt="Cultural Dynamics" loading="lazy" decoding="async" width="400" height="250">
+                    <h3>Navigating Arab-Egyptian Dynamics 🌐</h3>
+                    <p>Reflections on cultural identity and social experiences.</p>
+                    <a href="#blog-post" class="gallery-cta" aria-label="Read Navigating Arab-Egyptian Dynamics">Read More 📖</a>
+                </div>
+                <div class="gallery-item" data-category="guides">
+                    <img src="https://via.placeholder.com/400x250?text=STEM+Guide" alt="STEM Guide" loading="lazy" decoding="async" width="400" height="250">
+                    <h3>Guide for STEM High School Students 📚</h3>
+                    <p>Practical tips for excelling in STEM education.</p>
+                    <a href="#blog-post" class="gallery-cta" aria-label="Read STEM Guide">Read More 📖</a>
+                </div>
+                <div class="gallery-item" data-category="philosophy">
+                    <img src="https://via.placeholder.com/400x250?text=Existential+Crisis" alt="Existential Crisis" loading="lazy" decoding="async" width="400" height="250">
+                    <h3>Navigating Existential Crises 💭</h3>
+                    <p>A personal exploration of meaning and purpose.</p>
+                    <a href="#blog-post" class="gallery-cta" aria-label="Read Navigating Existential Crises">Read More 📖</a>
+                </div>
             </div>
-            <div class="gallery-item" data-category="guides">
-                <img src="https://via.placeholder.com/400x250?text=STEM+Guide" alt="STEM Guide" loading="lazy">
-                <h3>Guide for STEM High School Students 📚</h3>
-                <p>Practical tips for excelling in STEM education.</p>
-                <a href="#blog-post" class="gallery-cta">Read More 📖</a>
-            </div>
-            <div class="gallery-item" data-category="philosophy">
-                <img src="https://via.placeholder.com/400x250?text=Existential+Crisis" alt="Existential Crisis" loading="lazy">
-                <h3>Navigating Existential Crises 💭</h3>
-                <p>A personal exploration of meaning and purpose.</p>
-                <a href="#blog-post" class="gallery-cta">Read More 📖</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="languages" class="section">
-        <h2>Languages & Learning 🌐</h2>
-        <p>I’m fluent in Arabic, German, French, and Spanish, constantly refining my skills through immersive learning. My toolkit includes Duolingo, Anki, and cultural media like podcasts, books, and films. 📖🎧</p>
-        <div class="language-collage">
-            <img src="https://via.placeholder.com/100x100?text=Arabic+Flag" alt="Arabic" loading="lazy">
-            <img src="https://via.placeholder.com/100x100?text=German+Flag" alt="German" loading="lazy">
-            <img src="https://via.placeholder.com/100x100?text=French+Flag" alt="French" loading="lazy">
-            <img src="https://via.placeholder.com/100x100?text=Spanish+Flag" alt="Spanish" loading="lazy">
-        </div>
-    </section>
+        <section id="languages" class="section">
+            <h2>Languages & Learning 🌐</h2>
+            <p>I’m fluent in Arabic, German, French, and Spanish, constantly refining my skills through immersive learning. My toolkit includes Duolingo, Anki, and cultural media like podcasts, books, and films. 📖🎧</p>
+            <div class="language-collage" role="img" aria-label="Language flags: Arabic, German, French, Spanish">
+                <img src="https://via.placeholder.com/100x100?text=Arabic+Flag" alt="Arabic Flag" loading="lazy" decoding="async" width="100" height="100">
+                <img src="https://via.placeholder.com/100x100?text=German+Flag" alt="German Flag" loading="lazy" decoding="async" width="100" height="100">
+                <img src="https://via.placeholder.com/100x100?text=French+Flag" alt="French Flag" loading="lazy" decoding="async" width="100" height="100">
+                <img src="https://via.placeholder.com/100x100?text=Spanish+Flag" alt="Spanish Flag" loading="lazy" decoding="async" width="100" height="100">
+            </div>
+        </section>
 
-    <section id="media" class="section">
-        <h2>Media 📸</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/400x250?text=Football+Action" alt="Football" loading="lazy">
-                <p>Playing football with passion and teamwork. ⚽</p>
+        <section id="media" class="section">
+            <h2>Media 📸</h2>
+            <div class="gallery" role="region">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x250?text=Football+Action" alt="Football Action" loading="lazy" decoding="async" width="400" height="250">
+                    <p>Playing football with passion and teamwork. ⚽</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="media/islam-whatsapp.jpg" alt="Islam Alsohby Casual" loading="lazy" decoding="async" width="400" height="250">
+                    <p>Relaxing in a vibrant setting, showcasing my personal style. 😎</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x250?text=Mentoring" alt="Mentoring" loading="lazy" decoding="async" width="400" height="250">
+                    <p>Guiding young leaders in ELP and BIAB. 👥</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x250?text=Studying" alt="Studying" loading="lazy" decoding="async" width="400" height="250">
+                    <p>Deep in thought, tackling STEM challenges. 📚</p>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="media/islam-whatsapp.jpg" alt="Islam Alsohby Casual" loading="lazy">
-                <p>Relaxing in a vibrant setting, showcasing my personal style. 😎</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/400x250?text=Mentoring" alt="Mentoring" loading="lazy">
-                <p>Guiding young leaders in ELP and BIAB. 👥</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/400x250?text=Studying" alt="Studying" loading="lazy">
-                <p>Deep in thought, tackling STEM challenges. 📚</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="recommendations" class="section">
-        <h2>Recommendations 🌟</h2>
-        <div class="recommendation-grid">
-            <div class="recommendation-item">
-                <h3>Books 📚</h3>
-                <ul>
-                    <li>"Man's Search for Meaning" by Viktor Frankl</li>
-                    <li>"Atomic Habits" by James Clear</li>
-                    <li>"Thinking, Fast and Slow" by Daniel Kahneman</li>
-                </ul>
+        <section id="recommendations" class="section">
+            <h2>Recommendations 🌟</h2>
+            <div class="recommendation-grid" role="list">
+                <article class="recommendation-item" role="listitem">
+                    <h3>Books 📚</h3>
+                    <ul>
+                        <li>"Man's Search for Meaning" by Viktor Frankl</li>
+                        <li>"Atomic Habits" by James Clear</li>
+                        <li>"Thinking, Fast and Slow" by Daniel Kahneman</li>
+                    </ul>
+                </article>
+                <article class="recommendation-item" role="listitem">
+                    <h3>Courses 🎓</h3>
+                    <ul>
+                        <li>Coursera: Machine Learning by Andrew Ng</li>
+                        <li>Duolingo: Language Learning</li>
+                        <li>edX: Introduction to Computer Science</li>
+                    </ul>
+                </article>
+                <article class="recommendation-item" role="listitem">
+                    <h3>Tools 🛠️</h3>
+                    <ul>
+                        <li>Notion for productivity and organization</li>
+                        <li>Anki for spaced repetition</li>
+                        <li>Obsidian for knowledge management</li>
+                    </ul>
+                </article>
+                <article class="recommendation-item" role="listitem">
+                    <h3>Life Advice 💡</h3>
+                    <ul>
+                        <li>Prioritize consistency over intensity</li>
+                        <li>Question assumptions to sharpen critical thinking</li>
+                        <li>Embrace discomfort for personal growth</li>
+                    </ul>
+                </article>
             </div>
-            <div class="recommendation-item">
-                <h3>Courses 🎓</h3>
-                <ul>
-                    <li>Coursera: Machine Learning by Andrew Ng</li>
-                    <li>Duolingo: Language Learning</li>
-                    <li>edX: Introduction to Computer Science</li>
-                </ul>
-            </div>
-            <div class="recommendation-item">
-                <h3>Tools 🛠️</h3>
-                <ul>
-                    <li>Notion for productivity and organization</li>
-                    <li>Anki for spaced repetition</li>
-                    <li>Obsidian for knowledge management</li>
-                </ul>
-            </div>
-            <div class="recommendation-item">
-                <h3>Life Advice 💡</h3>
-                <ul>
-                    <li>Prioritize consistency over intensity</li>
-                    <li>Question assumptions to sharpen critical thinking</li>
-                    <li>Embrace discomfort for personal growth</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="section contact">
-        <h2>Contact Me 📧</h2>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-            <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-        </form>
-        <div class="social-links">
-            <a href="mailto:contact@islam_alsohby.com"><i class="fas fa-envelope"></i> Email 📩</a>
-            <a href="https://github.com/islamalsohby"><i class="fab fa-github"></i> GitHub 👨‍💻</a>
-            <a href="https://notion.so/islamalsohby"><i class="fas fa-book"></i> Notion 📖</a>
-            <a href="https://x.com/islamalsohby"><i class="fab fa-x-twitter"></i> X 🐦</a>
-        </div>
-    </section>
+        <section id="contact" class="section contact">
+            <h2>Contact Me 📧</h2>
+            <form id="contact-form" novalidate>
+                <input type="text" name="name" placeholder="Your Name" required aria-required="true">
+                <input type="email" name="email" placeholder="Your Email" required aria-required="true">
+                <textarea name="message" placeholder="Your Message" rows="6" required aria-required="true"></textarea>
+                <button type="submit" aria-label="Send contact message"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+            <div class="social-links" role="navigation">
+                <a href="mailto:contact@islam_alsohby.com" aria-label="Email Islam Alsohby"><i class="fas fa-envelope"></i> Email 📩</a>
+                <a href="https://github.com/islamalsohby" aria-label="Islam Alsohby GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub 👨‍💻</a>
+                <a href="https://notion.so/islamalsohby" aria-label="Islam Alsohby Notion" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Notion 📖</a>
+                <a href="https://x.com/islamalsohby" aria-label="Islam Alsohby X" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i> X 🐦</a>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>© 2025 Islam Alsohby. All rights reserved. 🌍❤️</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
