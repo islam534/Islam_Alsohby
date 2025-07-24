@@ -4,40 +4,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const themeIcon = themeToggle.querySelector('i');
 
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        themeIcon.classList.toggle('fa-moon');
-        themeIcon.classList.toggle('fa-sun');
-        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
 
-    // Load saved theme
-    if (localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark-mode');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+    } else {
+        console.error('Theme toggle button not found');
     }
 
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    menuToggle.addEventListener('click', () => {
-        const isExpanded = navLinks.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', isExpanded);
-        menuToggle.querySelector('i').classList.toggle('fa-bars');
-        menuToggle.querySelector('i').classList.toggle('fa-times');
-    });
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+    } else {
+        console.error('Menu toggle or nav-links not found');
+    }
 
     // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             e.preventDefault();
             const target = document.querySelector(anchor.getAttribute('href'));
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
@@ -92,14 +106,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Form Submission (Placeholder)
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        console.log('Form submitted:', data);
-        alert('Thank you for your message! I’ll get back to you soon.');
-        contactForm.reset();
-    });
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            console.log('Form submitted:', data);
+            alert('Thank you for your message! I’ll get back to you soon.');
+            contactForm.reset();
+        });
+    }
 
     // Service Worker Registration for PWA
     if ('serviceWorker' in navigator) {
