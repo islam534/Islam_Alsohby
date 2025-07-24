@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
 
     menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        const isExpanded = navLinks.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', isExpanded);
         menuToggle.querySelector('i').classList.toggle('fa-bars');
         menuToggle.querySelector('i').classList.toggle('fa-times');
     });
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
                 menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
             }
         });
