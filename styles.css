@@ -70,10 +70,11 @@ body.dark-mode {
     background: none;
     border: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Increased for visibility */
     cursor: pointer;
-    padding: 0.6rem;
-    display: block; /* Ensure buttons are visible by default */
+    padding: 0.8rem; /* Larger touch target */
+    display: inline-block; /* Ensure visibility */
+    vertical-align: middle;
 }
 
 .theme-toggle:hover, .menu-toggle:hover {
@@ -89,7 +90,7 @@ body.dark-mode {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%;
+        top: 60px; /* Adjusted to avoid overlap */
         left: 0;
         width: 100%;
         background: var(--deep-brown);
@@ -103,21 +104,21 @@ body.dark-mode {
     }
 
     .menu-toggle {
-        display: block; /* Show menu toggle on small screens */
+        display: inline-block; /* Explicitly show on mobile */
     }
 
     .navbar {
-        flex-direction: row;
-        align-items: center;
+        flex-wrap: wrap;
         padding: 0.8rem 1rem;
     }
 
     .navbar > *:not(:last-child) {
-        margin-right: 1rem; /* Space between logo, menu-toggle, and theme-toggle */
+        margin-right: 1rem;
     }
 
     .theme-toggle {
-        margin-left: auto; /* Push theme toggle to the right */
+        margin-left: auto;
+        order: 2; /* Ensure it stays visible and to the right */
     }
 }
 
