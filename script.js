@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
-    const themeIcon = themeToggle.querySelector('i');
+    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
-    if (themeToggle) {
+    if (themeToggle && themeIcon) {
+        themeToggle.style.display = 'inline-block'; // Force visibility
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             themeIcon.classList.toggle('fa-moon');
@@ -18,7 +19,25 @@ document.addEventListener('DOMContentLoaded', () => {
             themeIcon.classList.replace('fa-moon', 'fa-sun');
         }
     } else {
-        console.error('Theme toggle button not found');
+        console.error('Theme toggle button or icon not found. Adding fallback button.');
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            const fallbackToggle = document.createElement('button');
+            fallbackToggle.className = 'theme-toggle';
+            fallbackToggle.setAttribute('aria-label', 'Toggle dark mode');
+            fallbackToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            navbar.appendChild(fallbackToggle);
+            fallbackToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                fallbackToggle.querySelector('i').classList.toggle('fa-moon');
+                fallbackToggle.querySelector('i').classList.toggle('fa-sun');
+                localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            });
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
+                fallbackToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+            }
+        }
     }
 
     // Mobile Menu Toggle
@@ -26,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
 
     if (menuToggle && navLinks) {
+        menuToggle.style.display = 'inline-block'; // Force visibility
         menuToggle.addEventListener('click', () => {
             const isExpanded = navLinks.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', isExpanded);
@@ -42,7 +62,43 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     } else {
-        console.error('Menu toggle or nav-links not found');
+        console.error('Menu toggle or nav-links not found. Adding fallback button.');
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            const fallbackMenu = document.createElement('button');
+            fallbackMenu.className = 'menu-toggle';
+            fallbackMenu.setAttribute('aria-label', 'Toggle navigation menu');
+            fallbackMenu.setAttribute('aria-expanded', 'false');
+            fallbackMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            navbar.insertBefore(fallbackMenu, navbar.children[1]); // Insert after logo
+            const navLinksFallback = document.createElement('nav');
+            navLinksFallback.className = 'nav-links';
+            navLinksFallback.setAttribute('role', 'navigation');
+            navLinksFallback.innerHTML = `
+                <a href="#home" aria-label="Go to Home"><i class="fas fa-home"></i> Home</a>
+                <a href="#about" aria-label="Go to About"><i class="fas fa-user"></i> About</a>
+                <a href="#research" aria-label="Go to Research"><i class="fas fa-flask"></i> Research</a>
+                <a href="#blog" aria-label="Go to Blog"><i class="fas fa-pen"></i> Blog</a>
+                <a href="#languages" aria-label="Go to Languages"><i class="fas fa-globe"></i> Languages</a>
+                <a href="#media" aria-label="Go to Media"><i class="fas fa-camera"></i> Media</a>
+                <a href="#recommendations" aria-label="Go to Recommendations"><i class="fas fa-lightbulb"></i> Recommendations</a>
+                <a href="#contact" aria-label="Go to Contact"><i class="fas fa-envelope"></i> Contact</a>
+            `;
+            navbar.insertBefore(navLinksFallback, navbar.children[2]);
+            fallbackMenu.addEventListener('click', () => {
+                const isExpanded = navLinksFallback.classList.toggle('active');
+                fallbackMenu.setAttribute('aria-expanded', isExpanded);
+                fallbackMenu.querySelector('i').classList.toggle('fa-bars');
+                fallbackMenu.querySelector('i').classList.toggle('fa-times');
+            });
+            navLinksFallback.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinksFallback.classList.remove('active');
+                    fallbackMenu.setAttribute('aria-expanded', 'false');
+                    fallbackMenu.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                });
+            });
+        }
     }
 
     // Smooth Scroll
