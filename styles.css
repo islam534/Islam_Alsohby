@@ -1,14 +1,14 @@
 :root {
     --primary-red: #B22222;
-    --deep-brown: #3C2F2F;
+    --deep-brown: #2C1F1F;
     --golden-yellow: #D4A017;
     --earth-tone: #8B5A2B;
-    --background-light: #F5F5F5;
+    --background-light: #F9F9F9;
     --background-dark: #1A1A1A;
-    --text-light: #333;
+    --text-light: #222;
     --text-dark: #E0E0E0;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    --transition: all 0.3s ease;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.25s ease;
 }
 
 * {
@@ -34,67 +34,83 @@ body.dark-mode {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: var(--deep-brown);
+    padding: 0.5rem 1rem; /* Slimmer padding */
+    background: linear-gradient(90deg, var(--deep-brown), #3C2F2F); /* Gradient for stunning effect */
     color: white;
     position: sticky;
     top: 0;
-    z-index: 2000; /* Significantly higher z-index */
+    z-index: 2000;
     box-shadow: var(--shadow);
+    transition: background 0.3s ease;
+}
+
+.navbar:hover {
+    background: linear-gradient(90deg, #3C2F2F, var(--deep-brown));
 }
 
 .navbar > * {
-    z-index: 2000; /* Ensure all children are above other content */
+    z-index: 2000;
 }
 
 .logo a {
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Smaller logo text */
     font-weight: 700;
     color: var(--golden-yellow);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.logo i {
+    font-size: 1.2rem;
 }
 
 .nav-links {
     display: flex;
-    gap: 1.2rem;
+    gap: 1rem;
     z-index: 2000;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Smaller text */
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
     transition: var(--transition);
 }
 
 .nav-links a:hover {
     color: var(--golden-yellow);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .theme-toggle, .menu-toggle {
     background: none;
     border: none;
     color: white;
-    font-size: 2rem; /* Even larger icon */
+    font-size: 1.5rem; /* Moderate icon size */
     cursor: pointer;
-    padding: 1.2rem; /* Larger touch target */
+    padding: 0.8rem; /* Adjusted touch target */
     display: block !important; /* Force display */
     position: relative;
-    z-index: 2001; /* Higher than navbar */
-    line-height: 1; /* Align icon properly */
+    z-index: 2001;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .theme-toggle i, .menu-toggle i {
-    display: inline-block; /* Ensure icon is visible */
+    display: inline-block;
     vertical-align: middle;
 }
 
 .theme-toggle:hover, .menu-toggle:hover {
     color: var(--golden-yellow);
+    transform: scale(1.1);
 }
 
 .menu-toggle {
-    display: none; /* Hidden by default on large screens */
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -102,14 +118,15 @@ body.dark-mode {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 80px; /* Increased for better spacing */
+        top: 60px; /* Reduced height */
         left: 0;
         width: 100%;
         background: var(--deep-brown);
-        padding: 1.5rem;
+        padding: 1rem;
         box-shadow: var(--shadow);
         text-align: center;
         z-index: 2000;
+        animation: slideDown 0.3s ease-out;
     }
 
     .nav-links.active {
@@ -117,16 +134,15 @@ body.dark-mode {
     }
 
     .menu-toggle {
-        display: block !important; /* Force display on mobile */
+        display: block !important;
     }
 
     .navbar {
-        flex-wrap: nowrap;
-        padding: 0.8rem 1rem;
+        padding: 0.4rem 0.8rem; /* Even slimmer on mobile */
     }
 
     .navbar > *:not(:last-child) {
-        margin-right: 1.5rem;
+        margin-right: 1rem;
     }
 
     .theme-toggle {
@@ -136,98 +152,95 @@ body.dark-mode {
 }
 
 .hero {
-    min-height: 60vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080?text=Hero+Image+Books+Laptop+Globe');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080?text=Hero+Image+Books+Laptop+Globe');
     background-size: cover;
     background-position: center;
     color: white;
     position: relative;
     overflow: hidden;
-    z-index: 100; /* Lower than navbar */
+    z-index: 100;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .hero-content {
-    animation: fadeIn 1s ease-out;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
     padding: 1rem;
     max-width: 90%;
 }
 
 .hero-image {
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     aspect-ratio: 1;
     border-radius: 50%;
-    margin-bottom: 1rem;
-    border: 5px solid var(--golden-yellow);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 12px var(--golden-yellow);
+    border: 4px solid var(--golden-yellow);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     object-fit: cover;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .hero-image:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 15px var(--golden-yellow);
+    transform: scale(1.05);
 }
 
 .hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.6rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 2.5rem;
+    margin-bottom: 0.4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .tagline {
-    font-size: 1rem;
-    margin-bottom: 0.6rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .multilingual {
     font-size: 0.9rem;
-    margin-bottom: 1rem;
     font-style: italic;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .hero-ctas {
     display: flex;
-    gap: 0.8rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .cta {
-    padding: 0.8rem 1.5rem;
-    background: var(--primary-red);
+    padding: 0.7rem 1.2rem;
+    background: linear-gradient(45deg, var(--primary-red), #A52A2A);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: 600;
     font-size: 0.9rem;
     transition: var(--transition);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .cta.secondary {
     background: transparent;
     border: 2px solid var(--golden-yellow);
+    color: var(--golden-yellow);
 }
 
 .cta:hover {
-    background: var(--golden-yellow);
-    color: var(--deep-brown);
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .section {
-    padding: 2.5rem 1rem;
+    padding: 2rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
     opacity: 0;
@@ -242,15 +255,16 @@ body.dark-mode {
 }
 
 h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.2rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     color: var(--primary-red);
     text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .about-content {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -258,10 +272,10 @@ h2 {
 
 .about-image {
     width: 100%;
-    max-width: 350px;
+    max-width: 300px;
     aspect-ratio: 3/2;
-    border-radius: 6px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     object-fit: cover;
     transition: var(--transition);
 }
@@ -271,33 +285,34 @@ h2 {
 }
 
 .about-text {
-    max-width: 600px;
+    max-width: 550px;
     width: 100%;
 }
 
 .about-text p {
     font-size: 0.95rem;
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
 }
 
 .filter-buttons {
     display: flex;
     justify-content: center;
-    gap: 0.6rem;
-    margin-bottom: 1.2rem;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
 .filter-buttons button {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border: none;
     background: var(--earth-tone);
     color: white;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .filter-buttons button.active {
@@ -306,56 +321,57 @@ h2 {
 
 .filter-buttons button:hover {
     background: var(--golden-yellow);
+    transform: translateY(-1px);
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
     padding: 0 0.5rem;
 }
 
 .gallery-item {
     background: white;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: var(--shadow);
+    padding: 0.8rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.dark-mode .gallery-item {
-    background: #2A2A2A;
+    background: #252525;
 }
 
 .gallery-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item img {
     width: 100%;
-    height: 160px;
+    height: 150px;
     object-fit: cover;
     border-radius: 4px;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
 }
 
 .gallery-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
 }
 
 .gallery-item p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .gallery-cta {
     display: inline-block;
-    margin-top: 0.6rem;
+    margin-top: 0.5rem;
     color: var(--primary-red);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
+    font-weight: 500;
+    font-size: 0.8rem;
 }
 
 .gallery-cta:hover {
@@ -364,33 +380,34 @@ body.dark-mode .gallery-item {
 
 .language-collage {
     display: flex;
-    gap: 0.8rem;
+    gap: 0.6rem;
     justify-content: center;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
 }
 
 .language-collage img {
     width: 80px;
     height: 80px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: var(--transition);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .language-collage img:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .recommendation-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
     padding: 0 0.5rem;
 }
 
 .recommendation-item h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
     color: var(--earth-tone);
 }
 
@@ -399,82 +416,105 @@ body.dark-mode .gallery-item {
 }
 
 .recommendation-item li {
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.recommendation-item li:before {
+    content: "•";
+    color: var(--primary-red);
+    position: absolute;
+    left: 0;
 }
 
 .contact form {
-    max-width: 450px;
+    max-width: 400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .contact input, .contact textarea {
-    padding: 0.8rem;
+    padding: 0.7rem;
     border: 2px solid var(--deep-brown);
-    border-radius: 5px;
-    background: transparent;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
     color: inherit;
     font-size: 0.9rem;
+    transition: border-color 0.3s ease;
 }
 
 body.dark-mode .contact input, body.dark-mode .contact textarea {
     border-color: var(--text-dark);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.contact input:focus, .contact textarea:focus {
+    border-color: var(--golden-yellow);
+    outline: none;
 }
 
 .contact button {
-    padding: 0.9rem;
-    background: var(--primary-red);
+    padding: 0.8rem;
+    background: linear-gradient(45deg, var(--primary-red), #A52A2A);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .contact button:hover {
-    background: var(--golden-yellow);
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 1.2rem;
-    margin-top: 1.2rem;
+    gap: 1rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
 }
 
 .social-links a {
     color: var(--primary-red);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.2rem;
     transition: var(--transition);
 }
 
 .social-links a:hover {
     color: var(--golden-yellow);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 footer {
     text-align: center;
-    padding: 1.2rem;
+    padding: 1rem;
     background: var(--deep-brown);
     color: white;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
+    box-shadow: var(--shadow);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 @media (max-width: 1200px) {
@@ -483,29 +523,29 @@ footer {
     }
 
     .hero-image {
-        max-width: 350px;
+        max-width: 300px;
     }
 
     .about-image {
-        max-width: 300px;
+        max-width: 250px;
     }
 }
 
 @media (max-width: 1024px) {
     .navbar {
-        padding: 0.8rem 1.5rem;
+        padding: 0.5rem 1rem;
     }
 
     .nav-links {
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     .hero {
-        min-height: 55vh;
+        min-height: 60vh;
     }
 
     .hero-image {
-        max-width: 300px;
+        max-width: 250px;
     }
 
     .hero h1 {
@@ -513,7 +553,7 @@ footer {
     }
 
     .tagline {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .multilingual {
@@ -521,11 +561,7 @@ footer {
     }
 
     .about-content {
-        gap: 1.5rem;
-    }
-
-    .about-image {
-        max-width: 250px;
+        gap: 1.2rem;
     }
 }
 
@@ -535,15 +571,15 @@ footer {
     }
 
     .hero-image {
-        max-width: 250px;
+        max-width: 200px;
     }
 
     .hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .tagline {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .multilingual {
@@ -552,7 +588,7 @@ footer {
 
     .hero-ctas {
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 0.5rem;
     }
 
     .cta {
@@ -562,31 +598,21 @@ footer {
 
     .about-content {
         flex-direction: column;
-        gap: 1.2rem;
+        gap: 1rem;
     }
 
     .about-image {
-        max-width: 200px;
+        max-width: 180px;
     }
 
     .gallery {
         grid-template-columns: 1fr;
-        padding: 0;
-    }
-
-    .language-collage {
-        gap: 0.6rem;
-    }
-
-    .recommendation-grid {
-        grid-template-columns: 1fr;
-        padding: 0;
     }
 }
 
 @media (max-width: 480px) {
     .navbar {
-        padding: 0.5rem 0.8rem;
+        padding: 0.3rem 0.6rem;
     }
 
     .hero {
@@ -594,15 +620,15 @@ footer {
     }
 
     .hero-image {
-        max-width: 180px;
+        max-width: 150px;
     }
 
     .hero h1 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .tagline {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     .multilingual {
@@ -610,11 +636,11 @@ footer {
     }
 
     .about-image {
-        max-width: 150px;
+        max-width: 140px;
     }
 
     .cta {
-        padding: 0.6rem 1rem;
+        padding: 0.5rem 1rem;
     }
 
     .filter-buttons {
@@ -627,6 +653,6 @@ footer {
     }
 
     .social-links {
-        gap: 0.8rem;
+        gap: 0.6rem;
     }
 }
