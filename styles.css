@@ -174,19 +174,31 @@ h2 {
 
 .about-content {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
+    justify-content: center;
 }
 
 .about-image {
-    width: 100%;
-    max-width: 400px;
+    width: 500px;
+    height: 500px;
     border-radius: 10px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.about-image:hover {
+    transform: scale(1.05);
+}
+
+.about-text {
+    max-width: 600px;
 }
 
 .about-text p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
 }
 
 .filter-buttons {
@@ -397,6 +409,12 @@ footer {
 
     .about-content {
         flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-image {
+        width: 300px;
+        height: 300px;
     }
 
     .gallery {
@@ -412,6 +430,11 @@ footer {
     .hero-image {
         width: 200px;
         height: 200px;
+    }
+
+    .about-image {
+        width: 250px;
+        height: 250px;
     }
 
     .cta {
