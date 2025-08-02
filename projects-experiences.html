@@ -1,53 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects & Experiences - Islam Alsohby</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Islam Alsohby’s Projects - Innovative Solutions in STEM and Beyond">
+    <meta name="keywords" content="Islam Alsohby, projects, STEM, innovation, AI, robotics">
+    <meta name="author" content="Islam Alsohby">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1A3C6E">
+    <title>Islam Alsohby Projects 🔍 - Innovations Unveiled</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-romZkPQkL+6r+3g6hY2/2r0/6mX8+6h4s9g3xE6rQ4R+0y4A8t6wXqH2G4J3oL+9W5n2yW4o+6r4A9x8lZ7z0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=your-favicon-id">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Islam Alsohby</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="research-papers.html">Research & Papers</a></li>
-        <li><a href="blog-reflections.html">Blog & Reflections</a></li>
-        <li><a href="guides-resources.html">Guides & Resources</a></li>
-        <li><a href="projects-experiences.html">Projects & Experiences</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="menu-toggle">☰</div>
-    </nav>
-  </header>
-  <main>
-    <section class="projects parallax">
-      <img src="projects-header.jpg" alt="Project Setting" class="parallax-bg">
-      <h1>Projects & Experiences</h1>
-      <p>Insights from ELP, BIAB, and mentorship journeys.</p>
-      <div class="grid">
-        <div class="card fade-in">
-          <img src="elp-thumb.jpg" alt="ELP Project">
-          <h3>ELP Experience</h3>
-          <p>Lessons from my mentors.</p>
-          <a href="elp.html" class="card-cta">Learn More</a>
+    <header class="navbar">
+        <div class="logo">
+            <a href="/" aria-label="Go to Home Page" title="Islam Alsohby Home Page">
+                <i class="fas fa-star"></i> Islam Alsohby
+            </a>
         </div>
-        <div class="card fade-in">
-          <img src="biab-thumb.jpg" alt="BIAB Project">
-          <h3>BIAB Program</h3>
-          <p>My journey in BIAB.</p>
-          <a href="biab.html" class="card-cta">Learn More</a>
+        <button class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="nav-links">
+            <a href="/" aria-label="Home Section" title="Return to Home">Home</a>
+            <a href="/blog" aria-label="Blog Section" title="Read Islam Alsohby’s Blog">Blog</a>
+            <a href="/projects" aria-label="Projects Section" title="View Islam Alsohby’s Projects">Projects</a>
+            <a href="/#gallery" aria-label="Gallery Section" title="View Islam Alsohby’s Gallery">Gallery</a>
+            <a href="/#testimonials" aria-label="Testimonials Section" title="Read Testimonials">Testimonials</a>
+            <a href="/#contact" aria-label="Contact Section" title="Contact Islam Alsohby">Contact</a>
+            <a href="/#resources" aria-label="Resources Section" title="Explore Resources">Resources</a>
+            <a href="/login" aria-label="Login Section" title="Login to Your Account">Login</a>
+            <a href="/register" aria-label="Register Section" title="Register a New Account">Register</a>
+        </nav>
+        <button class="theme-toggle" aria-label="Switch Between Light and Dark Themes" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search my projects..." aria-label="Search projects" title="Search Islam Alsohby’s Projects">
+            <button id="searchButton" aria-label="Perform Search"><i class="fas fa-search"></i></button>
         </div>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <p>© 2025 Islam Alsohby. All rights reserved.</p>
-    <button class="scroll-top">↑</button>
-  </footer>
-  <script src="script.js"></script>
+    </header>
+
+    <main>
+        <section class="projects-hero">
+            <h1>Projects 🔍</h1>
+            <p class="section-subtitle">Innovations That Matter</p>
+        </section>
+
+        <section class="projects-section section">
+            <div class="project-grid" id="projectGrid" role="region" aria-live="polite"></div>
+            <button class="load-more" id="loadMoreProjects" aria-label="Load More Projects">Load More Projects</button>
+        </section>
+
+        <section class="project-types section">
+            <h2>Project Types</h2>
+            <div class="types-grid">
+                <div class="type-card"><a href="/projects?type=ai">AI</a></div>
+                <div class="type-card"><a href="/projects?type=robotics">Robotics</a></div>
+                <div class="type-card"><a href="/projects?type=sustainability">Sustainability</a></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Islam Alsohby. All rights reserved. 🌍❤️</p>
+            <p>Last Updated: 12:17 AM EEST, Sunday, August 03, 2025</p>
+            <div class="footer-links">
+                <a href="#privacy" aria-label="Privacy Policy">Privacy Policy</a>
+                <a href="#terms" aria-label="Terms of Use">Terms of Use</a>
+                <a href="#sitemap" aria-label="Sitemap">Sitemap</a>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@islam_alsohby.com">contact@islam_alsohby.com</a></p>
+                <p><i class="fas fa-globe"></i> <a href="https://islam_alsohby.com" target="_blank">www.islam_alsohby.com</a></p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://x.com/islamalsohby" aria-label="Follow on X" title="Follow on X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://github.com/islamalsohby" aria-label="View on GitHub" title="View on GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/islamalsohby" aria-label="Connect on LinkedIn" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/script.js" defer></script>
 </body>
 </html>
