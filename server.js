@@ -1,154 +1,93 @@
 const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 const mongoose = require('mongoose');
-const http = require('http');
-const socketIO = require('socket.io');
+const csrf = require('csurf');
+const dotenv = require('dotenv');
 const path = require('path');
 
-const app = express();
-const server = http.createServer(app);
-const io = socketIO(server);
-
-const PORT = process.env.PORT || 3000;
-
-// Middleware
+dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(csrf({ cookie: true }));
+app.use((req, res, next) => {
+    res.locals.csrfToken = req.csrfToken();
+    next();
+});
 app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-// MongoDB Connection
-mongoose.connect('mongodb://localhost/islam_alsohby', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.error('MongoDB connection error:', err));
 
-// Models
-const blogSchema = new mongoose.Schema({
-    title: String,
-    thesis: String,
-    summary: String,
-    image: String,
-    link: String,
-    date: String,
-    readTime: String,
-    views: Number,
-    likes: { type: Number, default: 0 },
-    comments: [{ text: String, author: String, date: { type: Date, default: Date.now } }]
-});
-const Blog = mongoose.model('Blog', blogSchema);
-
-const projectSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    image: String,
-    pdf: String,
-    tech: String,
-    date: String,
-    team: String
-});
-const Project = mongoose.model('Project', projectSchema);
-
-const gallerySchema = new mongoose.Schema({
-    image: String,
-    caption: String
-});
+const gallerySchema = new mongoose.Schema({ html: String });
 const Gallery = mongoose.model('Gallery', gallerySchema);
+const testimonialsSchema = new mongoose.Schema({ html: String });
+const Testimonial = mongoose.model('Testimonial', testimonialsSchema);
+const blogSchema = new mongoose.Schema({ html: String });
+const Blog = mongoose.model('Blog', blogSchema);
+const projectSchema = new mongoose.Schema({ html: String });
+const Project = mongoose.model('Project', projectSchema);
+const contactSchema = new mongoose.Schema({ name: String, email: String, subject: String, message: String, date: { type: Date, default: Date.now } });
+const Contact = mongoose.model('Contact', contactSchema);
 
-const testimonialSchema = new mongoose.Schema({
-    text: String,
-    author: String
+app.get('/', (req, res) => res.render('index'));
+app.get('/blog', (req, res) => res.render('blog'));
+app.get('/projects', (req, res) => res.render('projects'));
+
+app.get('/api/gallery', async (req, res) => {
+    const offset = parseInt(req.query.offset) || 0;
+    const items = await Gallery.find().skip(offset).limit(6);
+    res.json(items);
 });
-const Testimonial = mongoose.model('Testimonial', testimonialSchema);
-
-const resourceSchema = new mongoose.Schema({
-    category: String,
-    items: [{ title: String, link: String }]
+app.get('/api/testimonials', async (req, res) => {
+    const offset = parseInt(req.query.offset) || 0;
+    const items = await Testimonial.find().skip(offset).limit(6);
+    res.json(items);
 });
-const Resource = mongoose.model('Resource', resourceSchema);
-
-// Routes
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
-
-app.get('/blog', async (req, res) => {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 3;
-    const blogs = await Blog.find().skip((page - 1) * limit).limit(limit);
-    res.json(blogs);
+app.get('/api/blog', async (req, res) => {
+    const offset = parseInt(req.query.offset) || 0;
+    const items = await Blog.find().skip(offset).limit(6);
+    res.json(items);
 });
-
-app.get('/projects', async (req, res) => {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 3;
-    const projects = await Project.find().skip((page - 1) * limit).limit(limit);
-    res.json(projects);
-});
-
-app.get('/gallery', async (req, res) => {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 3;
-    const galleries = await Gallery.find().skip((page - 1) * limit).limit(limit);
-    res.json(galleries);
+app.get('/api/projects', async (req, res) => {
+    const offset = parseInt(req.query.offset) || 0;
+    const items = await Project.find().skip(offset).limit(6);
+    res.json(items);
 });
 
-app.get('/testimonials', async (req, res) => {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 3;
-    const testimonials = await Testimonial.find().skip((page - 1) * limit).limit(limit);
-    res.json(testimonials);
+app.post('/api/contact', async (req, res) => {
+    const { name, email, subject, message } = req.body;
+    const contact = new Contact({ name, email, subject, message });
+    await contact.save();
+    res.status(200).send();
 });
 
-app.get('/resources', async (req, res) => {
-    const resources = await Resource.find();
-    res.json(resources);
+app.post('/api/like/:id', async (req, res) => {
+    const post = await Blog.findById(req.params.id);
+    post.likes = (post.likes || 0) + 1;
+    await post.save();
+    io.emit('updateLikes', { id: req.params.id, likes: post.likes });
+    res.json({ likes: post.likes });
 });
 
-app.get('/search', async (req, res) => {
-    const query = req.query.q.toLowerCase();
-    const blogs = await Blog.find({ $text: { $search: query } });
-    res.json(blogs);
+app.post('/api/comment/:id', async (req, res) => {
+    const { text, author } = req.body;
+    const post = await Blog.findById(req.params.id);
+    post.comments = post.comments || [];
+    post.comments.push({ text, author, date: new Date() });
+    await post.save();
+    io.emit('newComment', { postId: req.params.id, author, text });
+    res.status(200).send();
 });
 
-app.post('/like/:id', async (req, res) => {
-    const blog = await Blog.findById(req.params.id);
-    blog.likes += 1;
-    await blog.save();
-    io.emit('newLike', { postId: req.params.id, likes: blog.likes });
-    res.json({ likes: blog.likes });
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
 });
 
-app.post('/comment/:id', async (req, res) => {
-    const blog = await Blog.findById(req.params.id);
-    blog.comments.push({ text: req.body.comment, author: 'Anonymous' });
-    await blog.save();
-    io.emit('newComment', { postId: req.params.id });
-    res.json({ message: 'Comment added' });
-});
-
-app.get('/comments/:id', async (req, res) => {
-    const blog = await Blog.findById(req.params.id);
-    res.json(blog.comments);
-});
-
-app.post('/contact', (req, res) => {
-    console.log('Contact Form:', req.body);
-    res.json({ message: 'Message received, thank you!' });
-});
-
-app.get('/login', (req, res) => res.render('login'));
-app.get('/register', (req, res) => res.render('register'));
-
-// Socket.IO
-io.on('connection', (socket) => {
-    console.log('New client connected');
-    socket.on('disconnect', () => console.log('Client disconnected'));
-});
-
-// Sample Data
-async function seedData() {
-    if (await Blog.countDocuments() === 0) {
-        const blogs = [
-            { title: 'Assisted Death – Mercy or Morality?', thesis: 'Assisted death poses a profound ethical dilemma...', summary: 'This article examines...', image: 'https://via.placeholder.com/400x250', link: '#', date: 'Aug 01, 2025', readTime: '7 min', views: 1200 },
-            { title: 'Free Will – Are We Free?', thesis: 'Free will challenges us...', summary: 'Dive into a detailed analysis...', image: 'https://via.placeholder.com/400x250', link: '#', date: 'Jul 28, 2025', readTime: '6 min', views: 950 },
-            { title: 'Business – Mastering
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
