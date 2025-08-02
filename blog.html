@@ -10,41 +10,26 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A3C6E">
     <title>Islam Alsohby Blog ✍️ - Thoughts & Reflections</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-romZkPQkL+6r+3g6hY2/2r0/6mX8+6h4s9g3xE6rQ4R+0y4A8t6wXqH2G4J3oL+9W5n2yW4o+6r4A9x8lZ7z0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=your-favicon-id">
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0k">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Islam Alsohby Blog",
+        "url": "https://islam_alsohby.com/blog",
+        "blogPost": [{
+            "@type": "BlogPosting",
+            "headline": "Sample Post",
+            "datePublished": "2025-08-03"
+        }]
+    }
+    </script>
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">
-            <a href="/" aria-label="Go to Home Page" title="Islam Alsohby Home Page">
-                <i class="fas fa-star"></i> Islam Alsohby
-            </a>
-        </div>
-        <button class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav class="nav-links" id="nav-links">
-            <a href="/" aria-label="Home Section" title="Return to Home">Home</a>
-            <a href="/blog" aria-label="Blog Section" title="Read Islam Alsohby’s Blog">Blog</a>
-            <a href="/projects" aria-label="Projects Section" title="View Islam Alsohby’s Projects">Projects</a>
-            <a href="/#gallery" aria-label="Gallery Section" title="View Islam Alsohby’s Gallery">Gallery</a>
-            <a href="/#testimonials" aria-label="Testimonials Section" title="Read Testimonials">Testimonials</a>
-            <a href="/#contact" aria-label="Contact Section" title="Contact Islam Alsohby">Contact</a>
-            <a href="/#resources" aria-label="Resources Section" title="Explore Resources">Resources</a>
-            <a href="/login" aria-label="Login Section" title="Login to Your Account">Login</a>
-            <a href="/register" aria-label="Register Section" title="Register a New Account">Register</a>
-        </nav>
-        <button class="theme-toggle" aria-label="Switch Between Light and Dark Themes" title="Toggle Theme">
-            <i class="fas fa-moon"></i>
-        </button>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search my blog..." aria-label="Search blog" title="Search Islam Alsohby’s Blog">
-            <button id="searchButton" aria-label="Perform Search"><i class="fas fa-search"></i></button>
-        </div>
-    </header>
-
+    <%- include('header') %>
     <main>
         <section class="blog-hero">
             <h1>Blog ✍️</h1>
@@ -77,29 +62,8 @@
             </div>
         </section>
     </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Islam Alsohby. All rights reserved. 🌍❤️</p>
-            <p>Last Updated: 12:24 AM EEST, Sunday, August 03, 2025</p>
-            <div class="footer-links">
-                <a href="#privacy" aria-label="Privacy Policy">Privacy Policy</a>
-                <a href="#terms" aria-label="Terms of Use">Terms of Use</a>
-                <a href="#sitemap" aria-label="Sitemap">Sitemap</a>
-            </div>
-            <div class="footer-contact">
-                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@islam_alsohby.com">contact@islam_alsohby.com</a></p>
-                <p><i class="fas fa-globe"></i> <a href="https://islam_alsohby.com" target="_blank">www.islam_alsohby.com</a></p>
-            </div>
-            <div class="footer-socials">
-                <a href="https://x.com/islamalsohby" aria-label="Follow on X" title="Follow on X"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://github.com/islamalsohby" aria-label="View on GitHub" title="View on GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/islamalsohby" aria-label="Connect on LinkedIn" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
-
+    <%- include('footer') %>
     <script src="/socket.io/socket.io.js" defer></script>
-    <script src="/script.js" defer></script>
+    <script src="/script.min.js" defer></script>
 </body>
 </html>
