@@ -1268,4 +1268,44 @@ h2 {
         font-size: 2.2rem;
     }
     .nav-links a {
-        font-size: 1.2rem
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image, .about-image, .blog-image, .project-image, .gallery-image {
+        height: 140px;
+    }
+    .blog-post h3, .project-card h3, .resource-card h3 {
+        font-size: 1.3rem;
+    }
+    .thesis, .project-description, .gallery-caption, .testimonial-text, .resource-card ul li {
+        font-size: 0.9rem;
+    }
+    .hero-ctas .cta {
+        padding: 0.9rem 1.8rem;
+        font-size: 0.95rem;
+    }
+    .navbar {
+        padding: 1rem 2rem;
+    }
+    .logo a {
+        font-size: 2rem;
+    }
+    .nav-links a {
+        font-size: 1.1rem;
+    }
+    .section {
+        padding: 4rem 2rem;
+    }
+    .about-content {
+        gap: 3rem;
+    }
+    .hero-ctas {
+        flex-direction: column;
+    }
+    .hero-ctas .cta {
+        width: 100%;
+        text-align: center;
+    }
+}
