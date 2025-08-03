@@ -88,19 +88,36 @@ loadMoreProjects.addEventListener('click', () => {
     }
 });
 
-// Form Submission Handling
+// Form Submission Handling with Validation
 const commentForm = document.querySelector('#comment-form');
 if (commentForm) {
     commentForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.querySelector('#comment-name').value;
-        const email = document.querySelector('#comment-email').value;
-        const text = document.querySelector('#comment-text').value;
-        if (name && email && text) {
+        const name = document.querySelector('#comment-name').value.trim();
+        const email = document.querySelector('#comment-email').value.trim();
+        const text = document.querySelector('#comment-text').value.trim();
+        if (validateForm(name, email, text)) {
             addComment(name, email, text);
             commentForm.reset();
         }
     });
+}
+
+function validateForm(name, email, text) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name || name.length < 2) {
+        alert('Name must be at least 2 characters.');
+        return false;
+    }
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email.');
+        return false;
+    }
+    if (!text || text.length < 10) {
+        alert('Comment must be at least 10 characters.');
+        return false;
+    }
+    return true;
 }
 
 function addComment(name, email, text) {
@@ -112,42 +129,68 @@ function addComment(name, email, text) {
     commentsGrid.scrollTop = commentsGrid.scrollHeight;
 }
 
-// Newsletter Form Handling
+// Newsletter Form Handling with Validation
 const newsletterForm = document.querySelector('#newsletter-form');
 if (newsletterForm) {
     newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const email = document.querySelector('#newsletter-email').value;
-        if (email) {
+        const email = document.querySelector('#newsletter-email').value.trim();
+        if (validateEmail(email)) {
             alert(`Subscribed with ${email}!`);
             newsletterForm.reset();
         }
     });
 }
 
-// Contact Form Handling
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email.');
+        return false;
+    }
+    return true;
+}
+
+// Contact Form Handling with Validation
 const contactBlogForm = document.querySelector('#contact-blog-form');
 if (contactBlogForm) {
     contactBlogForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.querySelector('#contact-name').value;
-        const email = document.querySelector('#contact-email').value;
-        const message = document.querySelector('#contact-message').value;
-        if (name && email && message) {
+        const name = document.querySelector('#contact-name').value.trim();
+        const email = document.querySelector('#contact-email').value.trim();
+        const message = document.querySelector('#contact-message').value.trim();
+        if (validateContactForm(name, email, message)) {
             alert(`Message sent from ${name} (${email}): ${message}`);
             contactBlogForm.reset();
         }
     });
 }
 
+function validateContactForm(name, email, message) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name || name.length < 2) {
+        alert('Name must be at least 2 characters.');
+        return false;
+    }
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email.');
+        return false;
+    }
+    if (!message || message.length < 10) {
+        alert('Message must be at least 10 characters.');
+        return false;
+    }
+    return true;
+}
+
 const contactProjectsForm = document.querySelector('#contact-projects-form');
 if (contactProjectsForm) {
     contactProjectsForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.querySelector('#contact-name').value;
-        const email = document.querySelector('#contact-email').value;
-        const message = document.querySelector('#contact-message').value;
-        if (name && email && message) {
+        const name = document.querySelector('#contact-name').value.trim();
+        const email = document.querySelector('#contact-email').value.trim();
+        const message = document.querySelector('#contact-message').value.trim();
+        if (validateContactForm(name, email, message)) {
             alert(`Message sent from ${name} (${email}): ${message}`);
             contactProjectsForm.reset();
         }
@@ -198,17 +241,3 @@ function revealOnScroll() {
 }
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
-
-// Padding to Reach 400 Lines
-let paddingLines = [];
-for (let i = 0; i < 300; i++) {
-    paddingLines.push(`// Line ${i + 1}`);
-    if (i % 10 === 0) {
-        paddingLines.push('console.log("Padding Line");');
-    }
-}
-
-// Export for Testing (if needed)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { performSearch, addComment };
-}
