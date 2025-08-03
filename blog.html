@@ -4,47 +4,545 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Islam Alsohby’s Blog - Reflections on Philosophy and Innovation">
-    <meta name="keywords" content="Islam Alsohby, blog, philosophy, STEM">
+    <meta name="description" content="Islam Alsohby’s Blog - Insights on philosophy, entrepreneurship, and STEM innovation from a multilingual visionary.">
+    <meta name="keywords" content="Islam Alsohby, blog, philosophy, STEM, entrepreneurship, multilingual, critical thinking, innovation">
     <meta name="author" content="Islam Alsohby">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1A3C6E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-TileColor" content="#1A3C6E">
+    <meta name="msapplication-TileImage" content="https://drive.google.com/uc?export=view&id=your-tile-image-id">
+    <title>Islam Alsohby Blog 🌍✍️ - Thought Leadership</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-romZkPQkL+6r+3g6hY2/2r0/6mX8+6h4s9g3xE6rQ4R+0y4A8t6wXqH2G4J3oL+9W5n2yW4o+6r4A9x8lZ7z0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <title>Islam Alsohby Blog</title>
-    <link rel="stylesheet" href="/assets/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=your-favicon-id">
+    <link rel="apple-touch-icon" href="https://drive.google.com/uc?export=view&id=your-apple-touch-icon-id">
+    <meta property="og:title" content="Islam Alsohby Blog - Thought Leadership">
+    <meta property="og:description" content="Explore Islam Alsohby’s blog for deep dives into philosophy, STEM, and entrepreneurship across cultures.">
+    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=your-og-image-id">
+    <meta property="og:url" content="https://islam_alsohby.com/blog">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Islam Alsohby Blog - Thought Leadership">
+    <meta name="twitter:description" content="Read Islam Alsohby’s reflections on philosophy, technology, and global impact.">
+    <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=your-twitter-image-id">
+    <meta name="twitter:site" content="@islamalsohby">
+    <meta name="twitter:creator" content="@islamalsohby">
+    <meta name="google-site-verification" content="your-google-verification-code">
+    <meta name="yandex-verification" content="your-yandex-verification-code">
+    <meta http-equiv="cache-control" content="public, max-age=0">
+    <meta name="format-detection" content="telephone=no">
 </head>
 <body>
-    <header class="header">
-        <div class="logo"><a href="/" aria-label="Home">Islam Alsohby</a></div>
-        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><span class="bar"></span></button>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="/" aria-label="Home">Home</a></li>
-                <li><a href="/blog" aria-label="Blog">Blog</a></li>
-                <li><a href="/projects" aria-label="Projects">Projects</a></li>
-            </ul>
+    <header class="navbar">
+        <div class="logo">
+            <a href="/" aria-label="Go to Home Page" title="Islam Alsohby Home Page">
+                <i class="fas fa-star"></i> Islam Alsohby
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="nav-links">
+            <a href="/" aria-label="Home Section" title="Return to Home">Home</a>
+            <a href="/blog" aria-label="Blog Section" title="Read Islam Alsohby’s Blog">Blog</a>
+            <a href="/projects" aria-label="Projects Section" title="View Islam Alsohby’s Projects">Projects</a>
+            <a href="#gallery" aria-label="Gallery Section" title="View Islam Alsohby’s Gallery">Gallery</a>
+            <a href="#contact" aria-label="Contact Section" title="Contact Islam Alsohby">Contact</a>
+            <a href="#resources" aria-label="Resources Section" title="Explore Resources">Resources</a>
+            <a href="/login" aria-label="Login Section" title="Login to Your Account">Login</a>
+            <a href="/register" aria-label="Register Section" title="Register a New Account">Register</a>
         </nav>
-        <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-adjust"></i></button>
+        <button class="theme-toggle" aria-label="Switch Between Light and Dark Themes" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search my blog..." aria-label="Search blog" title="Search Islam Alsohby’s Blog">
+            <button id="searchButton" aria-label="Perform Search"><i class="fas fa-search"></i></button>
+        </div>
     </header>
 
     <main>
-        <section class="blog">
-            <h2>Blog</h2>
-            <div class="blog-grid" id="blogGrid" role="region" aria-live="polite"></div>
-            <button class="load-more" id="loadMore" aria-label="Load More Posts">Load More</button>
+        <section id="blog-hero" class="hero">
+            <div class="hero-content">
+                <img src="https://drive.google.com/uc?export=view&id=your-blog-hero-image-id" alt="Islam Alsohby Writing" class="hero-image" loading="lazy" decoding="async" width="400" height="400">
+                <h1>Blog by Islam Alsohby ✍️</h1>
+                <p class="tagline">Where Ideas Take Flight</p>
+                <p class="intro-text">Welcome to my blog, a space where I share my reflections on philosophy, entrepreneurship, and STEM innovation. Dive into a world of thought-provoking content crafted with passion and purpose!</p>
+                <div class="hero-ctas">
+                    <a href="#latest-posts" class="cta" aria-label="View Latest Blog Posts">Read Latest Posts</a>
+                    <a href="#archives" class="cta secondary" aria-label="View Blog Archives">Explore Archives</a>
+                    <a href="#categories" class="cta tertiary" aria-label="View Categories">Browse Categories</a>
+                    <a href="#tags" class="cta quaternary" aria-label="View Tags">Check Tags</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://x.com/islamalsohby" aria-label="Follow on X" title="Follow Islam Alsohby on X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://github.com/islamalsohby" aria-label="View on GitHub" title="View Islam Alsohby on GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/islamalsohby" aria-label="Connect on LinkedIn" title="Connect with Islam Alsohby on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="latest-posts" class="section">
+            <h2>Latest Blog Posts 🌟</h2>
+            <p class="section-subtitle">Fresh Thoughts and Insights</p>
+            <div class="blog-grid" id="latestPostsGrid" role="region" aria-live="polite">
+                <article class="blog-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-post-image-1-id" alt="Assisted Death Blog Post" class="blog-image" loading="lazy">
+                    <h3><a href="/blog/assisted-death">Assisted Death – Mercy or Morality?</a></h3>
+                    <p class="blog-date">July 20, 2025</p>
+                    <p class="blog-excerpt">An exploration of the ethical dilemmas surrounding assisted death, blending philosophical and medical perspectives.</p>
+                </article>
+                <article class="blog-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-post-image-2-id" alt="Free Will Blog Post" class="gallery-image" loading="lazy">
+                    <h3><a href="/blog/free-will">Free Will – Are We Free?</a></h3>
+                    <p class="blog-date">June 15, 2025</p>
+                    <p class="blog-excerpt">Delving into the philosophical debate on free will and determinism in the modern age.</p>
+                </article>
+                <article class="blog-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-post-image-3-id" alt="Business Innovation Blog Post" class="gallery-image" loading="lazy">
+                    <h3><a href="/blog/business-innovation">Business – Mastering Innovation</a></h3>
+                    <p class="blog-date">May 10, 2025</p>
+                    <p class="blog-excerpt">Insights into how innovation drives entrepreneurial success across industries.</p>
+                </article>
+                <article class="blog-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-post-image-4-id" alt="Technology Ethics Blog Post" class="gallery-image" loading="lazy">
+                    <h3><a href="/blog/technology-ethics">Technology and Ethics</a></h3>
+                    <p class="blog-date">April 5, 2025</p>
+                    <p class="blog-excerpt">Examining the moral implications of technological advancements in society.</p>
+                </article>
+                <article class="blog-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-post-image-5-id" alt="Cultural Bridges Blog Post" class="gallery-image" loading="lazy">
+                    <h3><a href="/blog/cultural-bridges">Cultural Bridges</a></h3>
+                    <p class="blog-date">March 20, 2025</p>
+                    <p class="blog-excerpt">Building connections and understanding across diverse cultures worldwide.</p>
+                </article>
+                <article class="blog-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-post-image-6-id" alt="Leadership in Crisis Blog Post" class="gallery-image" loading="lazy">
+                    <h3><a href="/blog/leadership-crisis">Leadership in Crisis</a></h3>
+                    <p class="blog-date">February 10, 2025</p>
+                    <p class="blog-excerpt">Strategies for leading effectively during challenging times.</p>
+                </article>
+            </div>
+            <button class="load-more" id="loadMorePosts" aria-label="Load More Blog Posts">Load More Posts</button>
+        </section>
+
+        <section id="archives" class="section">
+            <h2>Blog Archives 📅</h2>
+            <p class="section-subtitle">A Journey Through Time</p>
+            <div class="archives-grid">
+                <div class="archive-year">
+                    <h3>2025</h3>
+                    <ul>
+                        <li><a href="/blog/assisted-death">Assisted Death – Mercy or Morality? (July 20)</a></li>
+                        <li><a href="/blog/free-will">Free Will – Are We Free? (June 15)</a></li>
+                        <li><a href="/blog/business-innovation">Business – Mastering Innovation (May 10)</a></li>
+                        <li><a href="/blog/technology-ethics">Technology and Ethics (April 5)</a></li>
+                        <li><a href="/blog/cultural-bridges">Cultural Bridges (March 20)</a></li>
+                        <li><a href="/blog/leadership-crisis">Leadership in Crisis (February 10)</a></li>
+                    </ul>
+                </div>
+                <div class="archive-year">
+                    <h3>2024</h3>
+                    <ul>
+                        <li><a href="/blog/philosophy-tech">Philosophy and Technology (December 1)</a></li>
+                        <li><a href="/blog/ai-future">The Future of AI (November 15)</a></li>
+                        <li><a href="/blog/sustainable-future">Sustainable Future (October 20)</a></li>
+                        <li><a href="/blog/ai-education">AI in Education (September 10)</a></li>
+                        <li><a href="/blog/robotics-revolution">Robotics Revolution (August 5)</a></li>
+                        <li><a href="/blog/philosophical-reflections">Philosophical Reflections (July 1)</a></li>
+                    </ul>
+                </div>
+                <div class="archive-year">
+                    <h3>2023</h3>
+                    <ul>
+                        <li><a href="/blog/leadership-insights">Leadership Insights (December 10)</a></li>
+                        <li><a href="/blog/tech-ethics">Tech Ethics Deep Dive (November 5)</a></li>
+                        <li><a href="/blog/cultural-exchange">Cultural Exchange Benefits (October 15)</a></li>
+                        <li><a href="/blog/innovation-strategies">Innovation Strategies (September 20)</a></li>
+                        <li><a href="/blog/philosophy-basics">Philosophy Basics (August 10)</a></li>
+                        <li><a href="/blog/stem-future">STEM Future Outlook (July 25)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="categories" class="section">
+            <h2>Categories 📚</h2>
+            <p class="section-subtitle">Explore Topics of Interest</p>
+            <div class="categories-grid">
+                <div class="category-item">
+                    <h3>Philosophy</h3>
+                    <ul>
+                        <li><a href="/blog/assisted-death">Assisted Death – Mercy or Morality?</a></li>
+                        <li><a href="/blog/free-will">Free Will – Are We Free?</a></li>
+                        <li><a href="/blog/philosophical-reflections">Philosophical Reflections</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Technology</h3>
+                    <ul>
+                        <li><a href="/blog/technology-ethics">Technology and Ethics</a></li>
+                        <li><a href="/blog/ai-future">The Future of AI</a></li>
+                        <li><a href="/blog/robotics-revolution">Robotics Revolution</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Entrepreneurship</h3>
+                    <ul>
+                        <li><a href="/blog/business-innovation">Business – Mastering Innovation</a></li>
+                        <li><a href="/blog/innovation-strategies">Innovation Strategies</a></li>
+                        <li><a href="/blog/leadership-insights">Leadership Insights</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Culture</h3>
+                    <ul>
+                        <li><a href="/blog/cultural-bridges">Cultural Bridges</a></li>
+                        <li><a href="/blog/cultural-exchange">Cultural Exchange Benefits</a></li>
+                        <li><a href="/blog/multiculturalism">Multiculturalism Today</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Sustainability</h3>
+                    <ul>
+                        <li><a href="/blog/sustainable-future">Sustainable Future</a></li>
+                        <li><a href="/blog/green-tech">Green Technology</a></li>
+                        <li><a href="/blog/eco-innovations">Eco-Innovations</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><a href="/blog/ai-education">AI in Education</a></li>
+                        <li><a href="/blog/stem-future">STEM Future Outlook</a></li>
+                        <li><a href="/blog/learning-tech">Learning with Technology</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tags" class="section">
+            <h2>Tags 🏷️</h2>
+            <p class="section-subtitle">Quick Access to Topics</p>
+            <div class="tags-grid">
+                <a href="/blog/tag/philosophy" class="tag">Philosophy</a>
+                <a href="/blog/tag/technology" class="tag">Technology</a>
+                <a href="/blog/tag/entrepreneurship" class="tag">Entrepreneurship</a>
+                <a href="/blog/tag/culture" class="tag">Culture</a>
+                <a href="/blog/tag/sustainability" class="tag">Sustainability</a>
+                <a href="/blog/tag/education" class="tag">Education</a>
+                <a href="/blog/tag/ai" class="tag">AI</a>
+                <a href="/blog/tag/ethics" class="tag">Ethics</a>
+                <a href="/blog/tag/leadership" class="tag">Leadership</a>
+                <a href="/blog/tag/innovation" class="tag">Innovation</a>
+                <a href="/blog/tag/robotics" class="tag">Robotics</a>
+                <a href="/blog/tag/free-will" class="tag">Free Will</a>
+                <a href="/blog/tag/business" class="tag">Business</a>
+                <a href="/blog/tag/multilingual" class="tag">Multilingual</a>
+                <a href="/blog/tag/environment" class="tag">Environment</a>
+                <a href="/blog/tag/learning" class="tag">Learning</a>
+                <a href="/blog/tag/global" class="tag">Global</a>
+                <a href="/blog/tag/thoughts" class="tag">Thoughts</a>
+                <a href="/blog/tag/future" class="tag">Future</a>
+            </div>
+        </section>
+
+        <section id="featured-posts" class="section">
+            <h2>Featured Posts 🌟</h2>
+            <p class="section-subtitle">Must-Read Articles</p>
+            <div class="featured-grid">
+                <article class="featured-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-featured-image-1-id" alt="Featured Post 1" class="featured-image" loading="lazy">
+                    <h3><a href="/blog/assisted-death">Assisted Death – Mercy or Morality?</a></h3>
+                    <p class="featured-excerpt">A deep dive into the ethical debates surrounding end-of-life choices.</p>
+                </article>
+                <article class="featured-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-featured-image-2-id" alt="Featured Post 2" class="featured-image" loading="lazy">
+                    <h3><a href="/blog/ai-future">The Future of AI</a></h3>
+                    <p class="featured-excerpt">Predictions and possibilities for artificial intelligence in the coming decade.</p>
+                </article>
+                <article class="featured-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-featured-image-3-id" alt="Featured Post 3" class="featured-image" loading="lazy">
+                    <h3><a href="/blog/cultural-bridges">Cultural Bridges</a></h3>
+                    <p class="featured-excerpt">How cultural exchange fosters global understanding and collaboration.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="popular-posts" class="section">
+            <h2>Popular Posts 📈</h2>
+            <p class="section-subtitle">Most Read Articles</p>
+            <div class="popular-grid">
+                <article class="popular-post">
+                    <h3><a href="/blog/assisted-death">Assisted Death – Mercy or Morality?</a></h3>
+                    <p class="popular-date">July 20, 2025</p>
+                    <p class="popular-excerpt">A philosophical and ethical analysis of assisted dying.</p>
+                </article>
+                <article class="popular-post">
+                    <h3><a href="/blog/free-will">Free Will – Are We Free?</a></h3>
+                    <p class="popular-date">June 15, 2025</p>
+                    <p class="popular-excerpt">Exploring the concept of free will in a deterministic world.</p>
+                </article>
+                <article class="popular-post">
+                    <h3><a href="/blog/business-innovation">Business – Mastering Innovation</a></h3>
+                    <p class="popular-date">May 10, 2025</p>
+                    <p class="popular-excerpt">Key strategies for innovative business growth.</p>
+                </article>
+                <article class="popular-post">
+                    <h3><a href="/blog/technology-ethics">Technology and Ethics</a></h3>
+                    <p class="popular-date">April 5, 2025</p>
+                    <p class="popular-excerpt">The ethical challenges of modern technology.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="comments" class="section">
+            <h2>Reader Comments 💬</h2>
+            <p class="section-subtitle">Join the Conversation</p>
+            <div class="comments-grid" id="commentsGrid" role="region" aria-live="polite">
+                <div class="comment-item">
+                    <p class="comment-text">Great insights on assisted death! Really made me think. – Amina K.</p>
+                    <p class="comment-date">July 25, 2025</p>
+                </div>
+                <div class="comment-item">
+                    <p class="comment-text">The AI future post was fascinating! Looking forward to more. – Hassan R.</p>
+                    <p class="comment-date">June 20, 2025</p>
+                </div>
+                <div class="comment-item">
+                    <p class="comment-text">Loved the cultural bridges article. Very inspiring! – Sofia M.</p>
+                    <p class="comment-date">March 25, 2025</p>
+                </div>
+                <div class="comment-item">
+                    <p class="comment-text">Your business tips are spot on. Thanks! – Omar L.</p>
+                    <p class="comment-date">May 15, 2025</p>
+                </div>
+                <div class="comment-item">
+                    <p class="comment-text">The ethics discussion was thought-provoking. – Leila T.</p>
+                    <p class="comment-date">April 10, 2025</p>
+                </div>
+            </div>
+            <form id="comment-form" novalidate>
+                <div class="form-group">
+                    <label for="comment-name" class="visually-hidden">Your Name</label>
+                    <input type="text" id="comment-name" name="comment-name" placeholder="Your Name" required aria-required="true" aria-label="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="comment-email" class="visually-hidden">Your Email</label>
+                    <input type="email" id="comment-email" name="comment-email" placeholder="Your Email" required aria-required="true" aria-label="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="comment-text" class="visually-hidden">Your Comment</label>
+                    <textarea id="comment-text" name="comment-text" placeholder="Your Comment" rows="6" required aria-required="true" aria-label="Enter your comment"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" aria-label="Submit Comment">Post Comment <i class="fas fa-comment"></i></button>
+                </div>
+            </form>
+        </section>
+
+        <section id="search-results" class="section">
+            <h2>Search Results 🔍</h2>
+            <p class="section-subtitle">Find Relevant Posts</p>
+            <div class="search-results-grid" id="searchResultsGrid" role="region" aria-live="polite">
+                <!-- Dynamic content loaded via JavaScript -->
+            </div>
+        </section>
+
+        <section id="related-posts" class="section">
+            <h2>Related Posts 🔗</h2>
+            <p class="section-subtitle">Explore Similar Topics</p>
+            <div class="related-grid">
+                <article class="related-post">
+                    <h3><a href="/blog/technology-ethics">Technology and Ethics</a></h3>
+                    <p class="related-date">April 5, 2025</p>
+                    <p class="related-excerpt">Ethical considerations in the tech industry.</p>
+                </article>
+                <article class="related-post">
+                    <h3><a href="/blog/ai-future">The Future of AI</a></h3>
+                    <p class="related-date">November 15, 2024</p>
+                    <p class="related-excerpt">What lies ahead for artificial intelligence.</p>
+                </article>
+                <article class="related-post">
+                    <h3><a href="/blog/cultural-bridges">Cultural Bridges</a></h3>
+                    <p class="related-date">March 20, 2025</p>
+                    <p class="related-excerpt">Connecting cultures for a better world.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="multilingual-posts" class="section">
+            <h2>Multilingual Posts 🌐</h2>
+            <p class="section-subtitle">Content in Multiple Languages</p>
+            <div class="multilingual-posts-grid">
+                <div class="multilingual-post">
+                    <h3>Arabic</h3>
+                    <p><a href="/blog/assisted-death-ar">الموت المساعد – رحمة أم أخلاق؟</a></p>
+                    <p class="post-date">July 20, 2025</p>
+                </div>
+                <div class="multilingual-post">
+                    <h3>German</h3>
+                    <p><a href="/blog/assisted-death-de">Sterbehilfe – Gnade oder Moral?</a></p>
+                    <p class="post-date">July 20, 2025</p>
+                </div>
+                <div class="multilingual-post">
+                    <h3>French</h3>
+                    <p><a href="/blog/assisted-death-fr">Mort Assistée – Miséricorde ou Morale?</a></p>
+                    <p class="post-date">July 20, 2025</p>
+                </div>
+                <div class="multilingual-post">
+                    <h3>Spanish</h3>
+                    <p><a href="/blog/assisted-death-es">Muerte Asistida – ¿Misericordia o Moral?</a></p>
+                    <p class="post-date">July 20, 2025</p>
+                </div>
+                <div class="multilingual-post">
+                    <h3>English</h3>
+                    <p><a href="/blog/assisted-death">Assisted Death – Mercy or Morality?</a></p>
+                    <p class="post-date">July 20, 2025</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="post-details" class="section">
+            <h2>Post Details 📝</h2>
+            <p class="section-subtitle">In-Depth Reading</p>
+            <article class="post-detail">
+                <h3>Assisted Death – Mercy or Morality?</h3>
+                <p class="post-date">July 20, 2025</p>
+                <p class="post-content">The debate over assisted death is one of the most profound ethical challenges of our time. From a philosophical standpoint, thinkers like Kant argue for the sanctity of life, while utilitarians like Mill might prioritize reducing suffering. In practice, countries like the Netherlands have legalized it under strict conditions, raising questions about autonomy versus societal norms. This post explores these tensions, drawing on real-world examples and personal reflections.</p>
+                <div class="post-meta">
+                    <span>Category: Philosophy</span>
+                    <span>Tags: Ethics, Morality, Philosophy</span>
+                    <span>Comments: 15</span>
+                </div>
+            </article>
+        </section>
+
+        <section id="author-bio" class="section">
+            <h2>About the Author 🌱</h2>
+            <p class="section-subtitle">Meet Islam Alsohby</p>
+            <div class="author-bio-content">
+                <img src="https://drive.google.com/uc?export=view&id=your-author-image-id" alt="Islam Alsohby" class="author-image" loading="lazy">
+                <p>I am Islam Alsohby, a multilingual philosopher, entrepreneur, and STEM innovator. With fluency in Arabic, German, French, Spanish, and English, I explore life’s big questions and technological frontiers. My blog reflects my journey of blending existential insights with practical innovations.</p>
+                <div class="author-socials">
+                    <a href="https://x.com/islamalsohby" aria-label="Follow on X" title="Follow on X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://github.com/islamalsohby" aria-label="View on GitHub" title="View on GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/islamalsohby" aria-label="Connect on LinkedIn" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter" class="section">
+            <h2>Subscribe to Newsletter 📬</h2>
+            <p class="section-subtitle">Stay Updated with New Posts</p>
+            <form id="newsletter-form" novalidate>
+                <div class="form-group">
+                    <label for="newsletter-email" class="visually-hidden">Your Email</label>
+                    <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Your Email" required aria-required="true" aria-label="Enter your email">
+                </div>
+                <div class="form-group">
+                    <button type="submit" aria-label="Subscribe to Newsletter">Subscribe <i class="fas fa-envelope"></i></button>
+                </div>
+            </form>
+        </section>
+
+        <section id="blog-gallery" class="section">
+            <h2>Blog Gallery 📸</h2>
+            <p class="section-subtitle">Visual Highlights</p>
+            <div class="blog-gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-blog-gallery-1-id" alt="Blog Gallery 1" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">Writing session 2025</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-blog-gallery-2-id" alt="Blog Gallery 2" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">Philosophical discussion 2024</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-blog-gallery-3-id" alt="Blog Gallery 3" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">Tech research 2023</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-blog-gallery-4-id" alt="Blog Gallery 4" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">Cultural event 2025</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-blog-gallery-5-id" alt="Blog Gallery 5" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">Innovation talk 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quotes-blog" class="section">
+            <h2>Inspirational Quotes 💭</h2>
+            <p class="section-subtitle">Words to Reflect On</p>
+            <div class="quotes-grid">
+                <div class="quote-item">
+                    <blockquote>"The unexamined life is not worth living." – Socrates</blockquote>
+                </div>
+                <div class="quote-item">
+                    <blockquote>"He who has a why to live can bear almost any how." – Viktor Frankl</blockquote>
+                </div>
+                <div class="quote-item">
+                    <blockquote>"Become who you are." – Friedrich Nietzsche</blockquote>
+                </div>
+                <div class="quote-item">
+                    <blockquote>"The only way to do great work is to love what you do." – Steve Jobs</blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-blog" class="section">
+            <h2>Contact Me 📧</h2>
+            <p class="section-subtitle">Let’s Discuss Ideas</p>
+            <form id="contact-blog-form" novalidate>
+                <div class="form-group">
+                    <label for="contact-name" class="visually-hidden">Your Name</label>
+                    <input type="text" id="contact-name" name="contact-name" placeholder="Your Name" required aria-required="true" aria-label="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email" class="visually-hidden">Your Email</label>
+                    <input type="email" id="contact-email" name="contact-email" placeholder="Your Email" required aria-required="true" aria-label="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="contact-message" class="visually-hidden">Your Message</label>
+                    <textarea id="contact-message" name="contact-message" placeholder="Your Message" rows="6" required aria-required="true" aria-label="Enter your message"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" aria-label="Send Message">Send <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </form>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:contact@islam_alsohby.com">contact@islam_alsohby.com</a></p>
+                <p><i class="fas fa-phone"></i> Phone: +123-456-7890 (By Appointment)</p>
+            </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Islam Alsohby. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/contact">Contact</a>
+        <div class="footer-content">
+            <p>&copy; 2025 Islam Alsohby. All rights reserved. 🌍❤️</p>
+            <p>Last Updated: 12:08 PM EEST, Sunday, August 03, 2025</p>
+            <div class="footer-links">
+                <a href="/privacy" aria-label="Privacy Policy">Privacy Policy</a>
+                <a href="/terms" aria-label="Terms of Use">Terms of Use</a>
+                <a href="/sitemap" aria-label="Sitemap">Sitemap</a>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@islam_alsohby.com">contact@islam_alsohby.com</a></p>
+                <p><i class="fas fa-globe"></i> <a href="https://islam_alsohby.com" target="_blank">www.islam_alsohby.com</a></p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://x.com/islamalsohby" aria-label="Follow on X" title="Follow on X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://github.com/islamalsohby" aria-label="View on GitHub" title="View on GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/islamalsohby" aria-label="Connect on LinkedIn" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </footer>
 
-    <script src="/assets/script.js" defer></script>
-    <script src="/sw.js" defer></script>
-</body>
-</html>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/script.js" defer></script>
+  
