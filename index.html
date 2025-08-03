@@ -4,209 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Islam Alsohby - Multilingual Philosopher, Entrepreneur, and STEM Innovator exploring life’s meaning, technology, and global impact.">
-    <meta name="keywords" content="Islam Alsohby, philosophy, STEM, multilingual, entrepreneurship, critical thinking, leadership, AI, existentialism, innovation">
+    <meta name="description" content="Islam Alsohby - Philosopher, Entrepreneur, and STEM Innovator blending thought and technology.">
+    <meta name="keywords" content="Islam Alsohby, philosophy, STEM, entrepreneurship, innovation">
     <meta name="author" content="Islam Alsohby">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#1A3C6E">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="msapplication-TileColor" content="#1A3C6E">
-    <meta name="msapplication-TileImage" content="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0j">
-    <title>Islam Alsohby 🌍💡 - Philosopher & Visionary</title>
-    <link rel="stylesheet" href="/styles.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-romZkPQkL+6r+3g6hY2/2r0/6mX8+6h4s9g3xE6rQ4R+0y4A8t6wXqH2G4J3oL+9W5n2yW4o+6r4A9x8lZ7z0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <meta name="theme-color" content="#1E3A8A">
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0k">
-    <link rel="apple-touch-icon" href="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0l">
-    <meta property="og:title" content="Islam Alsohby - Philosopher & Visionary">
-    <meta property="og:description" content="Dive into the world of Islam Alsohby, a multilingual thinker and STEM leader shaping the future with philosophy and innovation.">
-    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0m">
-    <meta property="og:url" content="https://islam_alsohby.com">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Islam Alsohby - Philosopher & Visionary">
-    <meta name="twitter:description" content="Explore Islam Alsohby’s insights on philosophy, STEM, and entrepreneurship across cultures.">
-    <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0n">
-    <meta name="twitter:site" content="@islamalsohby">
-    <meta name="twitter:creator" content="@islamalsohby">
-    <meta name="google-site-verification" content="your-google-verification-code">
-    <meta name="yandex-verification" content="your-yandex-verification-code">
-    <meta http-equiv="cache-control" content="public, max-age=31536000">
-    <meta name="format-detection" content="telephone=no">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Islam Alsohby",
-        "url": "https://islam_alsohby.com",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://islam_alsohby.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Islam Alsohby - Visionary Thinker</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap" crossorigin="anonymous">
 </head>
 <body>
-    <%- include('header') %>
+    <header class="header">
+        <div class="logo"><a href="/" aria-label="Home">Islam Alsohby</a></div>
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><span class="bar"></span></button>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="/" aria-label="Home">Home</a></li>
+                <li><a href="/blog" aria-label="Blog">Blog</a></li>
+                <li><a href="/projects" aria-label="Projects">Projects</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-adjust"></i></button>
+    </header>
+
     <main>
-        <section id="home" class="hero">
+        <section class="hero">
             <div class="hero-content">
-                <img src="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0o" alt="Islam Alsohby Portrait" class="hero-image" loading="lazy" decoding="async">
-                <h1>Islam Alsohby 🌟</h1>
-                <p class="tagline">Philosopher | Entrepreneur | STEM Pioneer</p>
-                <p class="multilingual">"تعلم، فكر، أثر" | "Lerne, denke, beeinflusse" | "Apprends, pense, influence" | "Aprende, piensa, impacta" 🌐</p>
-                <p class="intro-text">Welcome to my digital haven, where I blend philosophy, technology, and human potential. Join me on an inspiring exploration across cultures and disciplines!</p>
-                <div class="hero-ctas">
-                    <a href="/blog" class="cta" aria-label="Explore Blog Posts">Dive Into My Thoughts</a>
-                    <a href="/projects" class="cta secondary" aria-label="View Projects">Explore My Innovations</a>
-                    <a href="#contact" class="cta tertiary" aria-label="Get in Touch">Reach Out to Me</a>
-                    <a href="#resources" class="cta quaternary" aria-label="Access Resources">Discover Resources</a>
-                </div>
-                <div class="hero-socials">
-                    <a href="https://x.com/islamalsohby" aria-label="Follow on X" title="Follow Islam Alsohby on X"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://github.com/islamalsohby" aria-label="View on GitHub" title="View Islam Alsohby on GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/islamalsohby" aria-label="Connect on LinkedIn" title="Connect with Islam Alsohby on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <img src="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0o" alt="Islam Alsohby" class="hero-img" loading="lazy">
+                <h1>Islam Alsohby</h1>
+                <p class="tagline">Philosopher | Innovator | Leader</p>
+                <p class="intro">Exploring the fusion of philosophy, STEM, and global impact.</p>
+                <div class="cta-group">
+                    <a href="/blog" class="cta">Read More</a>
+                    <a href="/projects" class="cta secondary">See Projects</a>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
-            <h2>About Me 🌱</h2>
-            <p class="section-subtitle">A Journey of Mind and Spirit Across Continents</p>
-            <div class="about-content">
+        <section class="about">
+            <h2>About Me</h2>
+            <div class="about-grid">
                 <div class="about-text">
-                    <p>I am Islam Alsohby, a multilingual thinker fluent in Arabic, German, French, Spanish, and English, exploring the intersections of philosophy, entrepreneurship, and STEM. My life weaves existential inquiries, inspired by Viktor Frankl, Nietzsche, and Sartre, with practical innovations addressing global challenges.</p>
-                    <p>My leadership spans mentoring through ELP and BIAB, guiding young minds, and coaching football teams to build resilience. In the lab, I delve into AI, data science, robotics, and sustainable engineering for impactful solutions.</p>
-                    <p>Guided by integrity, curiosity, and cultural empathy, I bridge cultures and disciplines. My STEM education fuels innovation, while philosophy grounds me in meaning, reflecting on life’s big questions.</p>
-                    <div class="about-stats">
-                        <div class="stat-item"><i class="fas fa-language"></i> 5 Languages Spoken</div>
-                        <div class="stat-item"><i class="fas fa-graduation-cap"></i> STEM Degree in Progress</div>
-                        <div class="stat-item"><i class="fas fa-trophy"></i> 10+ Leadership Honors</div>
-                        <div class="stat-item"><i class="fas fa-book"></i> 100+ Philosophical Works Read</div>
-                        <div class="stat-item"><i class="fas fa-globe"></i> 20+ Countries Visited</div>
-                    </div>
-                    <div class="about-achievements">
-                        <h3>Achievements</h3>
-                        <ul>
-                            <li>ELP Leadership Award 2024</li>
-                            <li>BIAB Mentorship Excellence 2023</li>
-                            <li>STEM Innovation Grant 2025</li>
-                            <li>Global Youth Leadership Summit Speaker 2024</li>
-                            <li>Football Coaching Certification 2023</li>
-                        </ul>
-                    </div>
-                    <div class="about-philosophy">
-                        <h3>My Philosophical Outlook</h3>
-                        <p>I believe critical thinking unlocks human potential. My work explores existentialism, ethics, and technology’s role in our future, asking: How do we find meaning in a digital age?</p>
-                        <p>Influenced by Frankl’s logotherapy and Nietzsche’s value creation, I apply these to entrepreneurship and STEM for ethical, sustainable solutions.</p>
-                    </div>
-                    <div class="about-timeline">
-                        <h3>Life Timeline</h3>
-                        <ul>
-                            <li><strong>1995:</strong> Born in a culturally rich region</li>
-                            <li><strong>2012:</strong> Began exploring philosophy</li>
-                            <li><strong>2018:</strong> Started STEM education</li>
-                            <li><strong>2020:</strong> Launched first startup</li>
-                            <li><strong>2023:</strong> Mentored 50+ students</li>
-                        </ul>
-                    </div>
-                    <div class="about-vision">
-                        <h3>Vision for the Future</h3>
-                        <p>I aim to create a global network of thinkers and innovators to tackle climate change, education inequity, and ethical AI. I plan to launch an international think tank by 2027 for cross-disciplinary breakthroughs.</p>
-                        <p>Through my work, I inspire lifelong learning, cultural exchange, and technological advancement with a moral compass, benefiting all.</p>
-                    </div>
-                    <div class="about-credentials">
-                        <h3>Professional Credentials</h3>
-                        <ul>
-                            <li>Certified AI Practitioner, 2024</li>
-                            <li>Advanced Robotics Certification, 2023</li>
-                            <li>Project Management Professional (PMP), 2025</li>
-                            <li>Ethical Hacking Certificate, 2022</li>
-                            <li>International Business Diploma, 2021</li>
-                        </ul>
-                    </div>
+                    <p>A multilingual thinker bridging cultures with philosophy and technology. My work spans AI, robotics, and sustainable innovation, guided by existential insights.</p>
                 </div>
-                <div class="about-media">
-                    <img src="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0p" alt="Islam Alsohby in Action" class="about-image" loading="lazy" decoding="async">
-                    <video controls poster="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0q" class="about-video" aria-label="Video of Islam Alsohby’s Journey">
-                        <source src="https://drive.google.com/uc?export=download&id=1A2b3C4d5E6f7G8h9I0r" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="about-quotes">
-                        <h3>Inspirational Quotes</h3>
-                        <blockquote>"The unexamined life is not worth living." – Socrates</blockquote>
-                        <blockquote>"He who has a why to live can bear almost any how." – Viktor Frankl</blockquote>
-                        <blockquote>"Become who you are." – Friedrich Nietzsche</blockquote>
-                    </div>
+                <div class="about-stats">
+                    <div><span>5</span> Languages</div>
+                    <div><span>10+</span> Awards</div>
                 </div>
-            </div>
-        </section>
-
-        <section id="gallery" class="section">
-            <h2>Gallery 📸</h2>
-            <p class="section-subtitle">Visual Stories of My Journey</p>
-            <div class="gallery-grid" id="galleryGrid" role="region" aria-live="polite"></div>
-            <button class="load-more" id="loadMoreGallery" aria-label="Load More Gallery Items">Load More Photos</button>
-        </section>
-
-        <section id="testimonials" class="section">
-            <h2>Testimonials 🌟</h2>
-            <p class="section-subtitle">Words from My Community</p>
-            <div class="testimonials-grid" id="testimonialsGrid" role="region" aria-live="polite"></div>
-            <button class="load-more" id="loadMoreTestimonials" aria-label="Load More Testimonials">Load More Testimonials</button>
-        </section>
-
-        <section id="resources" class="section">
-            <h2>Resources 📚</h2>
-            <p class="section-subtitle">Tools and Inspiration for Growth</p>
-            <div class="resources-grid" id="resourcesGrid" role="region" aria-live="polite"></div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact Me 📧</h2>
-            <p class="section-subtitle">Let’s Build Something Together</p>
-            <form id="contact-form" novalidate>
-                <div class="form-group">
-                    <label for="name" class="visually-hidden">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Full Name" required aria-required="true" aria-label="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label for="email" class="visually-hidden">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email Address" required aria-required="true" aria-label="Enter your email address">
-                </div>
-                <div class="form-group">
-                    <label for="subject" class="visually-hidden">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="Subject of Your Message" required aria-required="true" aria-label="Enter the subject">
-                </div>
-                <div class="form-group">
-                    <label for="message" class="visually-hidden">Your Message</label>
-                    <textarea id="message" name="message" placeholder="Your Detailed Message" rows="8" required aria-required="true" aria-label="Enter your detailed message"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                    <button type="submit" aria-label="Send Contact Message">Send Message <i class="fas fa-paper-plane"></i></button>
-                </div>
-            </form>
-            <div id="successMessage" class="hidden">Thank you! Your message has been sent.</div>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:contact@islam_alsohby.com">contact@islam_alsohby.com</a></p>
-                <p><i class="fas fa-phone"></i> Phone: +123-456-7890 (Available by Appointment)</p>
-                <p><i class="fas fa-map-marker-alt"></i> Location: Global Citizen, Europe</p>
-            </div>
-            <div class="social-links">
-                <a href="mailto:contact@islam_alsohby.com" aria-label="Email Islam Alsohby" title="Send an Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/islamalsohby" aria-label="Islam Alsohby GitHub" target="_blank" rel="noopener noreferrer" title="Visit GitHub Profile"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/islamalsohby" aria-label="Islam Alsohby X" target="_blank" rel="noopener noreferrer" title="Follow on X"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://linkedin.com/in/islamalsohby" aria-label="Islam Alsohby LinkedIn" target="_blank" rel="noopener noreferrer" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://instagram.com/islamalsohby" aria-label="Islam Alsohby Instagram" target="_blank" rel="noopener noreferrer" title="Follow on Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </section>
     </main>
-    <%- include('footer') %>
-    <script src="/socket.io/socket.io.js" defer></script>
-    <script src="/script.min.js" defer></script>
+
+    <footer class="footer">
+        <p>&copy; 2025 Islam Alsohby. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </footer>
+
+    <script src="/assets/script.js" defer></script>
+    <script src="/sw.js" defer></script>
 </body>
 </html>
