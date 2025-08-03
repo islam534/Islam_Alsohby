@@ -44,7 +44,7 @@ ul {
     align-items: center;
     padding: 1rem 2rem;
     background: rgba(26, 60, 110, 0.9);
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -127,6 +127,7 @@ ul {
     max-width: 400px;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    loading: lazy; /* Lazy loading for images */
 }
 .hero h1 {
     font-size: 3rem;
@@ -253,6 +254,7 @@ ul {
     height: 200px;
     object-fit: cover;
     border-radius: 5px;
+    loading: lazy; /* Lazy loading for images */
 }
 .blog-date, .project-date, .popular-date, .related-date, .post-date, .comment-date, .gallery-caption {
     font-size: 0.9rem;
@@ -356,6 +358,7 @@ ul {
     height: 150px;
     border-radius: 50%;
     margin-bottom: 1rem;
+    loading: lazy; /* Lazy loading for images */
 }
 .author-socials a {
     margin: 0 0.5rem;
@@ -364,11 +367,4 @@ ul {
 }
 .author-socials a:hover {
     color: #ff6f61;
-}
-
-/* Padding to Reach 2000+ Lines */
-body::after {
-    content: "";
-    display: block;
-    height: 0;
 }
