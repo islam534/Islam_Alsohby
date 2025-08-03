@@ -4,66 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Islam Alsohby’s Blog - Insights on Philosophy, STEM, and Entrepreneurship">
-    <meta name="keywords" content="Islam Alsohby, blog, philosophy, STEM, entrepreneurship, critical thinking">
+    <meta name="description" content="Islam Alsohby’s Blog - Reflections on Philosophy and Innovation">
+    <meta name="keywords" content="Islam Alsohby, blog, philosophy, STEM">
     <meta name="author" content="Islam Alsohby">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#1A3C6E">
-    <title>Islam Alsohby Blog ✍️ - Thoughts & Reflections</title>
-    <link rel="stylesheet" href="/styles.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-romZkPQkL+6r+3g6hY2/2r0/6mX8+6h4s9g3xE6rQ4R+0y4A8t6wXqH2G4J3oL+9W5n2yW4o+6r4A9x8lZ7z0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=1A2b3C4d5E6f7G8h9I0k">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "Islam Alsohby Blog",
-        "url": "https://islam_alsohby.com/blog",
-        "blogPost": [{
-            "@type": "BlogPosting",
-            "headline": "Sample Post",
-            "datePublished": "2025-08-03"
-        }]
-    }
-    </script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Islam Alsohby Blog</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap" crossorigin="anonymous">
 </head>
 <body>
-    <%- include('header') %>
+    <header class="header">
+        <div class="logo"><a href="/" aria-label="Home">Islam Alsohby</a></div>
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><span class="bar"></span></button>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="/" aria-label="Home">Home</a></li>
+                <li><a href="/blog" aria-label="Blog">Blog</a></li>
+                <li><a href="/projects" aria-label="Projects">Projects</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-adjust"></i></button>
+    </header>
+
     <main>
-        <section class="blog-hero">
-            <h1>Blog ✍️</h1>
-            <p class="section-subtitle">Chronicles of Thought and Discovery</p>
-        </section>
-
-        <section class="blog-section section">
+        <section class="blog">
+            <h2>Blog</h2>
             <div class="blog-grid" id="blogGrid" role="region" aria-live="polite"></div>
-            <button class="load-more" id="loadMoreBlog" aria-label="Load More Blog Posts">Load More Posts</button>
-        </section>
-
-        <section class="blog-categories section">
-            <h2>Explore Categories</h2>
-            <div class="categories-grid">
-                <div class="category-card"><a href="/blog?category=philosophy">Philosophy</a></div>
-                <div class="category-card"><a href="/blog?category=stem">STEM</a></div>
-                <div class="category-card"><a href="/blog?category=entrepreneurship">Entrepreneurship</a></div>
-                <div class="category-card"><a href="/blog?category=culture">Culture</a></div>
-            </div>
-        </section>
-
-        <section class="blog-archives section">
-            <h2>Archives</h2>
-            <p class="section-subtitle">Browse by Year</p>
-            <div class="archives-grid">
-                <div class="archive-card"><a href="/blog?year=2025">2025</a></div>
-                <div class="archive-card"><a href="/blog?year=2024">2024</a></div>
-                <div class="archive-card"><a href="/blog?year=2023">2023</a></div>
-                <div class="archive-card"><a href="/blog?year=2022">2022</a></div>
-            </div>
+            <button class="load-more" id="loadMore" aria-label="Load More Posts">Load More</button>
         </section>
     </main>
-    <%- include('footer') %>
-    <script src="/socket.io/socket.io.js" defer></script>
-    <script src="/script.min.js" defer></script>
+
+    <footer class="footer">
+        <p>&copy; 2025 Islam Alsohby. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </footer>
+
+    <script src="/assets/script.js" defer></script>
+    <script src="/sw.js" defer></script>
 </body>
 </html>
