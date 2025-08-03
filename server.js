@@ -5,6 +5,7 @@ const socketIO = require('socket.io');
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
+const compression = require('compression'); // Added for response compression
 
 // Initialize Express app
 const app = express();
@@ -15,6 +16,7 @@ const io = socketIO(server);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(compression()); // Enable response compression
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuration
@@ -154,16 +156,3 @@ app.use((err, req, res, next) => {
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-
-// Padding to Reach 600 Lines
-let paddingLines = [];
-for (let i = 0; i < 550; i++) {
-    paddingLines.push(`// Line ${i + 1}`);
-    if (i % 10 === 0) {
-        paddingLines.push('console.log("Padding Line");');
-    }
-    if (i % 50 === 0) {
-        paddingLines.push('function dummyFunction' + i + '() { return true; }');
-    }
-}
-
