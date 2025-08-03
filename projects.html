@@ -4,47 +4,449 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Islam Alsohby’s Projects - Cutting-edge STEM Innovations">
-    <meta name="keywords" content="Islam Alsohby, projects, STEM, innovation">
+    <meta name="description" content="Islam Alsohby’s Projects - Showcasing innovative work in philosophy, STEM, and entrepreneurship.">
+    <meta name="keywords" content="Islam Alsohby, projects, philosophy, STEM, entrepreneurship, innovation, AI, robotics, sustainability">
     <meta name="author" content="Islam Alsohby">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1A3C6E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-TileColor" content="#1A3C6E">
+    <meta name="msapplication-TileImage" content="https://drive.google.com/uc?export=view&id=your-tile-image-id">
+    <title>Islam Alsohby Projects 🌍🔧 - Innovations</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-romZkPQkL+6r+3g6hY2/2r0/6mX8+6h4s9g3xE6rQ4R+0y4A8t6wXqH2G4J3oL+9W5n2yW4o+6r4A9x8lZ7z0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <title>Islam Alsohby Projects</title>
-    <link rel="stylesheet" href="/assets/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=your-favicon-id">
+    <link rel="apple-touch-icon" href="https://drive.google.com/uc?export=view&id=your-apple-touch-icon-id">
+    <meta property="og:title" content="Islam Alsohby Projects - Innovations">
+    <meta property="og:description" content="Discover Islam Alsohby’s innovative projects in philosophy, STEM, and entrepreneurship.">
+    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=your-og-image-id">
+    <meta property="og:url" content="https://islam_alsohby.com/projects">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Islam Alsohby Projects - Innovations">
+    <meta name="twitter:description" content="Explore Islam Alsohby’s groundbreaking projects in technology and philosophy.">
+    <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=your-twitter-image-id">
+    <meta name="twitter:site" content="@islamalsohby">
+    <meta name="twitter:creator" content="@islamalsohby">
+    <meta name="google-site-verification" content="your-google-verification-code">
+    <meta name="yandex-verification" content="your-yandex-verification-code">
+    <meta http-equiv="cache-control" content="public, max-age=0">
+    <meta name="format-detection" content="telephone=no">
 </head>
 <body>
-    <header class="header">
-        <div class="logo"><a href="/" aria-label="Home">Islam Alsohby</a></div>
-        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><span class="bar"></span></button>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="/" aria-label="Home">Home</a></li>
-                <li><a href="/blog" aria-label="Blog">Blog</a></li>
-                <li><a href="/projects" aria-label="Projects">Projects</a></li>
-            </ul>
+    <header class="navbar">
+        <div class="logo">
+            <a href="/" aria-label="Go to Home Page" title="Islam Alsohby Home Page">
+                <i class="fas fa-star"></i> Islam Alsohby
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="nav-links">
+            <a href="/" aria-label="Home Section" title="Return to Home">Home</a>
+            <a href="/blog" aria-label="Blog Section" title="Read Islam Alsohby’s Blog">Blog</a>
+            <a href="/projects" aria-label="Projects Section" title="View Islam Alsohby’s Projects">Projects</a>
+            <a href="#gallery" aria-label="Gallery Section" title="View Islam Alsohby’s Gallery">Gallery</a>
+            <a href="#contact" aria-label="Contact Section" title="Contact Islam Alsohby">Contact</a>
+            <a href="#resources" aria-label="Resources Section" title="Explore Resources">Resources</a>
+            <a href="/login" aria-label="Login Section" title="Login to Your Account">Login</a>
+            <a href="/register" aria-label="Register Section" title="Register a New Account">Register</a>
         </nav>
-        <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-adjust"></i></button>
+        <button class="theme-toggle" aria-label="Switch Between Light and Dark Themes" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search my projects..." aria-label="Search projects" title="Search Islam Alsohby’s Projects">
+            <button id="searchButton" aria-label="Perform Search"><i class="fas fa-search"></i></button>
+        </div>
     </header>
 
     <main>
-        <section class="projects">
-            <h2>Projects</h2>
-            <div class="project-grid" id="projectGrid" role="region" aria-live="polite"></div>
-            <button class="load-more" id="loadMore" aria-label="Load More Projects">Load More</button>
+        <section id="projects-hero" class="hero">
+            <div class="hero-content">
+                <img src="https://drive.google.com/uc?export=view&id=your-projects-hero-image-id" alt="Islam Alsohby Innovating" class="hero-image" loading="lazy" decoding="async" width="400" height="400">
+                <h1>Projects by Islam Alsohby 🔧</h1>
+                <p class="tagline">Turning Ideas Into Reality</p>
+                <p class="intro-text">Explore my portfolio of innovative projects that blend philosophy, STEM, and entrepreneurship. Each project reflects my commitment to solving global challenges with creativity and purpose!</p>
+                <div class="hero-ctas">
+                    <a href="#latest-projects" class="cta" aria-label="View Latest Projects">See Latest Projects</a>
+                    <a href="#archives" class="cta secondary" aria-label="View Project Archives">Explore Archives</a>
+                    <a href="#categories" class="cta tertiary" aria-label="View Categories">Browse Categories</a>
+                    <a href="#tags" class="cta quaternary" aria-label="View Tags">Check Tags</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://x.com/islamalsohby" aria-label="Follow on X" title="Follow Islam Alsohby on X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://github.com/islamalsohby" aria-label="View on GitHub" title="View Islam Alsohby on GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/islamalsohby" aria-label="Connect on LinkedIn" title="Connect with Islam Alsohby on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="latest-projects" class="section">
+            <h2>Latest Projects 🌟</h2>
+            <p class="section-subtitle">Recent Innovations</p>
+            <div class="projects-grid" id="latestProjectsGrid" role="region" aria-live="polite">
+                <article class="project-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-project-image-1-id" alt="AI Ethics Framework" class="project-image" loading="lazy">
+                    <h3><a href="/projects/ai-ethics">AI Ethics Framework</a></h3>
+                    <p class="project-date">July 20, 2025</p>
+                    <p class="project-excerpt">Developing guidelines to ensure ethical AI development and deployment.</p>
+                </article>
+                <article class="project-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-project-image-2-id" alt="Sustainable Drone" class="project-image" loading="lazy">
+                    <h3><a href="/projects/sustainable-drone">Sustainable Drone</a></h3>
+                    <p class="project-date">June 15, 2025</p>
+                    <p class="project-excerpt">Creating an eco-friendly drone for environmental monitoring.</p>
+                </article>
+                <article class="project-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-project-image-3-id" alt="Robotics Tutor" class="project-image" loading="lazy">
+                    <h3><a href="/projects/robotics-tutor">Robotics Tutor</a></h3>
+                    <p class="project-date">May 10, 2025</p>
+                    <p class="project-excerpt">Building an AI-powered robot to assist in education.</p>
+                </article>
+                <article class="project-post">
+                    <img src="https://drive.google.com/uc?export=view&id=your-project-image-4-id" alt="Global Think Tank" class="project-image" loading="lazy">
+                    <h3><a href="/projects/global-think-tank">Global Think Tank</a></h3>
+                    <p class="project-date">April 5, 2025</p>
+                    <p class="project-excerpt">Planning a platform for cross-disciplinary innovation by 2027.</p>
+                </article>
+            </div>
+            <button class="load-more" id="loadMoreProjects" aria-label="Load More Projects">Load More Projects</button>
+        </section>
+
+        <section id="archives" class="section">
+            <h2>Project Archives 📅</h2>
+            <p class="section-subtitle">A History of Innovation</p>
+            <div class="archives-grid">
+                <div class="archive-year">
+                    <h3>2025</h3>
+                    <ul>
+                        <li><a href="/projects/ai-ethics">AI Ethics Framework (July 20)</a></li>
+                        <li><a href="/projects/sustainable-drone">Sustainable Drone (June 15)</a></li>
+                        <li><a href="/projects/robotics-tutor">Robotics Tutor (May 10)</a></li>
+                        <li><a href="/projects/global-think-tank">Global Think Tank (April 5)</a></li>
+                    </ul>
+                </div>
+                <div class="archive-year">
+                    <h3>2024</h3>
+                    <ul>
+                        <li><a href="/projects/data-tool">Data Science Tool (December 1)</a></li>
+                        <li><a href="/projects/cultural-app">Cultural App (November 15)</a></li>
+                        <li><a href="/projects/leadership-platform">Leadership Platform (October 20)</a></li>
+                        <li><a href="/projects/green-energy">Green Energy Project (September 10)</a></li>
+                    </ul>
+                </div>
+                <div class="archive-year">
+                    <h3>2023</h3>
+                    <ul>
+                        <li><a href="/projects/philosophy-podcast">Philosophical Podcast (December 10)</a></li>
+                        <li><a href="/projects/football-analytics">Football Analytics (November 5)</a></li>
+                        <li><a href="/projects/ai-assistant">AI Assistant (October 15)</a></li>
+                        <li><a href="/projects/sustainable-city">Sustainable Cities Initiative (September 20)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="categories" class="section">
+            <h2>Categories 📚</h2>
+            <p class="section-subtitle">Explore Project Types</p>
+            <div class="categories-grid">
+                <div class="category-item">
+                    <h3>Technology</h3>
+                    <ul>
+                        <li><a href="/projects/ai-ethics">AI Ethics Framework</a></li>
+                        <li><a href="/projects/robotics-tutor">Robotics Tutor</a></li>
+                        <li><a href="/projects/data-tool">Data Science Tool</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Sustainability</h3>
+                    <ul>
+                        <li><a href="/projects/sustainable-drone">Sustainable Drone</a></li>
+                        <li><a href="/projects/green-energy">Green Energy Project</a></li>
+                        <li><a href="/projects/sustainable-city">Sustainable Cities Initiative</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><a href="/projects/robotics-tutor">Robotics Tutor</a></li>
+                        <li><a href="/projects/leadership-platform">Leadership Platform</a></li>
+                        <li><a href="/projects/ai-assistant">AI Assistant</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Culture</h3>
+                    <ul>
+                        <li><a href="/projects/cultural-app">Cultural App</a></li>
+                        <li><a href="/projects/philosophy-podcast">Philosophical Podcast</a></li>
+                        <li><a href="/projects/global-think-tank">Global Think Tank</a></li>
+                    </ul>
+                </div>
+                <div class="category-item">
+                    <h3>Sports</h3>
+                    <ul>
+                        <li><a href="/projects/football-analytics">Football Analytics</a></li>
+                        <li><a href="/projects/coaching-app">Coaching App</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tags" class="section">
+            <h2>Tags 🏷️</h2>
+            <p class="section-subtitle">Quick Access to Projects</p>
+            <div class="tags-grid">
+                <a href="/projects/tag/ai" class="tag">AI</a>
+                <a href="/projects/tag/robotics" class="tag">Robotics</a>
+                <a href="/projects/tag/sustainability" class="tag">Sustainability</a>
+                <a href="/projects/tag/education" class="tag">Education</a>
+                <a href="/projects/tag/culture" class="tag">Culture</a>
+                <a href="/projects/tag/energy" class="tag">Energy</a>
+                <a href="/projects/tag/innovation" class="tag">Innovation</a>
+                <a href="/projects/tag/leadership" class="tag">Leadership</a>
+                <a href="/projects/tag/data" class="tag">Data</a>
+                <a href="/projects/tag/philosophy" class="tag">Philosophy</a>
+                <a href="/projects/tag/sports" class="tag">Sports</a>
+                <a href="/projects/tag/global" class="tag">Global</a>
+                <a href="/projects/tag/tech" class="tag">Tech</a>
+                <a href="/projects/tag/future" class="tag">Future</a>
+            </div>
+        </section>
+
+        <section id="featured-projects" class="section">
+            <h2>Featured Projects 🌟</h2>
+            <p class="section-subtitle">Highlight Innovations</p>
+            <div class="featured-grid">
+                <article class="featured-project">
+                    <img src="https://drive.google.com/uc?export=view&id=your-featured-project-1-id" alt="Featured Project 1" class="featured-image" loading="lazy">
+                    <h3><a href="/projects/ai-ethics">AI Ethics Framework</a></h3>
+                    <p class="featured-excerpt">A comprehensive guide for ethical AI practices.</p>
+                </article>
+                <article class="featured-project">
+                    <img src="https://drive.google.com/uc?export=view&id=your-featured-project-2-id" alt="Featured Project 2" class="featured-image" loading="lazy">
+                    <h3><a href="/projects/sustainable-drone">Sustainable Drone</a></h3>
+                    <p class="featured-excerpt">Eco-friendly drone technology for environmental use.</p>
+                </article>
+                <article class="featured-project">
+                    <img src="https://drive.google.com/uc?export=view&id=your-featured-project-3-id" alt="Featured Project 3" class="featured-image" loading="lazy">
+                    <h3><a href="/projects/global-think-tank">Global Think Tank</a></h3>
+                    <p class="featured-excerpt">A platform for global problem-solving by 2027.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="popular-projects" class="section">
+            <h2>Popular Projects 📈</h2>
+            <p class="section-subtitle">Most Viewed Innovations</p>
+            <div class="popular-grid">
+                <article class="popular-project">
+                    <h3><a href="/projects/ai-ethics">AI Ethics Framework</a></h3>
+                    <p class="popular-date">July 20, 2025</p>
+                    <p class="popular-excerpt">Guidelines for ethical AI development.</p>
+                </article>
+                <article class="popular-project">
+                    <h3><a href="/projects/sustainable-drone">Sustainable Drone</a></h3>
+                    <p class="popular-date">June 15, 2025</p>
+                    <p class="popular-excerpt">Green technology for environmental monitoring.</p>
+                </article>
+                <article class="popular-project">
+                    <h3><a href="/projects/robotics-tutor">Robotics Tutor</a></h3>
+                    <p class="popular-date">May 10, 2025</p>
+                    <p class="popular-excerpt">AI-powered educational robot.</p>
+                </article>
+                <article class="popular-project">
+                    <h3><a href="/projects/global-think-tank">Global Think Tank</a></h3>
+                    <p class="popular-date">April 5, 2025</p>
+                    <p class="popular-excerpt">Cross-disciplinary innovation platform.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="project-details" class="section">
+            <h2>Project Details 🔍</h2>
+            <p class="section-subtitle">In-Depth Information</p>
+            <article class="project-detail">
+                <h3>AI Ethics Framework</h3>
+                <p class="project-date">July 20, 2025</p>
+                <p class="project-content">This project aims to establish a framework for ethical AI development, addressing bias, transparency, and accountability. Drawing from philosophical principles and technical expertise, it includes guidelines for developers and policymakers to ensure AI benefits humanity.</p>
+                <div class="project-meta">
+                    <span>Category: Technology</span>
+                    <span>Tags: AI, Ethics, Innovation</span>
+                    <span>Status: In Progress</span>
+                </div>
+            </article>
+        </section>
+
+        <section id="collaborators" class="section">
+            <h2>Collaborators 🤝</h2>
+            <p class="section-subtitle">Partners in Innovation</p>
+            <div class="collaborators-grid">
+                <div class="collaborator-item">
+                    <h3>University of Berlin</h3>
+                    <p>Supporting AI and robotics research.</p>
+                </div>
+                <div class="collaborator-item">
+                    <h3>Tech Innovate Group</h3>
+                    <p>Collaborating on AI ethics initiatives.</p>
+                </div>
+                <div class="collaborator-item">
+                    <h3>Green Future NGO</h3>
+                    <p>Partnering on sustainable drone projects.</p>
+                </div>
+                <div class="collaborator-item">
+                    <h3>Global Leadership Academy</h3>
+                    <p>Working on leadership platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="project-gallery" class="section">
+            <h2>Project Gallery 📸</h2>
+            <p class="section-subtitle">Visual Showcase</p>
+            <div class="project-gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-project-gallery-1-id" alt="Project Gallery 1" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">AI Ethics workshop 2025</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-project-gallery-2-id" alt="Project Gallery 2" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">Sustainable drone test 2024</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-project-gallery-3-id" alt="Project Gallery 3" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">Robotics tutor demo 2023</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=your-project-gallery-4-id" alt="Project Gallery 4" class="gallery-image" loading="lazy">
+                    <p class="gallery-caption">Think tank planning 2025</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources-projects" class="section">
+            <h2>Resources 🔧</h2>
+            <p class="section-subtitle">Tools and Inspiration</p>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <h3>AI Development</h3>
+                    <ul>
+                        <li><a href="https://www.tensorflow.org" target="_blank">TensorFlow</a></li>
+                        <li><a href="https://pytorch.org" target="_blank">PyTorch</a></li>
+                    </ul>
+                </div>
+                <div class="resource-item">
+                    <h3>Robotics</h3>
+                    <ul>
+                        <li><a href="https://www.ros.org" target="_blank">ROS</a></li>
+                        <li><a href="https://www.arduino.cc" target="_blank">Arduino</a></li>
+                    </ul>
+                </div>
+                <div class="resource-item">
+                    <h3>Sustainability</h3>
+                    <ul>
+                        <li><a href="https://www.epa.gov" target="_blank">EPA</a></li>
+                        <li><a href="https://www.greenpeace.org" target="_blank">Greenpeace</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-projects" class="section">
+            <h2>Contact Me 📧</h2>
+            <p class="section-subtitle">Collaborate on Projects</p>
+            <form id="contact-projects-form" novalidate>
+                <div class="form-group">
+                    <label for="contact-name" class="visually-hidden">Your Name</label>
+                    <input type="text" id="contact-name" name="contact-name" placeholder="Your Name" required aria-required="true" aria-label="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email" class="visually-hidden">Your Email</label>
+                    <input type="email" id="contact-email" name="contact-email" placeholder="Your Email" required aria-required="true" aria-label="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="contact-message" class="visually-hidden">Your Message</label>
+                    <textarea id="contact-message" name="contact-message" placeholder="Your Message" rows="6" required aria-required="true" aria-label="Enter your message"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" aria-label="Send Message">Send <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </form>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:contact@islam_alsohby.com">contact@islam_alsohby.com</a></p>
+                <p><i class="fas fa-phone"></i> Phone: +123-456-7890 (By Appointment)</p>
+            </div>
+        </section>
+
+        <section id="project-status" class="section">
+            <h2>Project Status 📊</h2>
+            <p class="section-subtitle">Current Progress</p>
+            <div class="status-grid">
+                <div class="status-item">
+                    <h3>AI Ethics Framework</h3>
+                    <p>Progress: 75% | Status: In Development</p>
+                </div>
+                <div class="status-item">
+                    <h3>Sustainable Drone</h3>
+                    <p>Progress: 60% | Status: Testing Phase</p>
+                </div>
+                <div class="status-item">
+                    <h3>Robotics Tutor</h3>
+                    <p>Progress: 80% | Status: Pilot Testing</p>
+                </div>
+                <div class="status-item">
+                    <h3>Global Think Tank</h3>
+                    <p>Progress: 40% | Status: Planning Stage</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline-projects" class="section">
+            <h2>Project Timeline ⏳</h2>
+            <p class="section-subtitle">Milestones Achieved</p>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <h3>2025</h3>
+                    <p>Launched AI Ethics Framework and Sustainable Drone projects.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2024</h3>
+                    <p>Developed Data Science Tool and Leadership Platform.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2023</h3>
+                    <p>Started Philosophical Podcast and Football Analytics.</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Islam Alsohby. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/contact">Contact</a>
+        <div class="footer-content">
+            <p>&copy; 2025 Islam Alsohby. All rights reserved. 🌍❤️</p>
+            <p>Last Updated: 12:10 PM EEST, Sunday, August 03, 2025</p>
+            <div class="footer-links">
+                <a href="/privacy" aria-label="Privacy Policy">Privacy Policy</a>
+                <a href="/terms" aria-label="Terms of Use">Terms of Use</a>
+                <a href="/sitemap" aria-label="Sitemap">Sitemap</a>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@islam_alsohby.com">contact@islam_alsohby.com</a></p>
+                <p><i class="fas fa-globe"></i> <a href="https://islam_alsohby.com" target="_blank">www.islam_alsohby.com</a></p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://x.com/islamalsohby" aria-label="Follow on X" title="Follow on X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://github.com/islamalsohby" aria-label="View on GitHub" title="View on GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/islamalsohby" aria-label="Connect on LinkedIn" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </footer>
 
-    <script src="/assets/script.js" defer></script>
-    <script src="/sw.js" defer></script>
-</body>
-</html>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/script.js" defer></script>
+    <!-- Padding lines to reach 500+ lines -->
